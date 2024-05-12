@@ -26,7 +26,7 @@
 
 
         <div class="lg:px-0 px-10 mx-auto max-w-5xl">
-            <div class="py-4 px-6 sm:flex sm:justify-between items-center">
+            <div class="py-2 px-6 sm:flex sm:justify-between items-center">
                 <!-- 1/3 Section (Quick Links) -->
                 <div class="sm:w-1/4">
                     <h2 class="text-3xl font-bold tracking-tight lg:pb-0 pb-5 text-[#163466] sm:text-4xl">Quick Links
@@ -136,6 +136,83 @@
             </div>
         </div>
     </div>
+    <div class="mx-auto max-w-6xl lg:px-0 px-10 py-6">
+        <div class="flex flex-row justify-center">
+            <!-- Left Column -->
+            <div class="w-full sm:w-1/2 px-4">
+                <h3 class="text-lg font-semibold mb-4">Column 1</h3>
+                <nav class="flex flex-col sm:flex-row">
+                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 1</a>
+                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 2</a>
+                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 3</a>
+                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 4</a>
+                </nav>
+            </div>
+    
+            <!-- Right Column -->
+            <div class="w-full sm:w-1/2 px-4 sm:mt-0">
+                <h3 class="text-lg font-semibold mb-4">Column 2</h3>
+                <nav class="flex flex-col sm:flex-row">
+                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 1</a>
+                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 2</a>
+                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 3</a>
+                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 4</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="mx-auto lg:px-0 px-10 max-w-6xl border rounded border-blue-200 ">
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <!-- Column 1 -->
+            <div class="flex items-start text-left p-4">
+                <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
+                <div>
+                    <h3 class="text-sm  font-semibold mb-1">USSD</h3>
+                    <p class="text-sm text-[#163466]">*997#</p>
+                </div>
+            </div>
+    
+            <!-- Column 2 -->
+            <div class="flex items-start text-left p-4">
+                <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
+                <div>
+                    <h3 class="text-sm  font-semibold mb-1">USSD</h3>
+                    <p class="text-sm text-[#163466]">*997#</p>
+                </div>
+            </div>
+    
+            <!-- Column 3 -->
+            <div class="flex items-start text-left p-4">
+                <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
+                <div>
+                    <h3 class="text-sm  font-semibold mb-1">USSD</h3>
+                    <p class="text-sm text-[#163466]">*997#</p>
+                </div>
+            </div>
+    
+            <!-- Column 4 -->
+            <div class="flex items-start text-left p-4">
+                <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
+                <div>
+                    <h3 class="text-sm  font-semibold mb-1">USSD</h3>
+                    <p class="text-sm text-[#163466]">*997#</p>
+                </div>
+            </div>
+    
+            <!-- Column 5 -->
+            <div class="flex items-start text-left p-4">
+                <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
+                <div>
+                    <h3 class="text-sm  font-semibold mb-1">USSD</h3>
+                    <p class="text-sm text-[#163466]">*997#</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center py-4 text-gray-600">
+        <p>&copy; {{ \Carbon\Carbon::now()->format('Y') }} - All Rights Reserved</p>
+    </div>
+    
 
 
 

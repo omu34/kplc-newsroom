@@ -3,7 +3,7 @@
         {{-- navigation here --}}
         @livewire('header-navigation')
     </header>
-    <div class="relative isolate overflow-hidden pt-14">
+    <div class="relative isolate overflow-hidden pt-14 lg:px-0 px-10">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
             <img src="/test.jpg" alt="" class="h-full w-full object-cover">
@@ -13,7 +13,7 @@
         <!-- Content Container -->
         <div class="relative mx-auto max-w-5xl py-16 sm:py-24 lg:pt-60">
             <!-- Newsroom Heading -->
-            <h1 class="text-4xl font-bold text-white">Newsroom</h1>
+            <h1 class="text-4xl  font-bold text-white lg:py-0 py-10">Newsroom</h1>
         </div>
     </div>
 </div>

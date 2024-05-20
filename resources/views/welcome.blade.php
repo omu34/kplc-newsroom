@@ -18,6 +18,7 @@
 <body class="antialiased">
 
     @livewire('banner')
+    @livewire('breadcrumb')
     @livewire('featured-news')
     @livewire('latest-videos')
     @livewire('latest-news')

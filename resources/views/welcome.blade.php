@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     @vite('resources/css/app.css')
     @vite('resources/css/custom.css')
@@ -28,22 +29,8 @@
     @livewire('latest-gallery')
     @livewire('footer')
 </body>
-
-<style>
-    article:hover .bg-gradient-to-t {
-            background: rgba(13, 31, 81, 0.8); /* blue-900 with opacity */
-        }
-    * {
-        font-family: "Lexend Deca", sans-serif;
-    }
-    .bog-content p{
-        margin-bottom:12px;
-    }
-
-    .testy {
-
-        background-image: url("bg.png");
-    }
-</style>
-
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </html>

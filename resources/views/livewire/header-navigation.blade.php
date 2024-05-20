@@ -42,10 +42,10 @@
     <nav class="lg:flex hidden mx-auto max-w-5xl items-center rounded-md justify-between mt-12" aria-label="Global">
         <!-- loop category items -->
         <div class="flex gap-x-12 ml-auto">
-            <a href="#" class="text-sm font-normal leading-6 text-white">Product</a>
-            <a href="#" class="text-sm font-normal leading-6 text-white">Features</a>
-            <a href="#" class="text-sm font-normal leading-6 text-white">Marketplace</a>
-            <a href="#" class="text-sm font-normal leading-6 text-white">Company</a>
+            <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-sm font-normal leading-6 text-white">Product</a>
+            <a href="#"data-aos="fade-left" data-aos-duration="1500" class="text-sm font-normal leading-6 text-white">Features</a>
+            <a href="#"data-aos="fade-left" data-aos-duration="2000" class="text-sm font-normal leading-6 text-white">Marketplace</a>
+            <a href="#"data-aos="fade-left" data-aos-duration="2500"  class="text-sm font-normal leading-6 text-white">Company</a>
         </div>
     </nav>
     

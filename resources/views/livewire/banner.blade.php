@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <h1 class="text-4xl my-6 font-bold text-white lg:py-0 py-5">Newsroom</h1>
+            <h1 data-aos="fade-left" data-aos-duration="1500" class="text-4xl my-6 font-bold text-white lg:py-0 py-5">Newsroom</h1>
 
             <p class="text-white max-w-2xl pb-5">Lorem ipsum dolor sit amet consectetur adipisicing</p>
 

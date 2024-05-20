@@ -19,6 +19,7 @@
 
     @livewire('banner')
     @livewire('breadcrumb')
+    @livewire('tags')
     @livewire('featured-news')
     @livewire('latest-videos')
     @livewire('latest-news')

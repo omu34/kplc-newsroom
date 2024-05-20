@@ -21,7 +21,8 @@
     @livewire('banner')
     @livewire('breadcrumb')
     @livewire('blog-content')
-
+    @livewire('share-blog')
+    @livewire('read-next')
     @livewire('footer')
 </body>
 

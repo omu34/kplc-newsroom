@@ -1,5 +1,5 @@
 <div class="bg-gray-900">
-    <header class="absolute inset-x-0 top-0 z-50">
+    <header class="absolute inset-x-0 top-0 z-40">
         {{-- navigation here --}}
         @livewire('header-navigation')
     </header>
@@ -41,7 +41,7 @@
 
             <h1 class="text-4xl my-6 font-bold text-white lg:py-0 py-5">Newsroom</h1>
 
-            <p class="text-white max-w-2xl pb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptatum facere accusantium modi laborum, veritatis quam fuga dolorem voluptas assumenda fugit deleniti sapiente in numquam, tempore, aliquam alias. Nihil, dolor.</p>
+            <p class="text-white max-w-2xl pb-5">Lorem ipsum dolor sit amet consectetur adipisicing</p>
 
             <div class="flex items-center justify-start gap-x-12 mt-6">
                 <!-- Button: Share This -->

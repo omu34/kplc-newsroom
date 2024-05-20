@@ -20,30 +20,11 @@
 
     @livewire('basic-banner')
     @livewire('breadcrumb')
-    @livewire('tags')
-    @livewire('search')
-    @livewire('featured-news')
-    @livewire('latest-videos')
-    @livewire('latest-news')
-    @livewire('latest-gallery')
+    @livewire('single-gallery-list') 
+    @livewire('read-next')
     @livewire('footer')
 </body>
 
-<style>
-    article:hover .bg-gradient-to-t {
-            background: rgba(13, 31, 81, 0.8); /* blue-900 with opacity */
-        }
-    * {
-        font-family: "Lexend Deca", sans-serif;
-    }
-    .bog-content p{
-        margin-bottom:12px;
-    }
 
-    .testy {
-
-        background-image: url("bg.png");
-    }
-</style>
 
 </html>

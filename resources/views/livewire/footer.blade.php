@@ -112,26 +112,24 @@
         </div>
     </div>
     <div class="mx-auto max-w-6xl lg:px-0 px-10 py-6">
-        <div class="flex flex-row justify-center">
+        <div class="flex flex-row justify-center gap-x-20">
             <!-- Left Column -->
             <div class="w-full sm:w-1/2">
                 <h3 class="text-lg text-[#163466] font-semibold mb-4">Column 1</h3>
-                <nav class="flex flex-col sm:flex-row">
-                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 1</a>
-                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 2</a>
-                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 3</a>
-                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 4</a>
+                <nav class="flex flex-col sm:flex-row justify-between">
+                    <a href="#" class="text-gray-800 hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 1</a>
+                    <a href="#" class="text-gray-800 hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 2</a>
+                    <a href="#" class="text-gray-800 hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 3</a>
                 </nav>
             </div>
     
             <!-- Right Column -->
             <div class="w-full sm:w-1/2 sm:mt-0">
                 <h3 class="text-lg text-[#163466] font-semibold mb-4">Column 2</h3>
-                <nav class="flex flex-col sm:flex-row text-start">
-                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 1</a>
-                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 2</a>
-                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 3</a>
-                    <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 4</a>
+                <nav class="flex flex-col sm:flex-row text-start justify-between">
+                    <a href="#" class="text-gray-800 hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 1</a>
+                    <a href="#" class="text-gray-800 hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 2</a>
+                    <a href="#" class="text-gray-800 hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 3</a>
                 </nav>
             </div>
         </div>

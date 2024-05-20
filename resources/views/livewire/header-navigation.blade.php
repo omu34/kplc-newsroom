@@ -3,7 +3,7 @@
         <div class="flex lg:flex-1">
             <a href="/" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
-                <img class="h-16 w-auto" src="/logo.png" alt="">
+                <img class="h-16 w-auto" src="/logo.svg" alt="">
             </a>
         </div>
         <div class="flex lg:hidden gap-x-4">
@@ -43,14 +43,13 @@
     <nav class="lg:flex hidden mx-auto max-w-5xl items-center rounded-md justify-between mt-12" aria-label="Global">
         <!-- loop category items -->
         <div class="flex gap-x-12 ml-auto">
-            <a href="#" data-aos="fade-left" data-aos-duration="1000"
-                class="text-sm font-normal leading-6 text-white">Product</a>
-            <a href="#"data-aos="fade-left" data-aos-duration="1500"
-                class="text-sm font-normal leading-6 text-white">Features</a>
-            <a href="#"data-aos="fade-left" data-aos-duration="2000"
-                class="text-sm font-normal leading-6 text-white">Marketplace</a>
-            <a href="#"data-aos="fade-left" data-aos-duration="2500"
-                class="text-sm font-normal leading-6 text-white">Company</a>
+
+            <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-sm hover:underline hover:underline-offset-4 font-normal leading-6 text-white">Alternative Energy</a>
+            <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-sm hover:underline hover:underline-offset-4 font-normal leading-6 text-white">Public</a>
+            <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-sm hover:underline hover:underline-offset-4 font-normal leading-6 text-white">Stock Market</a>
+
+
+           
         </div>
     </nav>
 
@@ -59,7 +58,7 @@
         <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
-                <img class="h-16 w-auto" src="/logo.png" alt="">
+                <img class="h-16 w-auto" src="/logo.svg" alt="">
             </a>
         </div>
         <div class="flex lg:hidden">
@@ -74,10 +73,10 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="#" class="text-sm font-normal text-black">Product</a>
-            <a href="#" class="text-sm font-normal  text-black">Features</a>
-            <a href="#" class="text-sm font-normal text-black">Marketplace</a>
-            <a href="#" class="text-sm font-normal text-black">Company</a>
+            <a href="#" class="text-sm hover:underline hover:underline-offset-4 font-normal text-black">Product</a>
+            <a href="#" class="text-sm hover:underline hover:underline-offset-4 font-normal  text-black">Features</a>
+            <a href="#" class="text-sm hover:underline hover:underline-offset-4 font-normal text-black">Marketplace</a>
+            <a href="#" class="text-sm hover:underline hover:underline-offset-4 font-normal text-black">Company</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <button @click="isSearchOpen = !isSearchOpen"
@@ -95,12 +94,7 @@
 
     <div x-cloak 
     @keydown.escape.window="isSearchOpen = false"
-    x-transition:enter="ease-out duration-300"
-    x-transition:enter-start="opacity-0 scale-90"
-    x-transition:enter-end="opacity-100 scale-100"
-    x-transition:leave="ease-in duration-200"
-    x-transition:leave-start="opacity-100 scale-100"
-    x-transition:leave-end="opacity-0 scale-90" x-show="isSearchOpen" @click.away="isSearchOpen = false" class="relative z-10" role="dialog"
+     x-show="isSearchOpen" @click.away="isSearchOpen = false" class="relative z-10" role="dialog"
         aria-modal="true">
         <!--
       Background backdrop, show/hide based on modal state.

@@ -1,5 +1,5 @@
 <div class="max-w-4xl mx-auto blog-content px-4 py-8 prose">
-    <h2>About Kenya Power</h2>
+   
     <p>
         Kenya Power is a leading power utility company in Kenya, playing a pivotal role in the country's economic growth and development. With a rich history spanning several decades, Kenya Power has consistently delivered reliable electricity supply to millions of homes, businesses, and industries across the nation.
     </p>

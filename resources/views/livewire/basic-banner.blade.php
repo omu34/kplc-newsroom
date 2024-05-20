@@ -6,8 +6,8 @@
     <div class="relative isolate overflow-hidden pt-14 lg:px-0 px-10">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="/test.jpg" alt="" class="h-full w-full object-cover">
-            <div class="absolute inset-0 bg-black opacity-80"></div>
+            <img src="/test-1.jpg" alt="" class="h-full w-full object-cover">
+            <div class="absolute inset-0 bg-black opacity-60"></div>
         </div>
 
         <!-- Content Container -->

@@ -1,8 +1,6 @@
 <div>
     <div class="bg-[#FACA21] py-5">
-
-
-        <div class="lg:px-0 px-10 mx-auto max-w-5xl">
+       <div class="lg:px-0 px-10 mx-auto max-w-5xl">
             <div class="py-2 px-6 sm:flex sm:justify-between items-center">
                 <!-- 1/3 Section (Quick Links) -->
                 <div class="sm:w-1/4">
@@ -116,8 +114,8 @@
     <div class="mx-auto max-w-6xl lg:px-0 px-10 py-6">
         <div class="flex flex-row justify-center">
             <!-- Left Column -->
-            <div class="w-full sm:w-1/2 px-4">
-                <h3 class="text-lg font-semibold mb-4">Column 1</h3>
+            <div class="w-full sm:w-1/2">
+                <h3 class="text-lg text-[#163466] font-semibold mb-4">Column 1</h3>
                 <nav class="flex flex-col sm:flex-row">
                     <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 1</a>
                     <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 2</a>
@@ -127,9 +125,9 @@
             </div>
     
             <!-- Right Column -->
-            <div class="w-full sm:w-1/2 px-4 sm:mt-0">
-                <h3 class="text-lg font-semibold mb-4">Column 2</h3>
-                <nav class="flex flex-col sm:flex-row">
+            <div class="w-full sm:w-1/2 sm:mt-0">
+                <h3 class="text-lg text-[#163466] font-semibold mb-4">Column 2</h3>
+                <nav class="flex flex-col sm:flex-row text-start">
                     <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 1</a>
                     <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 2</a>
                     <a href="#" class="text-gray-800 hover:text-blue-600 px-2 py-1">Nav Item 3</a>

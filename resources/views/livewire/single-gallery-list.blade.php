@@ -1,9 +1,9 @@
 <div class="bg-white bg-center py-12 sm:py-16">
     <div class="mx-auto lg:px-0 px-10 max-w-5xl">
         
-        <div class="mx-auto grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-4 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+        <div class="mx-auto grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             @foreach($posts as $index => $post)
-            <img data-aos="fade-up" data-aos-duration="1500" style="height:350px;" class="max-w-full object-cover rounded-lg cursor-pointer" src="{{ $post }}" alt="" wire:click="selectPost({{ $index }})">
+            <img style="height:350px;" class="max-w-full object-cover rounded-lg cursor-pointer" src="{{ $post }}" alt="" wire:click="selectPost({{ $index }})">
             @endforeach
         </div>
 

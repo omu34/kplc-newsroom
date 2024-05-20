@@ -29,8 +29,20 @@
     @livewire('latest-gallery')
     @livewire('footer')
 </body>
+<style>
+    @font-face {
+    font-family: Hilmar;
+    /* src: url('/public/fonts/hilmar.tff'); */
+    src: url('/hilmar.tff')');
+    font-weight: bold;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: Hilmar !important;
+}
+</style>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
+<script>
     AOS.init();
-  </script>
+</script>
+
 </html>

@@ -1,9 +1,23 @@
+[x-cloak] { display: none !important; }
+
 article:hover .bg-gradient-to-t {
     background: rgba(13, 31, 81, 0.8); /* blue-900 with opacity */
 }
 * {
 font-family: "Lexend Deca", sans-serif;
 }
+
+@font-face {
+    font-family: 'Hilmar';
+    src: url('../css/fonts/hilmar.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2, h3, h4{
+    font-family: 'Hilmar' !important;
+}
+
 .blog-content p{
     margin-bottom: 15px;
     margin-top: 15px;

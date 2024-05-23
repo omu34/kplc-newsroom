@@ -9,5 +9,6 @@
         <input type="text" class="w-full text-lg py-2 px-1 text-gray-700 focus:outline-none" placeholder="Search">
       </div>
     </div>
+    
   </div>
   

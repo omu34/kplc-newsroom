@@ -22,13 +22,15 @@
 <body class="antialiased" x-cloak x-data="{darkMode: $persist(false), zoomLevel: $persist(100), siteGrayscale: $persist(false)}" :class="{'dark': darkMode === true }" :style="'zoom: ' + zoomLevel + '%'">
 
     @livewire('basic-banner')
-    @livewire('breadcrumb')
-    @livewire('tags')
-    @livewire('search')
+    
     @livewire('featured-news')
     @livewire('latest-videos')
     @livewire('latest-news')
     @livewire('latest-gallery')
+    @livewire('banner')
+    @livewire('breadcrumb')
+    @livewire('tags')
+    @livewire('search')
     @livewire('footer')
 </body>
 

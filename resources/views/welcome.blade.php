@@ -17,7 +17,9 @@
     @vite('resources/css/custom.css')
 </head>
 
-<body class="antialiased">
+
+
+<body class="antialiased" x-cloak x-data="{darkMode: $persist(false), zoomLevel: $persist(100), siteGrayscale: $persist(false)}" :class="{'dark': darkMode === true }" :style="'zoom: ' + zoomLevel + '%'">
 
     @livewire('basic-banner')
     @livewire('breadcrumb')
@@ -29,6 +31,15 @@
     @livewire('latest-gallery')
     @livewire('footer')
 </body>
+
+<template x-if="siteGrayscale">
+    <style>
+        img {
+            filter: grayscale(100%) !Important;
+        }
+    </style>
+</template>
+
 <style>
     @font-face {
     font-family: Hilmar;

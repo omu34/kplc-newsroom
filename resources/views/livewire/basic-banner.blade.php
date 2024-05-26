@@ -11,7 +11,7 @@
         </div>
 
         <!-- Content Container -->
-        <div class="relative mx-auto max-w-5xl py-16 sm:py-24 lg:pt-44">
+        <div class="relative mx-auto max-w-7xl py-16 sm:py-24 lg:pt-44">
             
             <h1 data-aos="fade-down" data-aos-duration="2000" class="text-4xl my-6 font-bold text-white lg:py-0 py-5">Newsroom</h1>         
         </div>

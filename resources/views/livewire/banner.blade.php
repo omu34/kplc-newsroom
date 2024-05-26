@@ -11,7 +11,7 @@
         </div>
 
         <!-- Content Container -->
-        <div class="relative mx-auto max-w-5xl py-16 sm:py-24 lg:pt-44">
+        <div class="relative mx-auto max-w-7xl py-16 sm:py-24 lg:pt-44">
             <!-- Newsroom Heading -->
             <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-white">
                 <time datetime="2020-03-16" class="text-white mr-6">Mar 16, 2020</time>

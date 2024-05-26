@@ -1,5 +1,5 @@
 <div x-data="{ isOpen: false, isSearchOpen: false }">
-    <nav class="flex lg:hidden mx-auto max-w-5xl items-center bg-white px-6 py-2 justify-between " aria-label="Global">
+    <nav class="flex lg:hidden mx-auto max-w-7xl items-center bg-white px-6 py-2 justify-between " aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="/" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
@@ -40,7 +40,7 @@
         </div>
     </nav>
 
-    <nav class="lg:flex hidden mx-auto max-w-5xl items-center rounded-md justify-between mt-12" aria-label="Global">
+    <nav class="lg:flex hidden mx-auto max-w-7xl items-center rounded-md justify-between mt-12" aria-label="Global">
         <!-- loop category items -->
         <div class="flex gap-x-12 ml-auto">
 
@@ -107,7 +107,7 @@
         </div>
     </nav>
 
-    <nav class="lg:flex hidden mx-auto max-w-5xl items-center bg-white px-6 py-2 rounded-md justify-between mt-6"
+    <nav class="lg:flex hidden mx-auto max-w-7xl items-center bg-white px-6 py-2 rounded-md justify-between mt-6"
         aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5">

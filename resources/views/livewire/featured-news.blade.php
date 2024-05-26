@@ -1,5 +1,5 @@
 <div class="bg-white  py-12 sm:py-16">
-    <div class="mx-auto lg:px-0 px-10 max-w-5xl">
+    <div class="mx-auto lg:px-0 px-10 max-w-7xl">
         <div class="mx-auto ">
             <h2 class="text-3xl lg:pb-0 pb-5 font-bold tracking-tight text-gray-900 sm:text-3xl">Featured</h2>
         </div>

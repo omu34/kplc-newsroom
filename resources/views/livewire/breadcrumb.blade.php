@@ -1,5 +1,5 @@
 <div class="bg-gray-50 border-b border-gray-300">
-    <div class="mx-auto max-w-5xl">
+    <div class="mx-auto max-w-7xl">
       <nav class="flex md:justify-start justify-center py-5" aria-label="Breadcrumb">
         <ol role="list" class="flex items-center space-x-4 text-center">
           <li data-aos="fade-left" data-aos-duration="1000">

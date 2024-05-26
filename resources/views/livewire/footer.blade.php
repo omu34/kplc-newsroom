@@ -1,6 +1,6 @@
 <div>
     <div class="bg-[#FACA21] py-5">
-       <div class="lg:px-0 px-10 mx-auto max-w-5xl">
+       <div class="lg:px-0 px-10 mx-auto max-w-7xl">
             <div class="py-2 px-6 sm:flex sm:justify-between items-center">
                 <!-- 1/3 Section (Quick Links) -->
                 <div class="sm:w-1/4">

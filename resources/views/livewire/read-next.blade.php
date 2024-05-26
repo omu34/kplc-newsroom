@@ -1,5 +1,5 @@
 <div class="bg-white bg-center py-12 sm:py-16">
-    <div class="mx-auto lg:px-0 px-10 max-w-5xl">
+    <div class="mx-auto lg:px-0 px-10 max-w-7xl">
         <div class="mx-auto flex flex-col items-center sm:flex-row sm:justify-between mb-8 ">
             <h2 class="text-3xl font-bold tracking-tight lg:pb-0 pb-5 text-gray-900 sm:text-3xl">Read Next</h2>
             <a href="" class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 me-2 mb-2">

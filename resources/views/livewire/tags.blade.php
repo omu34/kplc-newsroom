@@ -1,5 +1,5 @@
 <div class="bg-white">
-    <div class="mx-auto max-w-5xl py-6">
+    <div class="mx-auto max-w-7xl py-6">
       <nav class="flex justify-center" aria-label="Menu">
         <ul class="flex space-x-12">
           <!-- Menu Item 1 -->

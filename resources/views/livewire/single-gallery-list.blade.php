@@ -1,5 +1,5 @@
 <div class="bg-white bg-center py-12 sm:py-16">
-    <div class="mx-auto lg:px-0 px-10 max-w-5xl">
+    <div class="mx-auto lg:px-0 px-10 max-w-7xl">
         
         <div class="mx-auto grid max-w-2xl auto-rows-fr grid-cols-2 gap-8 sm:mt-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             @foreach($posts as $index => $post)

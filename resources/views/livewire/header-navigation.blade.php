@@ -153,7 +153,7 @@
     
 
 
-    <div x-cloak @keydown.escape.window="isSearchOpen = false" x-show="isSearchOpen" @click.away="isSearchOpen = false" class="relative z-10" role="dialog" aria-modal="true">
+    {{-- <div x-cloak @keydown.escape.window="isSearchOpen = false" x-show="isSearchOpen" @click.away="isSearchOpen = false" class="relative z-10" role="dialog" aria-modal="true">
        
         <div class="fixed inset-0 z-10 bg-black bg-opacity-80 transition-opacity"></div>
 
@@ -241,16 +241,64 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+
+    <div x-cloak x-show="isSearchOpen" x-transition.opacity.duration.200ms x-trap.inert.noscroll="isSearchOpen" @keydown.esc.window="isSearchOpen = false" @click.self="isSearchOpen = false" class="fixed inset-0 z-30 flex w-full items-start justify-center bg-black/20 p-4 pb-8 backdrop-blur-md lg:p-8" role="dialog" aria-modal="true" aria-labelledby="defaultModalTitle">
+        <!-- Modal Dialog -->
+        <div x-show="isSearchOpen" x-transition:enter="transition ease-out duration-200 delay-100 motion-reduce:transition-opacity" x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100" class="flex w-full max-w-xl flex-col gap-4 overflow-hidden rounded-xl border border-slate-300 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+            <!-- Dialog Header -->
+            <div class="flex items-center justify-between border-b border-slate-300 bg-slate-100/60 p-4 dark:border-slate-700 dark:bg-slate-900/20">
+                <h3 id="defaultModalTitle" class="font-semibold tracking-wide text-black dark:text-white font-sans">Search</h3>
+                <button @click="isSearchOpen = false" aria-label="close modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor" fill="none" stroke-width="1.4" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Dialog Body -->
+            <div class="px-4 py-1"> 
+                
+                <form class="relative" wire:submit.prevent="searchsite">
+                    
+
+                    <div class="flex rounded-lg shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
+                        <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">
+                            <svg class="h-6 w-6 text-slate-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                            </svg>
+                        </span>
+                        <input type="text" name="search" id="search" autocomplete="off" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 dark:text-slate-400" placeholder="Search ...">
+                    </div>
+
+                    {{-- @error('search')
+                        <p class="text-xs text-danger font-normal text-red-500 text-center font-serif">
+                            {{ $message }}
+                        </p>
+                    @enderror --}}
+                </form>
+
+
+
+                <p class="p-4 text-sm text-gray-500 font-sans text-center capitalize">No results yet</p>
+
+
+
+            </div>
+            <!-- Dialog Footer -->
+            {{-- <div class="flex flex-col-reverse justify-between gap-2 border-t border-slate-300 bg-slate-100/60 p-4 dark:border-slate-700 dark:bg-slate-900/20 sm:flex-row sm:items-center md:justify-end">
+                <button @click="isSearchOpen = false" type="button" class="cursor-pointer whitespace-nowrap rounded-xl px-4 py-2 text-center text-sm font-medium tracking-wide text-slate-700 transition hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:opacity-100 active:outline-offset-0 dark:text-slate-300 dark:focus-visible:outline-blue-600">Remind me later</button>
+                <button @click="isSearchOpen = false" type="button" class="cursor-pointer whitespace-nowrap rounded-xl bg-blue-700 px-4 py-2 text-center text-sm font-medium tracking-wide text-slate-100 transition hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:opacity-100 active:outline-offset-0 dark:bg-blue-600 dark:text-slate-100 dark:focus-visible:outline-blue-600">Upgrade Now</button>
+            </div> --}}
+        </div>
     </div>
 
 
 
-    <!-- Mobile menu, show/hide based on menu open state. -->
+    {{-- <!-- Mobile menu, show/hide based on menu open state. -->
     <div x-cloak x-show="isOpen" class="lg:hidden" role="dialog" aria-modal="true">
         <!-- Background backdrop, show/hide based on slide-over state. -->
         <div class="fixed inset-0 z-50"></div>
-        <div
-            class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+        <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
             <div class="flex items-center justify-between">
                 <a href="#" class="-m-1.5 p-1.5">
                     <span class="sr-only">Your Company</span>
@@ -285,8 +333,61 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
+   
+<!-- Mobile menu, show/hide based on menu open state. -->
+<div class="lg:hidden font-sans" role="dialog" aria-modal="true" x-show="isOpen">
+    <!-- Background backdrop, show/hide based on slide-over state. -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-10" x-on:click="isOpen = !isOpen" x-show="showMobile"></div>
+    <div class="fixed inset-y-0 left-0 z-10 w-full overflow-y-auto bg-white dark:bg-slate-950 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 rounded-r-xl"
+        x-show="isOpen"
+        x-transition:enter="transform transition ease-in-out duration-100 sm:duration-200"
+        x-transition:enter-start="-translate-x-full"
+        x-transition:enter-end="translate-x-0"
+        x-transition:leave="transform transition ease-in-out duration-100 sm:duration-200"
+        x-transition:leave-start="translate-x-0"
+        x-transition:leave-end="-translate-x-full">
+        <div class="flex items-center justify-between">
+            <a href="#" class="-m-1.5 p-1.5">
+                <span class="sr-only">Kenya Power PLC</span>
+                <img class="h-16 w-auto" src="{{ asset('logo.svg' ) }}" alt="">
+            </a>
+            <button x-on:click="showMobile = !showMobile" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-300">
+                <span class="sr-only">Close menu</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div class="mt-6 flow-root">
+            <div class="-my-6 divide-y divide-gray-500/10">
+                <div class="space-y-2 py-6">
+                    @for ($i = 1; $i <= 3; $i++)
+                    <div class="-mx-3">
+                        <button @click="mobileshow !== {{ $i }} ? mobileshow = {{ $i }} : mobileshow = null" type="button" class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-medium leading-7 text-gray-900 dark:text-slate-50 hover:bg-secondary hover:text-primary" aria-controls="disclosure-{{ $i }}" aria-expanded="false">
+                            Test {{ $i }}
+                            <svg class="h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <!-- 'Product' sub-menu, show/hide based on menu state. -->
+                        <div class="mt-2 space-y-2 relative overflow-hidden transition-all max-h-0 duration-700 font-serif text-sm leading-6 text-gray-500 dark:text-slate-100" id="disclosure-{{ $i }}" style="" x-ref="container{{ $i }}" x-bind:style="mobileshow == {{ $i }} ? 'max-height: ' + $refs.container{{ $i }}.scrollHeight + 'px' : ''">
+                            @for ($j = 1; $j <= 2; $j++)
+                            <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-normal leading-7 text-gray-700 dark:text-slate-100 hover:bg-secondary hover:text-primary">Sub-item {{ $j }}</a>
+                            @endfor
+                        </div>
+                    </div>
+                    @endfor
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+     
 
 
 </div>

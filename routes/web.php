@@ -24,3 +24,7 @@ Route::get('/single-blog', function () {
 Route::get('/single-gallery', function () {
     return view('single-gallery');
 });
+
+Route::get('/category', function () {
+    return view('blog-category');
+});

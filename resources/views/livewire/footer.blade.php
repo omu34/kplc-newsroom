@@ -1,4 +1,4 @@
-<div>
+<div class="bg-white dark:bg-gray-950">
     <div class="bg-[#FACA21] py-5">
        <div class="lg:px-0 px-10 mx-auto max-w-7xl">
             <div class="py-2 px-6 sm:flex sm:justify-between items-center">
@@ -111,36 +111,36 @@
             </div>
         </div>
     </div>
-    <div class="mx-auto max-w-6xl lg:px-0 px-10 py-6">
+    <div class="mx-auto  max-w-6xl lg:px-0 px-10 py-6">
         <div class="flex flex-row justify-center gap-x-20">
             <!-- Left Column -->
             <div class="w-full sm:w-1/2">
-                <h3 class="text-lg text-[#163466] font-semibold mb-4">Column 1</h3>
+                <h3 class="text-lg text-[#163466] dark:text-[#FACA21] font-semibold mb-4">Column 1</h3>
                 <nav class="flex flex-col sm:flex-row justify-between">
-                    <a href="#" class="text-gray-800 hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 1</a>
-                    <a href="#" class="text-gray-800 hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 2</a>
-                    <a href="#" class="text-gray-800 hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 3</a>
+                    <a href="#" class="text-gray-800 dark:text-white hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 1</a>
+                    <a href="#" class="text-gray-800 dark:text-white hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 2</a>
+                    <a href="#" class="text-gray-800 dark:text-white hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 3</a>
                 </nav>
             </div>
     
             <!-- Right Column -->
             <div class="w-full sm:w-1/2 sm:mt-0">
-                <h3 class="text-lg text-[#163466] font-semibold mb-4">Column 2</h3>
+                <h3 class="text-lg text-[#163466] dark:text-[#FACA21] font-semibold mb-4">Column 2</h3>
                 <nav class="flex flex-col sm:flex-row text-start justify-between">
-                    <a href="#" class="text-gray-800 hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 1</a>
-                    <a href="#" class="text-gray-800 hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 2</a>
-                    <a href="#" class="text-gray-800 hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 3</a>
+                    <a href="#" class="text-gray-800 dark:text-white hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 1</a>
+                    <a href="#" class="text-gray-800 dark:text-white hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 2</a>
+                    <a href="#" class="text-gray-800 dark:text-white hover:underline hover:underline-offset-4 px-2 py-1">Nav Item 3</a>
                 </nav>
             </div>
         </div>
     </div>
-    <div class="mx-auto lg:px-0 px-10 max-w-6xl border rounded border-blue-200 ">
+    <div class="mx-auto lg:px-0 px-10 max-w-6xl border rounded border-blue-200 dark:border-white ">
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             <!-- Column 1 -->
             <div class="flex items-start text-left p-4">
                 <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
                 <div>
-                    <h3 class="text-base  font-semibold mb-1">USSD</h3>
+                    <h3 class="text-base dark:text-white  font-semibold mb-1">USSD</h3>
                     <p class="text-base text-[#163466]">*997#</p>
                 </div>
             </div>
@@ -149,7 +149,7 @@
             <div class="flex items-start text-left p-4">
                 <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
                 <div>
-                    <h3 class="text-base  font-semibold mb-1">USSD</h3>
+                    <h3 class="text-base dark:text-white  font-semibold mb-1">USSD</h3>
                     <p class="text-base text-[#163466]">*997#</p>
                 </div>
             </div>
@@ -158,7 +158,7 @@
             <div class="flex items-start text-left p-4">
                 <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
                 <div>
-                    <h3 class="text-base  font-semibold mb-1">USSD</h3>
+                    <h3 class="text-base dark:text-white font-semibold mb-1">USSD</h3>
                     <p class="text-base text-[#163466]">*997#</p>
                 </div>
             </div>
@@ -167,7 +167,7 @@
             <div class="flex items-start text-left p-4">
                 <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
                 <div>
-                    <h3 class="text-base  font-semibold mb-1">USSD</h3>
+                    <h3 class="text-base dark:text-white font-semibold mb-1">USSD</h3>
                     <p class="text-base text-[#163466]">*997#</p>
                 </div>
             </div>
@@ -176,13 +176,13 @@
             <div class="flex items-start text-left p-4">
                 <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
                 <div>
-                    <h3 class="text-base  font-semibold mb-1">USSD</h3>
+                    <h3 class="text-base dark:text-white font-semibold mb-1">USSD</h3>
                     <p class="text-base text-[#163466]">*997#</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="text-center py-4 text-gray-600">
+    <div class="text-center py-4 dark:text-white text-gray-600">
         <p>&copy; {{ \Carbon\Carbon::now()->format('Y') }} - All Rights Reserved</p>
     </div>
 </div>

@@ -41,7 +41,7 @@
         </div>
     </nav>
     
-    <div :class="isSticky ? 'bg-[#163466] py-4 mt-0' : 'mt-12'" class=" px-6">
+    <div :class="isSticky ? 'bg-[#163466] dark:bg-gray-950 py-4 mt-0' : 'mt-12'" class=" px-6">
         <nav class="lg:flex hidden mx-auto max-w-7xl items-center rounded-md justify-between " aria-label="Global">
             <!-- loop category items -->
             <div class="flex gap-x-12 ml-auto">
@@ -110,11 +110,11 @@
         </nav>
     </div>
 
-    <div :class="{ 'shadow-2xl bg-white': isSticky }">
-        <nav :class="isSticky ? 'mt-0 px-0' : 'mt-6 px-0'" class="lg:flex hidden mx-auto  max-w-7xl items-center bg-white  py-2 rounded-md justify-between px-6" 
+    <div :class="{ 'shadow-2xl bg-white  dark:bg-gray-900': isSticky }">
+        <nav :class="isSticky ? 'mt-0 px-0' : 'mt-6 px-0'" class="lg:flex hidden mx-auto  max-w-7xl items-center bg-white dark:bg-gray-900  py-2 rounded-md justify-between px-6" 
         aria-label="Global">
         <div class="flex lg:flex-1">
-            <a href="#" class="-m-1.5 p-1.5">
+            <a href="/" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
                 <img class="h-16 w-auto" src="/logo.svg" alt="">
             </a>
@@ -131,10 +131,10 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="#" class="text-base hover:underline hover:underline-offset-4 font-normal text-black">Product</a>
-            <a href="#" class="text-base hover:underline hover:underline-offset-4 font-normal  text-black">Features</a>
-            <a href="#" class="text-base hover:underline hover:underline-offset-4 font-normal text-black">Marketplace</a>
-            <a href="#" class="text-base hover:underline hover:underline-offset-4 font-normal text-black">Company</a>
+            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">Product</a>
+            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal  text-black">Features</a>
+            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">Marketplace</a>
+            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">Company</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <button @click="isSearchOpen = !isSearchOpen"

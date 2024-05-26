@@ -1,8 +1,8 @@
-<div class="bg-white bg-center py-12 sm:py-16">
+<div class="bg-white dark:bg-gray-950 bg-center py-12 sm:py-16">
     <div class="mx-auto lg:px-0 px-10 max-w-7xl">
         <div class="mx-auto flex flex-col items-center sm:flex-row sm:justify-between mb-8 ">
-            <h2 class="text-3xl font-bold tracking-tight lg:pb-0 pb-5 text-gray-900 sm:text-3xl">Latest Blogs</h2>
-            <a href="" class="text-gray-900 bg-white hover:bg-[#163466] border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 me-2 mb-2">
+            <h2 class="text-3xl font-bold tracking-tight lg:pb-0 pb-5 text-gray-900 dark:text-white sm:text-3xl">Latest Blogs</h2>
+            <a href="" class="text-white bg-[#163466] focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center  me-2 mb-2">
                 Show Me More
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -12,8 +12,11 @@
         
         <div class="mx-auto  grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-4 lg:mx-0 lg:max-w-none lg:grid-cols-4">
             @for($i = 0; $i < 4; $i++)
-            <article data-aos="fade-up" data-aos-duration="1500" class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
-                <img src="/1.jpg"
+            @php
+                $duration = 1500 + ($i * 400);
+            @endphp
+        <article data-aos="fade-left" data-aos-duration="{{ $duration }}" class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
+                <img src="/2.jpg"
                     alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
                 <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black  via-gray-900/50"></div>
                 <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
@@ -35,7 +38,7 @@
 
                 <!-- Article Title -->
                 <h3 class="mt-1 text-base font-normal leading-6 text-white">
-                    <a href="#">
+                    <a href="/single-blog">
                         <span class="absolute inset-0"></span>
                         The  Summit on Clean Cooking in Africa 2024 (Paris, France)
                     </a>

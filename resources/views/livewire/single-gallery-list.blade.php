@@ -1,9 +1,9 @@
-<div class="bg-white bg-center py-12 sm:py-16">
+<div class="bg-white dark:bg-gray-950 bg-center py-12 sm:py-16">
     <div class="mx-auto lg:px-0 px-10 max-w-7xl">
         
         <div class="mx-auto grid max-w-2xl auto-rows-fr grid-cols-2 gap-8 sm:mt-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             @foreach($posts as $index => $post)
-            <img style="height:320px;" class="max-w-full object-cover rounded-lg cursor-pointer" src="{{ $post }}" alt="" wire:click="selectPost({{ $index }})">
+            <img class="max-w-full h-auto object-cover rounded-0 cursor-pointer aspect-w-16 aspect-h-9 sm:aspect-w-4 sm:aspect-h-3 md:aspect-w-3 md:aspect-h-2 lg:aspect-w-4 lg:aspect-h-3 xl:aspect-w-3 xl:aspect-h-2" src="{{ $post }}" alt="" wire:click="selectPost({{ $index }})">
             @endforeach
         </div>
 
@@ -12,10 +12,10 @@
         <div class="fixed z-50 inset-0 overflow-y-auto flex items-center justify-center">
             <div class="fixed inset-0 transition-opacity" aria-hidden="true">
                 <!-- Overlay to dim the background -->
-                <div class="absolute inset-0 bg-black opacity-80"></div>
+                <div class="absolute inset-0 bg-black opacity-90"></div>
             </div>
             <div class="relative z-20 bg-white rounded-lg max-w-3xl ">
-                <img style="height:500px;" class="max-w-full object-cover rounded-lg" src="{{ $posts[$selectedPostIndex] }}" alt="">
+                <img style="height:500px;" class="max-w-full object-cover rounded-0" src="{{ $posts[$selectedPostIndex] }}" alt="">
                 <!-- Navigation Buttons -->
                 <div class="absolute top-1/2 -translate-y-1/2 left-0 mt-4 ml-4 flex">
                     <button wire:click="previousPost" class="px-4 py-2 text-base font-medium text-white  border border-transparent rounded-md shadow-sm  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900">

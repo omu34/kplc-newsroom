@@ -7,8 +7,8 @@
 @livewire('latest-videos')
 @livewire('latest-news')
 @livewire('latest-gallery')
-@livewire('banner')
+{{-- @livewire('banner')
 @livewire('breadcrumb')
 @livewire('tags')
-@livewire('search')
+@livewire('search') --}}
 @livewire('footer')

@@ -1,12 +1,15 @@
-<div class="bg-white  py-12 sm:py-16">
+<div class="bg-white dark:bg-gray-950  py-12 sm:py-16">
     <div class="mx-auto lg:px-0 px-10 max-w-7xl">
         <div class="mx-auto ">
-            <h2 class="text-3xl lg:pb-0 pb-5 font-bold tracking-tight text-gray-900 sm:text-3xl">Featured</h2>
+            <h2 class="text-3xl lg:pb-0 pb-5 font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">Featured</h2>
         </div>
         <div class="mx-auto  grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-4 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             @for($i = 0; $i < 4; $i++)
-            <article data-aos="fade-up" data-aos-duration="1500" class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
-                <img src="/1.jpg"
+                @php
+                    $duration = 1500 + ($i * 400);
+                @endphp
+            <article data-aos="fade-left" data-aos-duration="{{ $duration }}" class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
+                <img src="/test-1.jpg"
                     alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
                 <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black  via-gray-900/50"></div>
                 <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>

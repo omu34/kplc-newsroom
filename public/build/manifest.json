@@ -5,13 +5,13 @@
     "isEntry": true
   },
   "resources/css/custom.css": {
-    "file": "assets/custom-DqliiZOT.css",
+    "file": "assets/custom-DKEkJ-7B.css",
     "src": "resources/css/custom.css",
     "isEntry": true
   },
-  "resources/css/fonts/hilmar.ttf": {
-    "file": "assets/hilmar-GvhOpNho.ttf",
-    "src": "resources/css/fonts/hilmar.ttf"
+  "resources/css/fonts/Hilmar-Medium.otf": {
+    "file": "assets/Hilmar-Medium-B3sd6bvI.otf",
+    "src": "resources/css/fonts/Hilmar-Medium.otf"
   },
   "resources/js/app.js": {
     "file": "assets/app-DkDdL2UM.js",

@@ -40,7 +40,8 @@
             </button>
         </div>
     </nav>
-    <div :class="{ 'bg-[#163466] py-4 mt-0': isSticky }" class="mt-12 px-6">
+    
+    <div :class="isSticky ? 'bg-[#163466] py-4 mt-0' : 'mt-12'" class=" px-6">
         <nav class="lg:flex hidden mx-auto max-w-7xl items-center rounded-md justify-between " aria-label="Global">
             <!-- loop category items -->
             <div class="flex gap-x-12 ml-auto">
@@ -110,7 +111,7 @@
     </div>
 
     <div :class="{ 'shadow-2xl bg-white': isSticky }">
-        <nav class="lg:flex hidden mx-auto  max-w-7xl items-center bg-white  py-2 rounded-md justify-between mt-6 px-6  :class="{ 'mt-6 ': !isSticky }" :class="{ 'mt-0 px-0': isSticky }" px-6 "
+        <nav :class="isSticky ? 'mt-0 px-0' : 'mt-6 px-0'" class="lg:flex hidden mx-auto  max-w-7xl items-center bg-white  py-2 rounded-md justify-between px-6" 
         aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5">

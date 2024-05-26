@@ -14,17 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
 });
 
 Route::get('/single-blog', function () {
-    return view('single-blog');
+    return view('pages.single-blog');
 });
 
 Route::get('/single-gallery', function () {
-    return view('single-gallery');
+    return view('pages.single-gallery');
 });
 
 Route::get('/category', function () {
-    return view('blog-category');
+    return view('pages.category');
 });

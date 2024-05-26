@@ -3,7 +3,7 @@
         
         <div class="mx-auto grid max-w-2xl auto-rows-fr grid-cols-2 gap-8 sm:mt-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             @foreach($posts as $index => $post)
-            <img class="max-w-full h-auto object-cover rounded-0 cursor-pointer aspect-w-16 aspect-h-9 sm:aspect-w-4 sm:aspect-h-3 md:aspect-w-3 md:aspect-h-2 lg:aspect-w-4 lg:aspect-h-3 xl:aspect-w-3 xl:aspect-h-2" src="{{ $post }}" alt="" wire:click="selectPost({{ $index }})">
+            <img class="max-w-full shadow-xl h-auto object-cover rounded-0 cursor-pointer aspect-w-16 aspect-h-9 sm:aspect-w-4 sm:aspect-h-3 md:aspect-w-3 md:aspect-h-2 lg:aspect-w-4 lg:aspect-h-3 xl:aspect-w-3 xl:aspect-h-2" src="{{ $post }}" alt="" wire:click="selectPost({{ $index }})">
             @endforeach
         </div>
 

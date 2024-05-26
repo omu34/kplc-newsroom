@@ -21,6 +21,15 @@
     @yield('content')
 </body>
 
+<!-- Pre-loader HTML -->
+<div id="preloader">
+    <!-- Overlay -->
+    <div class="overlay"></div>
+    <!-- Loading spinner or animation -->
+    <div class="spinner"></div>
+</div>
+
+
 
 <template x-if="siteGrayscale">
     <style>

@@ -1,6 +1,6 @@
 <div :class="{ 'sticky shadow-2': isSticky }" x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 0 })"  x-data="{ isOpen: false,  isSticky: false, isSearchOpen: false }">
     
-    <nav class="flex lg:hidden mx-auto max-w-7xl items-center bg-white py-2 justify-between " aria-label="Global">
+    <nav class="flex lg:hidden mx-auto max-w-7xl px-10 items-center bg-white dark:bg-gray-950 py-2 justify-between " aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="/" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
@@ -18,7 +18,7 @@
             </button>
 
             <button @click="isOpen = !isOpen" type="button"
-                class="-m-6.5 inline-flex items-center justify-center rounded-md p-6.5 text-gray-400">
+                class="-m-6.5 inline-flex items-center justify-center rounded-md p-6.5 text-gray-400 dark:text-white">
                 <span class="sr-only">Open main menu</span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                     aria-hidden="true">

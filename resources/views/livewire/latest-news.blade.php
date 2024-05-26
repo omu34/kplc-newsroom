@@ -12,10 +12,8 @@
         
         <div class="mx-auto  grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-4 lg:mx-0 lg:max-w-none lg:grid-cols-4">
             @for($i = 0; $i < 4; $i++)
-            @php
-                $duration = 1500 + ($i * 400);
-            @endphp
-        <article data-aos="fade-left" data-aos-duration="{{ $duration }}" class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
+            
+        <article  class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
                 <img src="/2.jpg"
                     alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
                 <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black  via-gray-900/50"></div>

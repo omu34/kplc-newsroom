@@ -18,14 +18,14 @@
                 <img style="height:500px;" class="max-w-full object-cover rounded-lg" src="{{ $posts[$selectedPostIndex] }}" alt="">
                 <!-- Navigation Buttons -->
                 <div class="absolute top-1/2 -translate-y-1/2 left-0 mt-4 ml-4 flex">
-                    <button wire:click="previousPost" class="px-4 py-2 text-sm font-medium text-white  border border-transparent rounded-md shadow-sm  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900">
+                    <button wire:click="previousPost" class="px-4 py-2 text-base font-medium text-white  border border-transparent rounded-md shadow-sm  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                         </svg>
                     </button>
                 </div>
                 <div class="absolute top-1/2 -translate-y-1/2 right-0 mt-4 mr-4 flex">
-                    <button wire:click="nextPost" class="px-4 py-2 text-sm font-medium text-white  border border-transparent rounded-md shadow-sm  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900">
+                    <button wire:click="nextPost" class="px-4 py-2 text-base font-medium text-white  border border-transparent rounded-md shadow-sm  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                         </svg>

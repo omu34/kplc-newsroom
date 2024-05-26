@@ -140,8 +140,8 @@
             <div class="flex items-start text-left p-4">
                 <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
                 <div>
-                    <h3 class="text-sm  font-semibold mb-1">USSD</h3>
-                    <p class="text-sm text-[#163466]">*997#</p>
+                    <h3 class="text-base  font-semibold mb-1">USSD</h3>
+                    <p class="text-base text-[#163466]">*997#</p>
                 </div>
             </div>
     
@@ -149,8 +149,8 @@
             <div class="flex items-start text-left p-4">
                 <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
                 <div>
-                    <h3 class="text-sm  font-semibold mb-1">USSD</h3>
-                    <p class="text-sm text-[#163466]">*997#</p>
+                    <h3 class="text-base  font-semibold mb-1">USSD</h3>
+                    <p class="text-base text-[#163466]">*997#</p>
                 </div>
             </div>
     
@@ -158,8 +158,8 @@
             <div class="flex items-start text-left p-4">
                 <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
                 <div>
-                    <h3 class="text-sm  font-semibold mb-1">USSD</h3>
-                    <p class="text-sm text-[#163466]">*997#</p>
+                    <h3 class="text-base  font-semibold mb-1">USSD</h3>
+                    <p class="text-base text-[#163466]">*997#</p>
                 </div>
             </div>
     
@@ -167,8 +167,8 @@
             <div class="flex items-start text-left p-4">
                 <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
                 <div>
-                    <h3 class="text-sm  font-semibold mb-1">USSD</h3>
-                    <p class="text-sm text-[#163466]">*997#</p>
+                    <h3 class="text-base  font-semibold mb-1">USSD</h3>
+                    <p class="text-base text-[#163466]">*997#</p>
                 </div>
             </div>
     
@@ -176,8 +176,8 @@
             <div class="flex items-start text-left p-4">
                 <img src="/rep.svg" alt="Icon 1" class="w-12 h-12 mr-4">
                 <div>
-                    <h3 class="text-sm  font-semibold mb-1">USSD</h3>
-                    <p class="text-sm text-[#163466]">*997#</p>
+                    <h3 class="text-base  font-semibold mb-1">USSD</h3>
+                    <p class="text-base text-[#163466]">*997#</p>
                 </div>
             </div>
         </div>

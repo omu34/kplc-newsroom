@@ -1,6 +1,6 @@
 <div class="flex mx-auto justify-center gap-x-12 mt-6 mb-10">
     <!-- Button: Share This -->
-    <button class="flex items-center px-4 py-2 text-sm font-medium leading-5 bg-blue-900 uppercase text-white border border-transparent rounded-xl shadow-sm hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+    <button class="flex items-center px-4 py-2 text-base font-medium leading-5 bg-blue-900 uppercase text-white border border-transparent rounded-xl shadow-sm hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
         Share This
         <!-- Chevron Icon -->
         <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -2,7 +2,7 @@
     <div class="mx-auto lg:px-0 px-10 max-w-7xl">
         <div class="mx-auto flex flex-col items-center sm:flex-row sm:justify-between mb-8 ">
             <h2 class="text-3xl font-bold tracking-tight lg:pb-0 pb-5 text-gray-900 sm:text-3xl">Latest Blogs</h2>
-            <a href="" class="text-gray-900 bg-white hover:bg-[#163466] border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 me-2 mb-2">
+            <a href="" class="text-gray-900 bg-white hover:bg-[#163466] border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 me-2 mb-2">
                 Show Me More
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -21,7 +21,7 @@
 
                 
                 <!-- Metadata Section -->
-                <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-white">
+                <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-base leading-6 text-white">
                     <time datetime="2020-03-16" class="text-white mr-6">Mar 16, 2020</time>
                     <div class="-ml-4 flex items-center gap-x-2">
                         <svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white">
@@ -34,7 +34,7 @@
                 </div>
 
                 <!-- Article Title -->
-                <h3 class="mt-1 text-sm font-normal leading-6 text-white">
+                <h3 class="mt-1 text-base font-normal leading-6 text-white">
                     <a href="#">
                         <span class="absolute inset-0"></span>
                         The  Summit on Clean Cooking in Africa 2024 (Paris, France)
@@ -42,7 +42,7 @@
                 </h3>
 
                 <!-- Additional Metadata Section (with PDF icon) -->
-                <div class="flex mt-2 flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                <div class="flex mt-2 flex-wrap items-center gap-y-1 overflow-hidden text-base leading-6 text-gray-300">
                     <svg width="16" height="16" class="mr-6" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.9843 6.03574L12.9849 6.03637C14.1009 7.1464 14.1 8.94721 12.9856 10.0497L12.9843 10.051L10.0583 12.977C10.0581 12.9772 10.0579 12.9774 10.0578 12.9775C8.94073 14.088 7.13835 14.087 6.02904 12.9777L3.00904 9.95766C2.44299 9.39161 2.14392 8.60986 2.17965 7.80879C2.17965 7.80862 2.17966 7.80845 2.17967 7.80828L2.33958 4.47676C2.33959 4.47664 2.3396 4.47652 2.3396 4.47639C2.39784 3.32107 3.32053 2.39861 4.48166 2.34636L4.48265 2.34632L7.81599 2.18632L7.81739 2.18625C8.61514 2.14457 9.39685 2.44829 9.9643 3.01574L12.9843 6.03574ZM4.08 6.33337C4.08 7.57746 5.08924 8.5867 6.33334 8.5867C7.57743 8.5867 8.58667 7.57746 8.58667 6.33337C8.58667 5.08927 7.57743 4.08003 6.33334 4.08003C5.08924 4.08003 4.08 5.08927 4.08 6.33337Z" fill="#FACA22" stroke="#FACA22" stroke-width="0.666667"/>
                         </svg>

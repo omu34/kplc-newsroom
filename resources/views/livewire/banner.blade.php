@@ -10,7 +10,7 @@
 
             <img src="/test-1.jpg"
             {{--  src="{{ asset('storage/' . $page->main_page_image84) }}"  --}}
-             src="asset('storage/' . $banner->main_page_image84) }}"
+             {{--  src="asset('storage/' . $banner->main_page_image84) }}"  --}}
              alt="" class="h-full w-full object-cover">
             <div class="absolute inset-0 bg-black opacity-80"></div>
         </div>
@@ -19,7 +19,12 @@
         <div class="relative mx-auto max-w-7xl py-16 sm:py-24 lg:pt-44">
             <!-- Newsroom Heading -->
             <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-base leading-6 text-white">
-                <time datetime="2020-03-16" class="text-white mr-6">Mar 16, 2020</time>
+                <time datetime="2020-03-16" class="text-white mr-6">
+                    {{ $page->main_page_name16 }}
+
+                    {{--  Mar 16, 2020  --}}
+
+                </time>
                 <div class="-ml-4 flex items-center gap-x-2">
                     <svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white">
                         <circle cx="1" cy="1" r="1" />
@@ -44,20 +49,35 @@
                     </div>
                 </div>
             </div>
-                <h1 data-aos="fade-left" data-aos-duration="1500"
+                {{--  <h1 data-aos="fade-left" data-aos-duration="1500"
                     class="text-4xl my-6 font-bold text-white lg:py-0 py-5">
                     {{ $page->main_page_name13 }}
-                </h1>
+                </h1>  --}}
 
-            <h1 data-aos="fade-left" data-aos-duration="1500" class="text-4xl my-6 font-bold text-white lg:py-0 py-5">KPLC Newsroom</h1>
+            <h1 data-aos="fade-left" data-aos-duration="1500" class="text-4xl my-6 font-bold text-white lg:py-0 py-5">
+                {{ $page->main_page_name13 }}
 
-            <p class="text-white max-w-2xl pb-5">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                {{--  KPLC Newsroom  --}}
+
+            </h1>
+
+            <p class="text-white max-w-2xl pb-5">
+                {{ $page->main_page_name20 }}
+
+                {{--  Lorem ipsum dolor sit amet consectetur adipisicing  --}}
+
+            </p>
 
                 </p>
             <div class="flex items-center justify-start gap-x-12 mt-6">
                 <!-- Button: Share This -->
                 <button class="flex items-center px-4 py-2 text-base font-medium leading-5 bg-white uppercase text-blue-900 border border-transparent rounded-xl shadow-sm hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Share This
+
+                    {{ $page->main_page_name15 }}
+
+                    {{--  Share This  --}}
+
+
                     <!-- Chevron Icon -->
                     <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">

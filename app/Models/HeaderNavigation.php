@@ -13,8 +13,8 @@ class HeaderNavigation extends Model
     protected $fillable = [
         'main_page_name1', 'main_page_name2', 'main_page_name3', 'main_page_name4',
         'main_page_name5', 'main_page_name6', 'main_page_name7', 'main_page_name8',
-        'main_page_name9', 'main_page_name10', 'main_page_name11', 'main_page_name12',
-        'main_page_name19', 'main_page_image82', 'main_page_image83'
+        'main_page_name9', 'main_page_name10',  'main_page_name12','main_page_name19',
+        'main_page_image82', 'main_page_image83'
     ];
 
     public function latestVideos()

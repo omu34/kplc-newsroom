@@ -17,7 +17,6 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
-<<<<<<< HEAD
 Route::get('/single-blog', function () {
     return view('pages.single-blog');
 });
@@ -29,30 +28,3 @@ Route::get('/single-gallery', function () {
 Route::get('/category', function () {
     return view('pages.category');
 });
-=======
-   Route::get('/single-blog', function () {
-        return view('single-blog');
-    });
-
-    Route::get('/single-gallery', function () {
-        return view('single-gallery');
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> kplc_newsroom_berna

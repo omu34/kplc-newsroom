@@ -1,9 +1,21 @@
 <div class="bg-white dark:bg-gray-950 bg-center py-12 sm:py-16">
+    @foreach ($mainPages as $page)
+
     <div class="mx-auto lg:px-0 px-10 max-w-7xl">
         <div class="mx-auto flex flex-col items-center sm:flex-row sm:justify-between mb-8 ">
-            <h2 class="text-3xl font-bold tracking-tight lg:pb-0 pb-5 text-gray-900 dark:text-white sm:text-3xl">Latest Blogs</h2>
+            <h2 class="text-3xl font-bold tracking-tight lg:pb-0 pb-5 text-gray-900 dark:text-white sm:text-3xl">
+                                            {{ $page->main_page_name61 }}
+
+                {{--  Latest News  --}}
+
+            </h2>
             <a href="" class="text-white bg-[#163466] focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center  me-2 mb-2">
-                Show Me More
+
+                                            {{ $page->main_page_name60 }}
+
+                {{--  Show Me More  --}}
+
+
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
@@ -19,11 +31,17 @@
                 <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black  via-gray-900/50"></div>
                 <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
                 <img src="/blog.svg" class="absolute text-yellow top-2/3 mb-8 left-1/2 transform -translate-x-1/2 -translate-y-28 h-12 w-12 fill-white" alt="">
+                            {{--  {{ $page->main_page_name63 }}  --}}
 
 
                 <!-- Metadata Section -->
                 <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-base leading-6 text-white">
-                    <time datetime="2020-03-16" class="text-white mr-6">Mar 16, 2020</time>
+                    <time datetime="2020-03-16" class="text-white mr-6">
+                                                    {{ $page->main_page_name62 }}
+
+                        {{--  Mar 16, 2020  --}}
+
+                    </time>
                     <div class="-ml-4 flex items-center gap-x-2">
                         <svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white">
                             <circle cx="1" cy="1" r="1" />

@@ -1,6 +1,7 @@
 <div class="bg-white dark:bg-gray-950 bg-center pb-12 py-8 sm:pb-6">
-    <div class="mx-auto lg:px-0 px-10 max-w-7xl">
+    @foreach ($mainPages as $page)
 
+    <div class="mx-auto lg:px-0 px-10 max-w-7xl">
 
         <div class="mx-auto  grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-4">
             @for ($i = 0; $i < 4; $i++)
@@ -14,13 +15,22 @@
 
                     <!-- Metadata Section -->
                     <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-base leading-6 text-white">
-                        <time datetime="2020-03-16" class="text-white mr-6">Mar 16, 2020</time>
+                        <time datetime="2020-03-16" class="text-white mr-6">
+                            {{--  {{ $page->main_page_name70 }}  --}}
+
+                            Mar 16, 2020
+
+                        </time>
                         <div class="-ml-4 flex items-center gap-x-2">
                             <svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white">
                                 <circle cx="1" cy="1" r="1" />
                             </svg>
                             <div class="flex text-white">
+
+ {{--  {{ $page->main_page_name70 }}  --}}
                                 345 Views
+
+
                             </div>
                         </div>
                     </div>
@@ -29,7 +39,11 @@
                     <h3 class="mt-1 text-base font-normal leading-6 text-white">
                         <a href="/single-blog">
                             <span class="absolute inset-0"></span>
+
+ {{--  {{ $page->main_page_name70 }}  --}}
                             The Summit on Clean Cooking in Africa 2024 (Paris, France)
+
+
                         </a>
                     </h3>
 
@@ -45,7 +59,10 @@
                         <div class="-ml-4 flex items-center gap-x-2">
 
                             <div class="flex text-white gap-x-2">
+                                
+                                 {{--  {{ $page->main_page_name70 }}  --}}
                                 Test
+
                             </div>
                         </div>
                     </div>
@@ -54,4 +71,5 @@
             <!-- More posts... -->
         </div>
     </div>
+    @endforeach
 </div>

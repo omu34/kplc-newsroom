@@ -1,13 +1,20 @@
 <div class="bg-white dark:bg-gray-950 py-12 sm:py-16">
+    @foreach ($mainPages as $page)
+
     <div class="mx-auto lg:px-0 px-4 max-w-7xl">
         <div class="mx-auto">
-            <h2 class="text-3xl lg:pb-0 pb-5 font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">Featured</h2>
+            <h2 class="text-3xl lg:pb-0 pb-5 font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+
+                Featured
+
+            </h2>
         </div>
         <div class="mx-auto grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-4 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             @for($i = 0; $i < 4; $i++)
                 @php
                     $duration = 1500 + ($i * 400);
                 @endphp
+
             <article  class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
                 <img src="/test-1.jpg"
                     alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
@@ -17,7 +24,12 @@
 
                 <!-- Metadata Section -->
                 <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-base leading-6 text-white">
-                    <time datetime="2020-03-16" class="text-white mr-6">Mar 16, 2020</time>
+                    <time datetime="2020-03-16" class="text-white mr-6">
+                        {{ $page->main_page_name16 }}
+
+                        {{--  Mar 16, 2020  --}}
+
+                    </time>
                     <div class="-ml-4 flex items-center gap-x-2">
                         <svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white">
                             <circle cx="1" cy="1" r="1" />
@@ -32,7 +44,11 @@
                 <h3 class="mt-1 text-base font-normal leading-6 text-white">
                     <a href="#">
                         <span class="absolute inset-0"></span>
-                        The Summit on Clean Cooking in Africa 2024 (Paris, France)
+                        {{ $page->main_page_name29 }}
+
+                        {{--  The Summit on Clean Cooking in Africa 2024 (Paris, France)  --}}
+
+
                     </a>
                 </h3>
 
@@ -47,10 +63,11 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+
             </article>
             @endfor
             <!-- More posts... -->
         </div>
     </div>
+    @endforeach
 </div>

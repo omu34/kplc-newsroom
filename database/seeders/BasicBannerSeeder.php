@@ -14,7 +14,7 @@ class BasicBannerSeeder extends Seeder
     public function run(): void
     {
         $mainPageNames = [
-        'main_page_name13' => 'Newsroom',
+        'main_page_name13' => 'KPLC Newsroom',
         'main_page_content'=>'basic pages'
     ];
 

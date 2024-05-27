@@ -1,4 +1,5 @@
 <div :class="{ 'sticky shadow-2': isSticky }" x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 0 })"  x-data="{ isOpen: false,  isSticky: false, isSearchOpen: false }">
+    @foreach ($mainPages as $page)
 
     <nav class="flex lg:hidden mx-auto max-w-7xl px-10 items-center bg-white dark:bg-gray-800 py-2 justify-between " aria-label="Global">
         <div class="flex lg:flex-1">
@@ -50,9 +51,18 @@
             <!-- loop category items -->
             <div class="flex gap-x-12 ml-auto">
 
-                <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">Alternative Energy</a>
-                <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">Public</a>
-                <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">Stock Market</a>
+                <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">
+                    {{ $page->main_page_name5 }}
+                    {{--  Alternative Energy  --}}
+                </a>
+                <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">
+                    {{ $page->main_page_name6 }}
+                    {{--  Public  --}}
+                </a>
+                <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">
+                    {{ $page->main_page_name7 }}
+                    {{--  Stock Market  --}}
+                </a>
 
                 <div class="flex items-center w-6 h-6 rounded-full relative" x-data="{ showAccessibility: false }" x-ref="access"  @mouseenter="showAccessibility = true" @mouseleave="showAccessibility = false" x-init="$watch('showAccessibility', value => { if (value) { $dispatch('close-other-popups', $refs.access) } })">
                     <svg class="w-6 h-6 stroke-current dark:text-slate-100 text-slate-200 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path d="M10 4.5V18c0 1.08-.44 2.07-1.14 2.79l-.04.04c-.09.09-.19.18-.28.25-.3.26-.64.46-.99.6-.11.05-.22.09-.33.13-.39.13-.81.19-1.22.19-.27 0-.54-.03-.8-.08-.13-.03-.26-.06-.39-.1-.16-.05-.31-.1-.46-.17 0-.01 0-.01-.01 0-.28-.14-.55-.3-.8-.49l-.01-.01c-.13-.1-.25-.2-.36-.32-.11-.12-.22-.24-.33-.37-.19-.25-.35-.52-.49-.8.01-.01.01-.01 0-.01 0 0 0-.01-.01-.02-.06-.14-.11-.29-.16-.44a5.58 5.58 0 0 1-.1-.39c-.05-.26-.08-.53-.08-.8V4.5C2 3 3 2 4.5 2h3C9 2 10 3 10 4.5Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 16.5v3c0 1.5-1 2.5-2.5 2.5H6c.41 0 .83-.06 1.22-.19.11-.04.22-.08.33-.13.35-.14.69-.34.99-.6.09-.07.19-.16.28-.25l.04-.04 6.8-6.79h3.84c1.5 0 2.5 1 2.5 2.5ZM4.81 21.82c-.6-.18-1.17-.51-1.64-.99-.48-.47-.81-1.04-.99-1.64a4.02 4.02 0 0 0 2.63 2.63Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.37 11.29 15.66 14l-6.8 6.79C9.56 20.07 10 19.08 10 18V8.34l2.71-2.71c1.06-1.06 2.48-1.06 3.54 0l2.12 2.12c1.06 1.06 1.06 2.48 0 3.54ZM6 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -70,7 +80,10 @@
                         <div class="p-4 flex flex-col gap-y-3 text-base font-sans">
                             <div class="flex justify-between items-center">
                                 <div class="flex 1 dark:text-slate-200">
-                                    Light / Dark
+
+                                    {{ $page->main_page_name8 }}
+                                    {{--  Light / Dark  --}}
+
                                 </div>
                                 <div class="w-11 h-6 flex-shrink-0">
                                     <x-theme-toggle/>
@@ -79,7 +92,11 @@
 
                             <div class="flex justify-between items-center cursor-pointer" @click="zoomLevel += 10">
                                 <div class="flex 1 dark:text-slate-200">
-                                    Increase Text
+
+                                    {{ $page->main_page_name9 }}
+                                    {{--  Increase Text  --}}
+
+
                                 </div>
                                 <div class="w-7 h-7 flex-shrink-0">
                                     <svg class="w-7 h-7 stroke-current dark:text-slate-100 text-slate-500 cursor-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path d="M8 12h8M12 16V8M9 22h6c5 0 7-2 7-7V9c0-5-2-7-7-7H9C4 2 2 4 2 9v6c0 5 2 7 7 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -88,7 +105,11 @@
 
                             <div class="flex justify-between items-center cursor-pointer" @click="zoomLevel -= 10">
                                 <div class="flex 1 dark:text-slate-200">
-                                    Decrease Text
+
+                                    {{ $page->main_page_name10 }}
+                                    {{--  Decrease Text  --}}
+
+
                                 </div>
                                 <div class="w-7 h-7 flex-shrink-0">
                                     <svg class="w-7 h-7 stroke-current dark:text-slate-100 text-slate-500 cursor-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path d="M8 12h8M9 22h6c5 0 7-2 7-7V9c0-5-2-7-7-7H9C4 2 2 4 2 9v6c0 5 2 7 7 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -119,14 +140,23 @@
         aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="/" class="-m-1.5 p-1.5">
-                <span class="sr-only">Your Company</span>
+                <span class="sr-only">
+                  {{ $page->main_page_name19 }}
+
+                    {{--  Your Company  --}}
+
+                </span>
                 <img class="h-16 w-auto" src="/logo.svg" alt="">
             </a>
         </div>
         <div class="flex lg:hidden">
             <button @click="isOpen = !isOpen" type="button"
                 class="-m-6.5 inline-flex items-center justify-center rounded-md p-6.5 text-gray-400">
-                <span class="sr-only">Open main menu</span>
+                <span class="sr-only">
+                    {{ $page->main_page_name12 }}
+                    {{--  Open main menu  --}}
+
+                </span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                     aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -137,10 +167,26 @@
 
 
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">Product</a>
-            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal  text-black">Features</a>
-            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">Marketplace</a>
-            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">Company</a>
+            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
+                {{ $page->main_page_name1 }}
+                {{--  Product  --}}
+
+            </a>
+            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal  text-black">
+               {{ $page->main_page_name2 }}
+                {{--  Features  --}}
+
+            </a>
+            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
+                {{ $page->main_page_name3 }}
+                {{--  Marketplace  --}}
+
+            </a>
+            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
+               {{ $page->main_page_name14 }}
+                {{--  Company  --}}
+
+            </a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <button @click="isSearchOpen = !isSearchOpen"
@@ -163,7 +209,11 @@
         <div x-show="isSearchOpen" x-transition:enter="transition ease-out duration-200 delay-100 motion-reduce:transition-opacity" x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100" class="flex w-full max-w-xl flex-col gap-4 overflow-hidden rounded-xl border border-slate-300 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
             <!-- Dialog Header -->
             <div class="flex items-center justify-between border-b border-slate-300 bg-slate-100/60 p-4 dark:border-slate-700 dark:bg-slate-900/20">
-                <h3 id="defaultModalTitle" class="font-semibold tracking-wide text-black dark:text-white font-sans">Search</h3>
+                <h3 id="defaultModalTitle" class="font-semibold tracking-wide text-black dark:text-white font-sans">
+                    {{ $page->main_page_names3 }}
+                    {{--  Search  --}}
+
+                </h3>
                 <button @click="isSearchOpen = false" aria-label="close modal">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor" fill="none" stroke-width="1.4" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
@@ -194,7 +244,10 @@
 
 
 
-                <p class="p-4 text-sm text-gray-500 font-sans text-center capitalize">No results yet</p>
+                <p class="p-4 text-sm text-gray-500 font-sans text-center capitalize">
+                   {{ $page->main_page_names4 }}
+                    {{--  No results yet  --}}
+                </p>
 
 
 
@@ -207,48 +260,6 @@
         </div>
     </div>
 
-
-
-    {{-- <!-- Mobile menu, show/hide based on menu open state. -->
-    <div x-cloak x-show="isOpen" class="lg:hidden" role="dialog" aria-modal="true">
-        <!-- Background backdrop, show/hide based on slide-over state. -->
-        <div class="fixed inset-0 z-50"></div>
-        <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
-            <div class="flex items-center justify-between">
-                <a href="#" class="-m-1.5 p-1.5">
-                    <span class="sr-only">Your Company</span>
-                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                        alt="">
-                </a>
-                <button @click="isOpen = !isOpen" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400">
-                    <span class="sr-only">Close menu</span>
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <div class="mt-6 flow-root">
-                <div class="-my-6 divide-y divide-gray-500/25">
-                    <div class="space-y-2 py-6">
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Product</a>
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Features</a>
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Marketplace</a>
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Company</a>
-                    </div>
-                    <div class="py-6">
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800">Log
-                            in</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
 
 
 <!-- Mobile menu, show/hide based on menu open state. -->
@@ -265,11 +276,21 @@
         x-transition:leave-end="-translate-x-full">
         <div class="flex items-center justify-between">
             <a href="#" class="-m-1.5 p-1.5">
-                <span class="sr-only">Kenya Power PLC</span>
+                <span class="sr-only">
+
+                 {{--  {{ $page->main_page_name19 }}  --}}
+                    Kenya Power PLC
+
+                </span>
                 <img class="h-16 w-auto" src="{{ asset('logo.svg' ) }}" alt="">
             </a>
             <button x-on:click="isOpen = !isOpen" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-300">
-                <span class="sr-only">Close menu</span>
+                <span class="sr-only">
+
+                    {{ $page->main_page_names5 }}
+                    {{--  Close menu  --}}
+
+                </span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -281,7 +302,12 @@
                     @for ($i = 1; $i <= 3; $i++)
                     <div class="-mx-3">
                         <button @click="mobileshow !== {{ $i }} ? mobileshow = {{ $i }} : mobileshow = null" type="button" class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-medium leading-7 text-gray-900 dark:text-slate-50 hover:bg-secondary hover:text-primary" aria-controls="disclosure-{{ $i }}" aria-expanded="false">
-                            Test {{ $i }}
+
+                          {{ $page->main_page_names7 }}
+
+                            {{--  Test  --}}
+
+                            {{ $i }}
                             <svg class="h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                             </svg>
@@ -289,7 +315,13 @@
                         <!-- 'Product' sub-menu, show/hide based on menu state. -->
                         <div class="mt-2 space-y-2 relative overflow-hidden transition-all max-h-0 duration-700 font-serif text-sm leading-6 text-gray-500 dark:text-slate-100" id="disclosure-{{ $i }}" style="" x-ref="container{{ $i }}" x-bind:style="mobileshow == {{ $i }} ? 'max-height: ' + $refs.container{{ $i }}.scrollHeight + 'px' : ''">
                             @for ($j = 1; $j <= 2; $j++)
-                            <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-normal leading-7 text-gray-700 dark:text-slate-100 hover:bg-secondary hover:text-primary">Sub-item {{ $j }}</a>
+                            <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-normal leading-7 text-gray-700 dark:text-slate-100 hover:bg-secondary hover:text-primary">
+                               {{ $page->main_page_names6 }}
+                                {{--  Sub-item  --}}
+
+                                {{ $j }}
+
+                            </a>
                             @endfor
                         </div>
                     </div>
@@ -302,74 +334,10 @@
 
 
 
+@endforeach
 
 
 
 </div>
 
 
-
-
-
-
-
-
-
-{{--  <div class="container mx-auto">
-    <div class="grid grid-cols-4 gap-2">
-        <h1>Pages</h1>
-        <ul>
-            @foreach ($mainPages as $mainPage)
-                <li>
-                    <a href="{{ route('main_page.show', $mainPage->id) }}">{{ $mainPage->main_page_name }}</a>
-                </li>
-            @endforeach
-        </ul>
-    </div>
-
-    <div class="flex justify-end pr-40">
-        <button wire:click="create()"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Create MainPage</button>
-        @if ($isOpen)
-            @include('livewire.create-main-page-component')
-        @endif
-    </div>
-
-
-    @if (session()->has('message'))
-        <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3"
-            role="alert">
-            <div class="flex">
-                <div>
-                    <p class="text-sm">{{ session('message') }}</p>
-                </div>
-            </div>
-        </div>
-    @endif
-
-    <table class="table-fixed w-full">
-        <thead>
-            <tr class="bg-gray-100">
-                <th class="px-4 py-2">ID</th>
-                <th class="px-4 py-2">Name</th>
-                <th class="px-4 py-2">Content</th>
-                <th class="px-4 py-2">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($mainPages as $page)
-                <tr>
-                    <td class="border px-4 py-2">{{ $page->id }}</td>
-                    <td class="border px-4 py-2">{{ $page->main_page_name }}</td>
-                    <td class="border px-4 py-2">{{ $page->main_page_content }}</td>
-                    <td class="border px-4 py-2">
-                        <button wire:click="edit({{ $page->id }})"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
-                        <button wire:click="delete({{ $page->id }})"
-                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>  --}}

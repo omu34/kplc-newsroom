@@ -9,7 +9,13 @@ use Laravel\Sanctum\HasApiTokens;
 class BasicBanner extends Model
 {
     use HasFactory, HasApiTokens;
+
     protected $fillable = [
         'main_page_name13'
     ];
+
+    public function headerNavigation()
+    {
+        return $this->belongsTo(HeaderNavigation::class, 'main_page_id');
+    }
 }

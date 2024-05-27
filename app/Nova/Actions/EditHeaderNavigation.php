@@ -34,6 +34,10 @@ class EditHeaderNavigation extends Action
                 'main_page_name5' => $fields->main_page_name5,
                 'main_page_name6' => $fields->main_page_name6,
                 'main_page_name7' => $fields->main_page_name7,
+                'main_page_name4' => $fields->main_page_name8,
+                'main_page_name5' => $fields->main_page_name9,
+                'main_page_name6' => $fields->main_page_name10,
+                'main_page_name7' => $fields->main_page_name12,
                 'main_page_name19' => $fields->main_page_name19,
                 'main_page_image82' => $fields->main_page_image82,
                 'main_page_image83' => $fields->main_page_image83,
@@ -59,11 +63,14 @@ class EditHeaderNavigation extends Action
             Text::make('Main NavLink 5', 'main_page_name5')->sortable(),
             Text::make('Main NavLink 6', 'main_page_name6')->sortable(),
             Text::make('Main NavLink 7', 'main_page_name7')->sortable(),
-            // Text::make('Main Page Name 8', 'main_page_name8')->sortable(),
-            // Text::make('Main Page Name 9', 'main_page_name9')->sortable(),
-            // Text::make('Main Page Name 10', 'main_page_name10')->sortable(),
+
+            Text::make('Light/Dark', 'main_page_name8')->sortable(),
+            Text::make('Increase Text', 'main_page_name9')->sortable(),
+            Text::make('Decrease Text', 'main_page_name10')->sortable(),
             // Text::make('Main Page Name 11', 'main_page_name11')->sortable(),
-            // Text::make('Main Page Name 12', 'main_page_name12')->sortable(),
+            Text::make('Open Main Menu', 'main_page_name12')->sortable(),
+
+
             Text::make('Main NavLink 8', 'main_page_name19')->sortable(),
             Image::make('Main Page Image 82', 'main_page_image82')->disk('public'),
             Image::make('Main Page Image 83', 'main_page_image83')->disk('public')

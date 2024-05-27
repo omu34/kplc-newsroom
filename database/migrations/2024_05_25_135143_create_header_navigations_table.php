@@ -20,11 +20,11 @@ return new class extends Migration
             $table->string('main_page_name5');
             $table->string('main_page_name6');
             $table->string('main_page_name7');
-            // $table->string('main_page_name8');
-            // $table->string('main_page_name9');
-            // $table->string('main_page_name10');
+            $table->string('main_page_name8');
+            $table->string('main_page_name9');
+            $table->string('main_page_name10');
             // $table->string('main_page_name11');
-            // $table->string('main_page_name12');
+            $table->string('main_page_name12');
             $table->string('main_page_name19');
             $table->string('main_page_image82');
             $table->string('main_page_image83');

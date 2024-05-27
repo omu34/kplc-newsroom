@@ -15,4 +15,9 @@ class FeaturedNews extends Model
         'main_page_name18',
         'main_page_name29'
     ];
+    
+    public function headerNavigation()
+    {
+        return $this->belongsTo(HeaderNavigation::class, 'main_page_id');
+    }
 }

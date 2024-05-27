@@ -1,22 +1,22 @@
 {
-  "resources/css/app.css": {
-    "file": "assets/app-CNj05Af1.css",
-    "src": "resources/css/app.css",
-    "isEntry": true
-  },
-  "resources/css/custom.css": {
-    "file": "assets/custom-DKEkJ-7B.css",
-    "src": "resources/css/custom.css",
-    "isEntry": true
-  },
-  "resources/css/fonts/Hilmar-Medium.otf": {
-    "file": "assets/Hilmar-Medium-B3sd6bvI.otf",
-    "src": "resources/css/fonts/Hilmar-Medium.otf"
-  },
-  "resources/js/app.js": {
-    "file": "assets/app-DkDdL2UM.js",
-    "name": "app",
-    "src": "resources/js/app.js",
-    "isEntry": true
-  }
+    "resources/css/app.css": {
+        "file": "assets/app-CNj05Af1.css",
+        "src": "resources/css/app.css",
+        "isEntry": true
+    },
+    "resources/css/custom.css": {
+        "file": "assets/custom-DKEkJ-7B.css",
+        "src": "resources/css/custom.css",
+        "isEntry": true
+    },
+    "resources/css/fonts/Hilmar-Medium.otf": {
+        "file": "assets/Hilmar-Medium-B3sd6bvI.otf",
+        "src": "resources/css/fonts/Hilmar-Medium.otf"
+    },
+    "resources/js/app.js": {
+        "file": "assets/app-DkDdL2UM.js",
+        "name": "app",
+        "src": "resources/js/app.js",
+        "isEntry": true
+    }
 }

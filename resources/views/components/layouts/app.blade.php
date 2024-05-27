@@ -46,3 +46,18 @@
 </script>
 
 </html>
+
+{{--  @extends('layouts.app')
+
+@section('content')
+    @livewire('basic-banner')
+    @livewire('featured-news')
+    @livewire('latest-videos')
+    @livewire('latest-news')
+    @livewire('latest-gallery')
+    @livewire('banner')
+    @livewire('breadcrumb')
+    @livewire('tags')
+    @livewire('search')
+    @livewire('footer')
+@endsection  --}}

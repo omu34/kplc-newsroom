@@ -23,7 +23,7 @@
                             <circle cx="1" cy="1" r="1" />
                         </svg>
                         <div class="flex text-white">
-                            345 Views
+                            {{ $page->main_page_name17 }}
                         </div>
                     </div>
                 </div>
@@ -43,10 +43,11 @@
                     </svg>
                     <div class="-ml-4 flex items-center gap-x-2">
                         <div class="flex text-white gap-x-2">
-                            Test
+                            {{ $page->main_page_name18 }}
                         </div>
                     </div>
                 </div>
+                @endforeach
             </article>
             @endfor
             <!-- More posts... -->

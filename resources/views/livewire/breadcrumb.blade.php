@@ -2,7 +2,9 @@
     <div class="mx-auto max-w-7xl">
       <nav class="flex md:justify-start justify-center py-5" aria-label="Breadcrumb">
         <ol role="list" class="flex items-center space-x-4 text-center">
-          <li data-aos="fade-left" data-aos-duration="1000">
+            @foreach ($mainPages as $page)
+
+            <li data-aos="fade-left" data-aos-duration="1000">
             <div>
                 <a href="#" class="ml-4 text-base font-medium text-black dark:text-white hover:text-gray-700">Home</a>
 
@@ -24,9 +26,8 @@
               <a href="#" class="ml-4 text-base font-medium text-black dark:text-white hover:text-gray-700">Single Page</a>
             </div>
           </li>
-          
+          @endforeach
         </ol>
       </nav>
     </div>
   </div>
-  

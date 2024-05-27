@@ -1,10 +1,14 @@
 <div :class="{ 'sticky shadow-2': isSticky }" x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 0 })"  x-data="{ isOpen: false,  isSticky: false, isSearchOpen: false }">
-    
+
     <nav class="flex lg:hidden mx-auto max-w-7xl px-10 items-center bg-white dark:bg-gray-800 py-2 justify-between " aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="/" class="-m-1.5 p-1.5">
-                <span class="sr-only">Your Company</span>
-                <img class="h-16 w-auto" src="/logo.svg" alt="">
+                <span class="sr-only">
+                    {{ $page->main_page_name19 }}
+                </span>
+                <img class="h-16 w-auto" src="/logo.svg"
+                {{--  src="{{ asset('storage/' . $page->main_page_image82) }}"  --}}
+                 alt="">
             </a>
         </div>
         <div class="flex lg:hidden gap-x-4">
@@ -40,16 +44,16 @@
             </button>
         </div>
     </nav>
-    
+
     <div :class="isSticky ? 'bg-[#163466] dark:bg-black py-4 mt-0' : 'mt-12'" class=" px-6">
         <nav class="lg:flex hidden mx-auto max-w-7xl items-center rounded-md justify-between " aria-label="Global">
             <!-- loop category items -->
             <div class="flex gap-x-12 ml-auto">
-    
+
                 <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">Alternative Energy</a>
                 <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">Public</a>
                 <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">Stock Market</a>
-    
+
                 <div class="flex items-center w-6 h-6 rounded-full relative" x-data="{ showAccessibility: false }" x-ref="access"  @mouseenter="showAccessibility = true" @mouseleave="showAccessibility = false" x-init="$watch('showAccessibility', value => { if (value) { $dispatch('close-other-popups', $refs.access) } })">
                     <svg class="w-6 h-6 stroke-current dark:text-slate-100 text-slate-200 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path d="M10 4.5V18c0 1.08-.44 2.07-1.14 2.79l-.04.04c-.09.09-.19.18-.28.25-.3.26-.64.46-.99.6-.11.05-.22.09-.33.13-.39.13-.81.19-1.22.19-.27 0-.54-.03-.8-.08-.13-.03-.26-.06-.39-.1-.16-.05-.31-.1-.46-.17 0-.01 0-.01-.01 0-.28-.14-.55-.3-.8-.49l-.01-.01c-.13-.1-.25-.2-.36-.32-.11-.12-.22-.24-.33-.37-.19-.25-.35-.52-.49-.8.01-.01.01-.01 0-.01 0 0 0-.01-.01-.02-.06-.14-.11-.29-.16-.44a5.58 5.58 0 0 1-.1-.39c-.05-.26-.08-.53-.08-.8V4.5C2 3 3 2 4.5 2h3C9 2 10 3 10 4.5Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 16.5v3c0 1.5-1 2.5-2.5 2.5H6c.41 0 .83-.06 1.22-.19.11-.04.22-.08.33-.13.35-.14.69-.34.99-.6.09-.07.19-.16.28-.25l.04-.04 6.8-6.79h3.84c1.5 0 2.5 1 2.5 2.5ZM4.81 21.82c-.6-.18-1.17-.51-1.64-.99-.48-.47-.81-1.04-.99-1.64a4.02 4.02 0 0 0 2.63 2.63Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.37 11.29 15.66 14l-6.8 6.79C9.56 20.07 10 19.08 10 18V8.34l2.71-2.71c1.06-1.06 2.48-1.06 3.54 0l2.12 2.12c1.06 1.06 1.06 2.48 0 3.54ZM6 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     <div x-transition:enter="transition ease-in duration-200"
@@ -72,7 +76,7 @@
                                     <x-theme-toggle/>
                                 </div>
                             </div>
-    
+
                             <div class="flex justify-between items-center cursor-pointer" @click="zoomLevel += 10">
                                 <div class="flex 1 dark:text-slate-200">
                                     Increase Text
@@ -81,7 +85,7 @@
                                     <svg class="w-7 h-7 stroke-current dark:text-slate-100 text-slate-500 cursor-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path d="M8 12h8M12 16V8M9 22h6c5 0 7-2 7-7V9c0-5-2-7-7-7H9C4 2 2 4 2 9v6c0 5 2 7 7 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                 </div>
                             </div>
-    
+
                             <div class="flex justify-between items-center cursor-pointer" @click="zoomLevel -= 10">
                                 <div class="flex 1 dark:text-slate-200">
                                     Decrease Text
@@ -90,7 +94,7 @@
                                     <svg class="w-7 h-7 stroke-current dark:text-slate-100 text-slate-500 cursor-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path d="M8 12h8M9 22h6c5 0 7-2 7-7V9c0-5-2-7-7-7H9C4 2 2 4 2 9v6c0 5 2 7 7 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                 </div>
                             </div>
-    
+
                             <div class="flex justify-between items-center">
                                 <label class="flex 1 dark:text-slate-200 cursor-pointer" for="toggleGrayscale">
                                     <p x-text="siteGrayscale ? 'Grayscale: On' : 'Grayscale: Off'"></p>
@@ -99,19 +103,19 @@
                                     <input class="rounded text-primary cursor-pointer w-5 h-5" type="checkbox" id="toggleGrayscale" x-model="siteGrayscale">
                                 </div>
                             </div>
-    
+
                         </div>
                     </div>
                 </div>
-    
-    
-               
+
+
+
             </div>
         </nav>
     </div>
 
     <div :class="{ 'shadow-2xl bg-white  dark:bg-black': isSticky }">
-        <nav :class="isSticky ? 'mt-0 px-0 shadow' : 'mt-6 px-0'" class="lg:flex hidden mx-auto  max-w-7xl items-center bg-white dark:bg-black  py-2 rounded-md justify-between px-6" 
+        <nav :class="isSticky ? 'mt-0 px-0 shadow' : 'mt-6 px-0'" class="lg:flex hidden mx-auto  max-w-7xl items-center bg-white dark:bg-black  py-2 rounded-md justify-between px-6"
         aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="/" class="-m-1.5 p-1.5">
@@ -130,6 +134,8 @@
                 </svg>
             </button>
         </div>
+
+
         <div class="hidden lg:flex lg:gap-x-12">
             <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">Product</a>
             <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal  text-black">Features</a>
@@ -165,10 +171,10 @@
                 </button>
             </div>
             <!-- Dialog Body -->
-            <div class="px-4 py-1"> 
-                
+            <div class="px-4 py-1">
+
                 <form class="relative" wire:submit.prevent="searchsite">
-                    
+
 
                     <div class="flex rounded-lg shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                         <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">
@@ -244,7 +250,7 @@
         </div>
     </div> --}}
 
-   
+
 <!-- Mobile menu, show/hide based on menu open state. -->
 <div class="lg:hidden font-sans" role="dialog" aria-modal="true" x-show="isOpen">
     <!-- Background backdrop, show/hide based on slide-over state. -->
@@ -296,7 +302,74 @@
 
 
 
-     
+
 
 
 </div>
+
+
+
+
+
+
+
+
+
+{{--  <div class="container mx-auto">
+    <div class="grid grid-cols-4 gap-2">
+        <h1>Pages</h1>
+        <ul>
+            @foreach ($mainPages as $mainPage)
+                <li>
+                    <a href="{{ route('main_page.show', $mainPage->id) }}">{{ $mainPage->main_page_name }}</a>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+
+    <div class="flex justify-end pr-40">
+        <button wire:click="create()"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Create MainPage</button>
+        @if ($isOpen)
+            @include('livewire.create-main-page-component')
+        @endif
+    </div>
+
+
+    @if (session()->has('message'))
+        <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3"
+            role="alert">
+            <div class="flex">
+                <div>
+                    <p class="text-sm">{{ session('message') }}</p>
+                </div>
+            </div>
+        </div>
+    @endif
+
+    <table class="table-fixed w-full">
+        <thead>
+            <tr class="bg-gray-100">
+                <th class="px-4 py-2">ID</th>
+                <th class="px-4 py-2">Name</th>
+                <th class="px-4 py-2">Content</th>
+                <th class="px-4 py-2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($mainPages as $page)
+                <tr>
+                    <td class="border px-4 py-2">{{ $page->id }}</td>
+                    <td class="border px-4 py-2">{{ $page->main_page_name }}</td>
+                    <td class="border px-4 py-2">{{ $page->main_page_content }}</td>
+                    <td class="border px-4 py-2">
+                        <button wire:click="edit({{ $page->id }})"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
+                        <button wire:click="delete({{ $page->id }})"
+                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>  --}}

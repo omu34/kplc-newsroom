@@ -3,7 +3,9 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "build-createbutton": "cd nova-components/Createbutton && npm run dev",
+        "build-createbutton-prod": "cd nova-components/Createbutton && npm run prod"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.19",

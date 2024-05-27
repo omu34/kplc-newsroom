@@ -1,6 +1,6 @@
 <div :class="{ 'sticky shadow-2': isSticky }" x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 0 })"  x-data="{ isOpen: false,  isSticky: false, isSearchOpen: false }">
     
-    <nav class="flex lg:hidden mx-auto max-w-7xl px-10 items-center bg-white dark:bg-gray-950 py-2 justify-between " aria-label="Global">
+    <nav class="flex lg:hidden mx-auto max-w-7xl px-10 items-center bg-white dark:bg-gray-800 py-2 justify-between " aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="/" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
@@ -41,7 +41,7 @@
         </div>
     </nav>
     
-    <div :class="isSticky ? 'bg-[#163466] dark:bg-gray-950 py-4 mt-0' : 'mt-12'" class=" px-6">
+    <div :class="isSticky ? 'bg-[#163466] dark:bg-black py-4 mt-0' : 'mt-12'" class=" px-6">
         <nav class="lg:flex hidden mx-auto max-w-7xl items-center rounded-md justify-between " aria-label="Global">
             <!-- loop category items -->
             <div class="flex gap-x-12 ml-auto">
@@ -110,8 +110,8 @@
         </nav>
     </div>
 
-    <div :class="{ 'shadow-2xl bg-white  dark:bg-gray-900': isSticky }">
-        <nav :class="isSticky ? 'mt-0 px-0' : 'mt-6 px-0'" class="lg:flex hidden mx-auto  max-w-7xl items-center bg-white dark:bg-gray-900  py-2 rounded-md justify-between px-6" 
+    <div :class="{ 'shadow-2xl bg-white  dark:bg-black': isSticky }">
+        <nav :class="isSticky ? 'mt-0 px-0 shadow' : 'mt-6 px-0'" class="lg:flex hidden mx-auto  max-w-7xl items-center bg-white dark:bg-black  py-2 rounded-md justify-between px-6" 
         aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="/" class="-m-1.5 p-1.5">

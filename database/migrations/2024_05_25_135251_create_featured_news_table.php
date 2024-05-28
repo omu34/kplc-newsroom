@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('main_page_name17');
             $table->string('main_page_name18');
             $table->string('main_page_name29');
+            $table->string('main_page_image83');
+            $table->string('main_page_image85');
             $table->text('main_page_content')->nullable();
-
             $table->timestamps();
         });
     }

@@ -9,6 +9,7 @@ use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class EditLatestNews extends Action
@@ -32,7 +33,9 @@ class EditLatestNews extends Action
                 'main_page_name63' => $fields->main_page_name63,
                 'main_page_name64' => $fields->main_page_name64,
                 'main_page_name65' => $fields->main_page_name65,
-                // 'main_page_image84' => $fields->main_page_image84,
+                'main_page_image91' => $fields->main_page_image91,
+                'main_page_image92' => $fields->main_page_image92,
+
             ]);
         }
 
@@ -54,8 +57,8 @@ class EditLatestNews extends Action
             Text::make('Gallery Description', 'main_page_name81')->sortable(),
             Text::make('Likes', 'main_page_name59')->sortable(),
             Text::make('Button Text', 'main_page_name60')->sortable(),
-            // Image::make('Main Page Image 82', 'main_page_image82')->disk('public')->path('images'),
-            // Image::make('Main Page Image 83', 'main_page_image83')->disk('public')->path('images'),
+            Image::make('Main Page Image 91', 'main_page_image91')->disk('public')->path('images'),
+            Image::make('Main Page Image 92', 'main_page_image91')->disk('public')->path('images'),
         ];
     }
 }

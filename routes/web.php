@@ -23,7 +23,7 @@ Route::get('/single-blog', function () {
 
 Route::get('/single-gallery', function () {
     return view('pages.single-gallery');
-});
+}); 
 
 Route::get('/category', function () {
     return view('pages.category');

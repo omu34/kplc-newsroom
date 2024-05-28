@@ -23,11 +23,10 @@ return new class extends Migration
             $table->string('main_page_name8');
             $table->string('main_page_name9');
             $table->string('main_page_name10');
-            // $table->string('main_page_name11');
             $table->string('main_page_name12');
+            $table->string('main_page_name13')->nullable();
             $table->string('main_page_name19');
             $table->string('main_page_image82');
-            $table->string('main_page_image83');
             $table->text('main_page_content')->nullable();
             $table->timestamps();
         });

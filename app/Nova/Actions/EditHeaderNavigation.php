@@ -63,14 +63,10 @@ class EditHeaderNavigation extends Action
             Text::make('Main NavLink 5', 'main_page_name5')->sortable(),
             Text::make('Main NavLink 6', 'main_page_name6')->sortable(),
             Text::make('Main NavLink 7', 'main_page_name7')->sortable(),
-
             Text::make('Light/Dark', 'main_page_name8')->sortable(),
             Text::make('Increase Text', 'main_page_name9')->sortable(),
             Text::make('Decrease Text', 'main_page_name10')->sortable(),
-            // Text::make('Main Page Name 11', 'main_page_name11')->sortable(),
             Text::make('Open Main Menu', 'main_page_name12')->sortable(),
-
-
             Text::make('Main NavLink 8', 'main_page_name19')->sortable(),
             Image::make('Main Page Image 82', 'main_page_image82')->disk('public'),
             Image::make('Main Page Image 83', 'main_page_image83')->disk('public')

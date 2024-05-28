@@ -5,12 +5,12 @@ namespace App\Livewire;
 use App\Models\BasicBanner as ModelsBasicBanner;
 use Livewire\Component;
 
-
 class BasicBanner extends Component
 {
     public $mainPages;
     public $main_page_names = [];
-    public $main_page_content, $basic_banner_id;
+    public $main_page_content, $banner_id;
+    public $main_page_image84;
     public $header_navigation_id;
     public $isOpen = 0;
 
@@ -21,7 +21,7 @@ class BasicBanner extends Component
 
     public function render()
     {
-        return view('livewire.basic-banner', [
+        return view('livewire.banner', [
             'mainPages' => $this->mainPages,
         ]);
     }
@@ -44,9 +44,10 @@ class BasicBanner extends Component
 
     private function resetInputFields()
     {
-        $this->main_page_names = array_fill(0, 20, ''); // Assuming we need 4 names
+        $this->main_page_names = array_fill(0, 1, '');
         $this->main_page_content = '';
-        $this->basic_banner_id = '';
+        $this->main_page_image84 = null;
+        $this->banner_id = '';
     }
 
     public function store()
@@ -54,19 +55,19 @@ class BasicBanner extends Component
         $this->validate([
             'header_navigation_id' => 'required',
             'main_page_name13' => 'required',
+            'main_page_image84' => 'required|image|max:1024',
             'main_page_content' => 'required',
         ]);
 
-        ModelsBasicBanner::updateOrCreate(['id' => $this->basic_banner_id], [
+        $imagePath = $this->main_page_image84->store('public/images');
 
+        ModelsBasicBanner::updateOrCreate(['id' => $this->banner_id], [
             'main_page_name13' => $this->main_page_name13,
+            'main_page_image84' => str_replace('public/', '', $imagePath),
             'main_page_content' => $this->main_page_content
         ]);
 
-        session()->flash(
-            'message',
-            $this->basic_banner_id ? 'Page Updated Successfully.' : 'Page Created Successfully.'
-        );
+        session()->flash('message', $this->banner_id ? 'Page Updated Successfully.' : 'Page Created Successfully.');
 
         $this->closeModal();
         $this->resetInputFields();
@@ -76,11 +77,13 @@ class BasicBanner extends Component
     {
         $page = ModelsBasicBanner::findOrFail($id);
         $this->main_page_names = [
-            $page->main_page_name13
+            $page->main_page_name13,
+            $page->main_page_image84,
         ];
         $this->main_page_content = $page->main_page_content;
-        $this->basic_banner_id = $page->id;
-        $this->header_navigation_id= $page->id;
+        $this->banner_id = $page->id;
+        $this->header_navigation_id = $page->id;
+
         $this->openModal();
     }
 
@@ -90,3 +93,4 @@ class BasicBanner extends Component
         session()->flash('message', 'Page Deleted Successfully.');
     }
 }
+

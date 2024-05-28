@@ -34,15 +34,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             \App\Nova\Tags::class,
             \App\Nova\Search::class,
             \App\Nova\Footer::class,
-
-
-
-
-
-
-
-
-
+            \App\Nova\Socials::class,
+            \App\Nova\QuickLinks::class,
+            \App\Nova\GlobalSearch::class,
 
         ]);
     }

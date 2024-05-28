@@ -16,6 +16,7 @@
                 {{--  Show Me More  --}}
 
 
+
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
@@ -26,11 +27,12 @@
             @for($i = 0; $i < 4; $i++)
 
             <article class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
-                <img src="/2.jpg"
+                {{--  {{asset('storage/' . $page->main_page_image86) }}  --}}
+                <img src="{{asset('storage/' . $page->main_page_image88) }}"
                     alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
                 <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black  via-gray-900/50"></div>
                 <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
-                <img src="/video.svg" class="absolute text-yellow top-2/3 mb-8 left-1/2 transform -translate-x-1/2 -translate-y-28 h-12 w-12 fill-white" alt="">
+                <img src="{{asset('storage/' . $page->main_page_image87) }}" class="absolute text-yellow top-2/3 mb-8 left-1/2 transform -translate-x-1/2 -translate-y-28 h-12 w-12 fill-white" alt="">
 
 
                 <!-- Metadata Section -->

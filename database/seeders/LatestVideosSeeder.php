@@ -20,7 +20,8 @@ class LatestVideosSeeder extends Seeder
             'main_page_name68' => '345 Views',
             'main_page_name69' => 'The  Summit on Clean Cooking in Africa 2024 (Paris, France)',
             'main_page_name70' => 'Test',
-            'main_page_name71' => 'Column 1',
+            'main_page_image88'=>'images/1.jpg',
+            'main_page_image87'=>'images/video.svg',
             'main_page_content'=>'latest videos pages'
         ];
 

@@ -2,14 +2,16 @@
 
 namespace App\Nova;
 
-use App\Nova\Actions\DeleteLatestVideos;
-use App\Nova\Actions\EditLatestVideos;
+// use App\Nova\Actions\DeleteLatestVideos;
+// use App\Nova\Actions\EditLatestVideos;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Image;
+
 use Laravel\Nova\Fields\BelongsTo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Newsroom\Createbutton\Createbutton;
+// use Newsroom\Createbutton\Createbutton;
 
 class LatestVideos extends Resource
 {
@@ -33,8 +35,17 @@ class LatestVideos extends Resource
      * @var array
      */
     public static $search = [
-        'id','main_page_name11', 'main_page_name60', 'main_page_name67', 'main_page_name68', 'main_page_name69', 'main_page_name70', 'main_page_name71'
+        'id','main_page_name11', 'main_page_name60', 'main_page_name67',
+        'main_page_name68', 'main_page_name69', 'main_page_name70',
+        'main_page_name88', 'main_page_name87'
     ];
+
+    public static function search($query)
+    {
+        return static::where('main_page_name11', 'like', "%$query%")
+            ->orWhere('main_page_name60', 'like', "%$query%")
+            ->get();
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -58,7 +69,8 @@ class LatestVideos extends Resource
             Text::make('Number of Views', 'main_page_name68')->sortable(),
             Text::make('Video Description', 'main_page_name69')->sortable(),
             Text::make('Likes', 'main_page_name70')->sortable(),
-            Text::make('Column Name', 'main_page_name71')->sortable(),
+            Image::make('Background Image', 'main_page_image88')->disk('public'),
+            Image::make('Video Image', 'main_page_image87')->disk('public'),
         ];
     }
 

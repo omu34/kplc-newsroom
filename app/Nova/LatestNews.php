@@ -2,14 +2,15 @@
 
 namespace App\Nova;
 
-use App\Nova\Actions\DeleteLatestNews;
-use App\Nova\Actions\EditLatestNews;
+// use App\Nova\Actions\DeleteLatestNews;
+// use App\Nova\Actions\EditLatestNews;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsTo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Newsroom\Createbutton\Createbutton;
+// use Newsroom\Createbutton\Createbutton;
 
 class LatestNews extends Resource
 {
@@ -33,8 +34,16 @@ class LatestNews extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'main_page_name60', 'main_page_name61', 'main_page_name62', 'main_page_name63', 'main_page_name64', 'main_page_name65'
+        'id', 'main_page_name60', 'main_page_name61', 'main_page_name62', 'main_page_name63',
+         'main_page_name64', 'main_page_name65','main_page_name91', 'main_page_name92'
     ];
+
+    public static function search($query)
+    {
+        return static::where('main_page_name60', 'like', "%$query%")
+            ->orWhere('main_page_name61', 'like', "%$query%")
+            ->get();
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -58,6 +67,8 @@ class LatestNews extends Resource
             Text::make('Number of Views', 'main_page_name63')->sortable(),
             Text::make('News Description', 'main_page_name64')->sortable(),
             Text::make('Likes', 'main_page_name65')->sortable(),
+            Image::make('Main Page Image 91', 'main_page_image91')->disk('public')->path('images'),
+            Image::make('Main Page Image 92', 'main_page_image92')->disk('public')->path('images'),
         ];
     }
 

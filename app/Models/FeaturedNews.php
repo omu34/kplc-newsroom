@@ -13,9 +13,11 @@ class FeaturedNews extends Model
         'main_page_name16',
         'main_page_name17',
         'main_page_name18',
-        'main_page_name29'
+        'main_page_name29',
+        'main_page_image83',
+        'main_page_image85',
     ];
-    
+
     public function headerNavigation()
     {
         return $this->belongsTo(HeaderNavigation::class, 'main_page_id');

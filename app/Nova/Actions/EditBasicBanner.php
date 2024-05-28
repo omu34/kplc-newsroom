@@ -8,6 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\ActionFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -26,7 +27,8 @@ class EditBasicBanner extends Action
     {
         foreach ($models as $model) {
             $model->update([
-                'main_page_name13' => $fields->main_page_name13
+                'main_page_name13' => $fields->main_page_name13,
+                'main_page_image84' => $fields->main_page_image84,
             ]);
         }
 
@@ -43,8 +45,7 @@ class EditBasicBanner extends Action
     {
         return [
             Text::make('Basic Banner Title', 'main_page_name13')->sortable(),
-            // Image::make('Main Page Image 82', 'main_page_image82')->disk('public')->path('images'),
-            // Image::make('Main Page Image 83', 'main_page_image83')->disk('public')->path('images'),
+            Image::make('Banner Image', 'main_page_image84')->disk('public')->path('images'),
         ];
     }
 }

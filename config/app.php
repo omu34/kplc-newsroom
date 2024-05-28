@@ -56,7 +56,8 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
-
+    // 'live_website_url' => env('LIVE_WEBSITE_URL', 'http://localhost'),
+    'newsroom_base_url' => env('NEWSROOM_BASE_URL', 'http://localhost'),
     'asset_url' => env('ASSET_URL'),
 
     /*

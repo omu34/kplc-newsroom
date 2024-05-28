@@ -66,14 +66,12 @@ class HeaderNavigation extends Component
             'main_page_name8' => 'required',
             'main_page_name9' => 'required',
             'main_page_name10' => 'required',
-            // 'main_page_name11' => 'required',
             'main_page_name12' => 'required',
             'main_page_name19' => 'required',
             'main_page_image82' => 'required|image|max:1024',
             'main_page_image83' => 'required|image|max:1024',
             'main_page_content' => 'required',
         ]);
-        // $imagePath = $this->main_page_image->store('public/images');
         $imagePath = $this->main_page_image82->store('public/images');
         $imagePath = $this->main_page_image83->store('public/images');
 
@@ -88,7 +86,6 @@ class HeaderNavigation extends Component
             'main_page_name8' => $this->main_page_name8,
             'main_page_name9' => $this->main_page_name9,
             'main_page_name10' => $this->main_page_name10,
-            // 'main_page_name11' => $this->main_page_name11],
             'main_page_name12' => $this->main_page_name12,
             'main_page_name19' => $this->main_page_name19,
             'main_page_image82' => str_replace('public/', '', $imagePath),
@@ -119,7 +116,6 @@ class HeaderNavigation extends Component
             $page->main_page_name8,
             $page->main_page_name9,
             $page->main_page_name10,
-            // $page->main_page_name11,
             $page->main_page_name12,
             $page->main_page_name19,
             $page->main_page_image82,

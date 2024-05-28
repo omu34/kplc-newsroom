@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('main_page_name81');
             $table->string('main_page_name59');
             $table->string('main_page_name60');
+            $table->string('main_page_image89');
+            $table->string('main_page_image90');
             $table->text('main_page_content')->nullable();
 
             $table->timestamps();

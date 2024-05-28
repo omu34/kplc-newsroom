@@ -2,16 +2,25 @@
 
 namespace App\Livewire;
 
+
+
 use App\Models\LatestVideos as ModelsLatestVideos;
 use Livewire\Component;
-
 class LatestVideos extends Component
 {
     public $mainPages;
-    public $main_page_names = [];
-    public $main_page_content,$latest_videos_id;
+    public $main_page_names = [
+        'main_page_name11' => '',
+        'main_page_name60' => '',
+        'main_page_name66' => '',
+        'main_page_name67' => '',
+        'main_page_name68' => '',
+        'main_page_name69' => '',
+        'main_page_name70' => '',
+    ];
+    public $main_page_content, $latest_videos_id;
     public $header_navigation_id;
-    public $isOpen = 0;
+    public $isOpen = false;
 
     public function mount()
     {
@@ -20,10 +29,9 @@ class LatestVideos extends Component
 
     public function render()
     {
-        return view(
-            'livewire.latest-videos',
-            ['mainPages' => $this->mainPages,]
-        );
+        return view('livewire.latest-videos', [
+            'mainPages' => $this->mainPages,
+        ]);
     }
 
     public function create()
@@ -44,34 +52,52 @@ class LatestVideos extends Component
 
     private function resetInputFields()
     {
-        $this->main_page_names = array_fill(0, 20, ''); // Assuming we need 4 names
+        $this->main_page_names = [
+        'main_page_name11' => '',
+        'main_page_name60' => '',
+        'main_page_name66' => '',
+        'main_page_name67' => '',
+        'main_page_name68' => '',
+        'main_page_name69' => '',
+        'main_page_name70' => '',
+        ];
         $this->main_page_content = '';
         $this->latest_videos_id = '';
+        $this->header_navigation_id = '';
     }
 
     public function store()
     {
         $this->validate([
             'header_navigation_id' => 'required',
-            'main_page_name11' => 'required',
-            'main_page_name60' => 'required',
-            'main_page_name67' => 'required',
-            'main_page_name68' => 'required',
-            'main_page_name69' => 'required',
-            'main_page_name70' => 'required',
-            'main_page_name71' => 'required',
+            'main_page_names.main_page_name11' => 'required',
+            'main_page_names.main_page_name60' => 'required',
+            'main_page_names.main_page_name66' => 'required',
+            'main_page_names.main_page_name67' => 'required',
+            'main_page_names.main_page_name68' => 'required',
+            'main_page_names.main_page_name69' => 'required',
+            'main_page_names.main_page_name70' => 'required',
+            'main_page_image88' => 'required|image|max:1024',
+            'main_page_image87' => 'required|image|max:1024',
             'main_page_content' => 'required',
         ]);
 
+        $imagePath = $this->main_page_image88->store('public/images');
+        $imagePath = $this->main_page_image87->store('public/images');
+
+
         ModelsLatestVideos::updateOrCreate(['id' => $this->latest_videos_id], [
-            'main_page_name11' => $this->main_page_name11,
-            'main_page_name60' => $this->main_page_name60,
-            'main_page_name66' => $this->main_page_name66,
-            'main_page_name67' => $this->main_page_name67,
-            'main_page_name68' => $this->main_page_name68,
-            'main_page_name69' => $this->main_page_name69,
-            'main_page_name70' => $this->main_page_name70,
-            'main_page_content' => $this->main_page_content
+            'main_page_name11' => $this->main_page_names['main_page_name11'],
+            'main_page_name60' => $this->main_page_names['main_page_name60'],
+            'main_page_name66' => $this->main_page_names['main_page_name66'],
+            'main_page_name67' => $this->main_page_names['main_page_name67'],
+            'main_page_name68' => $this->main_page_names['main_page_name68'],
+            'main_page_name69' => $this->main_page_names['main_page_name69'],
+            'main_page_name70' => $this->main_page_names['main_page_name70'],
+            'main_page_image88' => str_replace('public/', '', $imagePath),
+            'main_page_image87' => str_replace('public/', '', $imagePath),
+            'main_page_content' => $this->main_page_content,
+            'header_navigation_id' => $this->header_navigation_id,
         ]);
 
         session()->flash(
@@ -87,17 +113,19 @@ class LatestVideos extends Component
     {
         $page = ModelsLatestVideos::findOrFail($id);
         $this->main_page_names = [
-            $page->main_page_name11,
-            $page->main_page_name60,
-            $page->main_page_name66,
-            $page->main_page_name67,
-            $page->main_page_name68,
-            $page->main_page_name69,
-            $page->main_page_name70,
+            'main_page_name11' => $page->main_page_name11,
+            'main_page_name60' => $page->main_page_name60,
+            'main_page_name66' => $page->main_page_name66,
+            'main_page_name67' => $page->main_page_name67,
+            'main_page_name68' => $page->main_page_name68,
+            'main_page_name69' => $page->main_page_name69,
+            'main_page_name70' => $page->main_page_name70,
+            'main_page_name88' => $page->main_page_image88,
+            'main_page_name87' => $page->main_page_image87,
         ];
         $this->main_page_content = $page->main_page_content;
         $this->latest_videos_id = $page->id;
-        $this->header_navigation_id = $page->id;
+        $this->header_navigation_id = $page->header_navigation_id;
 
         $this->openModal();
     }
@@ -108,3 +136,19 @@ class LatestVideos extends Component
         session()->flash('message', 'Page Deleted Successfully.');
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

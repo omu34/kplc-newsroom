@@ -2,14 +2,15 @@
 
 namespace App\Nova;
 
-use App\Nova\Actions\DeleteBasicBanner;
-use App\Nova\Actions\EditBasicBanner;
+// use App\Nova\Actions\DeleteBasicBanner;
+// use App\Nova\Actions\EditBasicBanner;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsTo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Newsroom\Createbutton\Createbutton;
+// use Newsroom\Createbutton\Createbutton;
 
 class BasicBanner extends Resource
 {
@@ -33,8 +34,15 @@ class BasicBanner extends Resource
      * @var array
      */
     public static $search = [
-        'id','main_page_name13'
+        'id', 'main_page_name13', 'main_page_image84'
     ];
+
+    public static function search($query)
+    {
+        return static::where('main_page13', 'like', "%$query%")
+            ->orWhere('main_page_image84', 'like', "%$query%")
+            ->get();
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -52,6 +60,7 @@ class BasicBanner extends Resource
                 ->hideWhenCreating()
                 ->hideWhenUpdating(),
             Text::make('Basic Banner Title', 'main_page_name13')->sortable(),
+            Image::make('Basic Banner Image', 'main_page_image84')->disk('public')->path('images')->sortable(),
         ];
     }
 

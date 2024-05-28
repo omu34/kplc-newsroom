@@ -36,6 +36,13 @@ class Search extends Resource
         'id', 'main_page_name80'
     ];
 
+    public static function search($query)
+    {
+        return static::where('main_page_name80', 'like', "%$query%")
+            ->orWhere('main_page_name80', 'like', "%$query%")
+            ->get();
+    }
+
     /**
      * Get the fields displayed by the resource.
      *

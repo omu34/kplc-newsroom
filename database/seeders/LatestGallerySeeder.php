@@ -20,6 +20,8 @@ class LatestGallerySeeder extends Seeder
             'main_page_name81' => 'The  Summit on Clean Cooking in Africa 2024 (Paris, France)',
             'main_page_name59' => 'Test',
             'main_page_name60' => 'Show Me More',
+            'main_page_image89'=>'images/1.jpg',
+            'main_page_image90'=>'images/blog.svg',
             'main_page_content'=>'latest gallery pages'
         ];
 

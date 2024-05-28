@@ -50,17 +50,48 @@ class Banner extends Component
         $this->banner_id = '';
     }
 
+
+
+
+    // 'main_page_name1' => 'Product',
+    //         'main_page_name2' => 'Features',
+    //         'main_page_name3' => 'Marketplace',
+    //         'main_page_name4' => 'Company',
+    //         'main_page_name5' => 'Alternative Energy',
+    //         'main_page_name6' => 'Public',
+    //         'main_page_name7' => 'Stock Market',
+
+
+
+
+
     public function store()
     {
         $this->validate([
             '$header_navigation_id' => 'required',
+
+
+            // 'main_page_name1' => 'required',
+            // 'main_page_name2' => 'required',
+            // 'main_page_name3' => 'required',
+            // 'main_page_name4' => 'required',
+            // 'main_page_name5' => 'required',
+            // 'main_page_name6' => 'required',
+            // 'main_page_name7' => 'required',
+
+
+
+
+
+
+
             'main_page_name13' => 'required',
-            'main_page_name15' => 'required',
-            'main_page_name16' => 'required',
-            'main_page_name17' => 'required',
-            'main_page_name18' => 'required',
-            'main_page_name19' => 'required',
-            'main_page_name20' => 'required',
+            // 'main_page_name15' => 'required',
+            // 'main_page_name16' => 'required',
+            // 'main_page_name17' => 'required',
+            // 'main_page_name18' => 'required',
+            // 'main_page_name19' => 'required',
+            // 'main_page_name20' => 'required',
             'main_page_image84' => 'required|image|max:1024',
             'main_page_content' => 'required',
         ]);
@@ -68,13 +99,27 @@ class Banner extends Component
 
 
         ModelsBanner::updateOrCreate(['id' => $this->banner_id], [
+
+
+            // 'main_page_name1' => $this->main_page_name1,
+            // 'main_page_name2' => $this->main_page_name2,
+            // 'main_page_name3' => $this->main_page_name3,
+            // 'main_page_name4' => $this->main_page_name4,
+            // 'main_page_name5' => $this->main_page_name5,
+            // 'main_page_name6' => $this->main_page_name6,
+            // 'main_page_name7' => $this->main_page_name7,
+
+
+
+
+
             'main_page_name13' => $this->main_page_name13,
-            'main_page_name15' => $this->main_page_name15,
-            'main_page_name16' => $this->main_page_name16,
-            'main_page_name17' => $this->main_page_name17,
-            'main_page_name18' => $this->main_page_name18,
-            'main_page_name19' => $this->main_page_name19,
-            'main_page_name20' => $this->main_page_name20,
+            // 'main_page_name15' => $this->main_page_name15,
+            // 'main_page_name16' => $this->main_page_name16,
+            // 'main_page_name17' => $this->main_page_name17,
+            // 'main_page_name18' => $this->main_page_name18,
+            // 'main_page_name19' => $this->main_page_name19,
+            // 'main_page_name20' => $this->main_page_name20,
             'main_page_image84' => str_replace('public/', '', $imagePath),
             'main_page_content' => $this->main_page_content
         ]);
@@ -90,13 +135,24 @@ class Banner extends Component
     {
         $page = ModelsBanner::findOrFail($id);
         $this->main_page_names = [
+
+            // $page->main_page_name1,
+            // $page->main_page_name2,
+            // $page->main_page_name3,
+            // $page->main_page_name3,
+            // $page->main_page_name5,
+            // $page->main_page_name6,
+            // $page->main_page_name7,
+
+
+
             $page->main_page_name13,
-            $page->main_page_name15,
-            $page->main_page_name16,
-            $page->main_page_name17,
-            $page->main_page_name18,
-            $page->main_page_name19,
-            $page->main_page_name20,
+            // $page->main_page_name15,
+            // $page->main_page_name16,
+            // $page->main_page_name17,
+            // $page->main_page_name18,
+            // $page->main_page_name19,
+            // $page->main_page_name20,
             $page->main_page_image84,
         ];
         $this->main_page_content = $page->main_page_content;

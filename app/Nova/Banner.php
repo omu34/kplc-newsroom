@@ -7,10 +7,10 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsTo;
 use Illuminate\Http\Request;
-use App\Nova\Actions\EditBanner;
-use App\Nova\Actions\DeleteBanner;
+// use App\Nova\Actions\EditBanner;
+// use App\Nova\Actions\DeleteBanner;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Newsroom\Createbutton\Createbutton;
+// use Newsroom\Createbutton\Createbutton;
 
 class Banner extends Resource
 {
@@ -34,9 +34,15 @@ class Banner extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'main_page_name13', 'main_page_name20', 'main_page_name15', 'main_page_name16', 'main_page_name17',
-         'main_page_name18', 'main_page_name19'
+        'id', 'main_page_name13','main_page_image84'
     ];
+
+    public static function search($query)
+    {
+        return static::where('main_page13', 'like', "%$query%")
+            ->orWhere('main_page_image84', 'like', "%$query%")
+            ->get();
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -54,13 +60,7 @@ class Banner extends Resource
                 ->hideWhenCreating()
                 ->hideWhenUpdating(),
             Text::make('Banner Title', 'main_page_name13')->sortable(),
-            Text::make('Button text', 'main_page_name15')->sortable(),
-            Text::make('Date Updated', 'main_page_name16')->sortable(),
-            Text::make('Number of Views', 'main_page_name17')->sortable(),
-            Text::make('Likes', 'main_page_name18')->sortable(),
-            Text::make('Company Name', 'main_page_name19')->sortable(),
-            Text::make('Description', 'main_page_name20')->sortable(),
-            Image::make('Main Page Image 84', 'main_page_image84')->disk('public')->path('images')->sortable(),
+            Image::make('Banner Image', 'main_page_image84')->disk('public')->path('images')->sortable(),
         ];
     }
 

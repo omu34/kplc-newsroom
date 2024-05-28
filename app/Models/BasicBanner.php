@@ -11,8 +11,12 @@ class BasicBanner extends Model
     use HasFactory, HasApiTokens;
 
     protected $fillable = [
-        'main_page_name13'
-    ];
+        'header_navigation_id',
+        'main_page_name13',
+        'main_page_name15',
+        'main_page_image84',
+        'main_page_content'
+        ];
 
     public function headerNavigation()
     {

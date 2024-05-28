@@ -39,6 +39,14 @@ class HeaderNavigation extends Resource
         'main_page_name83',
     ];
 
+
+    public static function search($query)
+    {
+        return static::where('main_page_name1', 'like', "%$query%")
+            ->orWhere('main_page_name2', 'like', "%$query%")
+            ->get();
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -49,24 +57,54 @@ class HeaderNavigation extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Main NavLink 1', 'main_page_name1')->sortable(),
-            Text::make('Main NavLink 2', 'main_page_name2')->sortable(),
-            Text::make('Main NavLink 3', 'main_page_name3')->sortable(),
-            Text::make('Main NavLink 4', 'main_page_name4')->sortable(),
-            Text::make('Main NavLink 5', 'main_page_name5')->sortable(),
-            Text::make('Main NavLink 6', 'main_page_name6')->sortable(),
-            Text::make('Main NavLink 7', 'main_page_name7')->sortable(),
+            // Text::make('Main NavLink 1', 'main_page_name1')->sortable(),
+            Text::make('Main Nav Link 1', 'main_page_name1')->displayUsing(function ($value, $resource) {
+                $url = config('app.newsroom_base_url') . "/products/{$resource->id}";
+                return "<a href=\"{$url}\" target=\"_blank\" class=\"text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black\">{$value}</a>";
+            })->asHtml(),
 
+            Text::make('Main Nav Link 2', 'main_page_name2')->displayUsing(function ($value, $resource) {
+                $url = config('app.newsroom_base_url') . "/products/{$resource->id}";
+                return "<a href=\"{$url}\" target=\"_blank\" class=\"text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black\">{$value}</a>";
+            })->asHtml(),
+
+            Text::make('Main Nav Link 3', 'main_page_name3')->displayUsing(function ($value, $resource) {
+                $url = config('app.newsroom_base_url') . "/products/{$resource->id}";
+                return "<a href=\"{$url}\" target=\"_blank\" class=\"text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black\">{$value}</a>";
+            })->asHtml(),
+
+            Text::make('Main Nav Link 4', 'main_page_name4')->displayUsing(function ($value, $resource) {
+                $url = config('app.newsroom_base_url') . "/products/{$resource->id}";
+                return "<a href=\"{$url}\" target=\"_blank\" class=\"text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black\">{$value}</a>";
+            })->asHtml(),
+
+            Text::make('Main Nav Link 5', 'main_page_name5')->displayUsing(function ($value, $resource) {
+                $url = config('app.newsroom_base_url') . "/products/{$resource->id}";
+                return "<a href=\"{$url}\" target=\"_blank\" class=\"text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black\">{$value}</a>";
+            })->asHtml(),
+
+            Text::make('Main Nav Link 6', 'main_page_name6')->displayUsing(function ($value, $resource) {
+                $url = config('app.newsroom_base_url') . "/products/{$resource->id}";
+                return "<a href=\"{$url}\" target=\"_blank\" class=\"text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black\">{$value}</a>";
+            })->asHtml(),
+
+            Text::make('Main Nav Link 7', 'main_page_name7')->displayUsing(function ($value, $resource) {
+                $url = config('app.newsroom_base_url') . "/products/{$resource->id}";
+                return "<a href=\"{$url}\" target=\"_blank\" class=\"text-base text-black text-white hover:underline hover:underline-offset-4 font-normal\">{$value}</a>";
+            })->asHtml(),
+
+            // Text::make('Main NavLink 2', 'main_page_name2')->sortable(),
+            // Text::make('Main NavLink 3', 'main_page_name3')->sortable(),
+            // Text::make('Main NavLink 4', 'main_page_name4')->sortable(),
+            // Text::make('Main NavLink 5', 'main_page_name5')->sortable(),
+            // Text::make('Main NavLink 6', 'main_page_name6')->sortable(),
+            // Text::make('Main NavLink 7', 'main_page_name7')->sortable(),
+            // Text::make('Main NavLink 8', 'main_page_name19')->sortable(),
             Text::make('Light/Dark', 'main_page_name8')->sortable(),
             Text::make('Increase Text', 'main_page_name9')->sortable(),
             Text::make('Decrease Text', 'main_page_name10')->sortable(),
-            // Text::make('Main Page Name 11', 'main_page_name11')->sortable(),
             Text::make('Open Main Menu', 'main_page_name12')->sortable(),
-
-
-            Text::make('Main NavLink 8', 'main_page_name19')->sortable(),
-            Image::make('Main Page Image 82', 'main_page_image82')->disk('public'),
-            Image::make('Main Page Image 83', 'main_page_image83')->disk('public')
+            Image::make('Logo', 'main_page_image82')->disk('public'),
         ];
     }
 

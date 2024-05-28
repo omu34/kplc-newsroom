@@ -17,7 +17,9 @@ class LatestGallery extends Model
         'main_page_name25',
         'main_page_name81',
         'main_page_name59',
-        'main_page_name60'
+        'main_page_name60',
+        'main_page_image89',
+        'main_page_image90',
     ];
 
     // Define the relationship with HeaderNavigation

@@ -36,6 +36,13 @@ class Breadcrumb extends Resource
         'id', 'main_page_name26', 'main_page_name27', 'main_page_name28'
     ];
 
+    public static function search($query)
+    {
+        return static::where('main_page26', 'like', "%$query%")
+            ->orWhere('main_page_image27', 'like', "%$query%")
+            ->get();
+    }
+
     /**
      * Get the fields displayed by the resource.
      *

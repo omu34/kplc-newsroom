@@ -36,6 +36,13 @@ class Tags extends Resource
         'id', 'main_page_name71', 'main_page_name72'
     ];
 
+    public static function search($query)
+    {
+        return static::where('main_page_name71', 'like', "%$query%")
+            ->orWhere('main_page_name72', 'like', "%$query%")
+            ->get();
+    }
+
     /**
      * Get the fields displayed by the resource.
      *

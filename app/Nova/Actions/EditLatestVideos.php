@@ -9,6 +9,7 @@ use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class EditLatestVideos extends Action
@@ -32,8 +33,9 @@ class EditLatestVideos extends Action
                 'main_page_name68' => $fields->main_page_name68,
                 'main_page_name69' => $fields->main_page_name69,
                 'main_page_name70' => $fields->main_page_name70,
-                'main_page_name71' => $fields->main_page_name71,
-                // 'main_page_image84' => $fields->main_page_image84,
+                'main_page_image86' => $fields->main_page_image86,
+                'main_page_image87' => $fields->main_page_image87,
+
             ]);
         }
 
@@ -55,9 +57,8 @@ class EditLatestVideos extends Action
             Text::make('Number of Views', 'main_page_name68')->sortable(),
             Text::make('Video Description', 'main_page_name69')->sortable(),
             Text::make('Likes', 'main_page_name70')->sortable(),
-            Text::make('Column Name', 'main_page_name71')->sortable(),
-            // Image::make('Main Page Image 82', 'main_page_image82')->disk('public')->path('images'),
-            // Image::make('Main Page Image 83', 'main_page_image83')->disk('public')->path('images'),
+            Image::make('Main Page Image 86', 'main_page_image88')->disk('public')->path('images'),
+            Image::make('Main Page Image 87', 'main_page_image87')->disk('public')->path('images'),
         ];
     }
 }

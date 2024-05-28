@@ -8,6 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\ActionFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -33,8 +34,8 @@ class EditLatestGallery extends Action
                 'main_page_name81' => $fields->main_page_name81,
                 'main_page_name59' => $fields->main_page_name59,
                 'main_page_name60' => $fields->main_page_name60,
-                // 'main_page_image82' => $fields->main_page_image82,
-                // 'main_page_image83' => $fields->main_page_image83,
+                'main_page_image89' => $fields->main_page_image89,
+                'main_page_image90' => $fields->main_page_image90,
             ]);
         }
 
@@ -56,8 +57,8 @@ class EditLatestGallery extends Action
             Text::make('Gallery Description', 'main_page_name81')->sortable(),
             Text::make('Likes', 'main_page_name59')->sortable(),
             Text::make('Button Text', 'main_page_name60')->sortable(),
-              // Image::make('Main Page Image 82', 'main_page_image82')->disk('public')->path('images'),
-            // Image::make('Main Page Image 83', 'main_page_image83')->disk('public')->path('images'),
+              Image::make('Gallery Background Image', 'main_page_image89')->disk('public')->path('images'),
+            Image::make('Video Image', 'main_page_image90')->disk('public')->path('images'),
         ];
     }
 }

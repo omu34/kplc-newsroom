@@ -11,12 +11,14 @@ class LatestVideos extends Model
 
     protected $fillable = [
         'main_page_id',
+        'main_page_name11',
         'main_page_name60',
         'main_page_name67',
         'main_page_name68',
         'main_page_name69',
         'main_page_name70',
-        'main_page_name71'
+        'main_page_image88',
+        'main_page_image87',
     ];
     public function headerNavigation()
     {

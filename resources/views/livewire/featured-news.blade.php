@@ -16,19 +16,16 @@
                 @endphp
 
             <article  class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
-                <img src="/test-1.jpg"
+                <img src="{{asset('storage/' . $page->main_page_image83) }}"
                     alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
                 <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black via-gray-900/50"></div>
                 <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
-                <img src="/video.svg" class="absolute text-yellow top-2/3 mb-8 left-1/2 transform -translate-x-1/2 -translate-y-28 h-12 w-12 fill-white" alt="">
+                <img src="{{asset('storage/' . $page->main_page_image85) }}" class="absolute text-yellow top-2/3 mb-8 left-1/2 transform -translate-x-1/2 -translate-y-28 h-12 w-12 fill-white" alt="">
 
                 <!-- Metadata Section -->
                 <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-base leading-6 text-white">
                     <time datetime="2020-03-16" class="text-white mr-6">
                         {{ $page->main_page_name16 }}
-
-                        {{--  Mar 16, 2020  --}}
-
                     </time>
                     <div class="-ml-4 flex items-center gap-x-2">
                         <svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white">
@@ -45,10 +42,6 @@
                     <a href="#">
                         <span class="absolute inset-0"></span>
                         {{ $page->main_page_name29 }}
-
-                        {{--  The Summit on Clean Cooking in Africa 2024 (Paris, France)  --}}
-
-
                     </a>
                 </h3>
 

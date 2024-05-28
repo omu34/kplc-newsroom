@@ -21,15 +21,13 @@ class HeaderNavigationSeeder extends Seeder
             'main_page_name5' => 'Alternative Energy',
             'main_page_name6' => 'Public',
             'main_page_name7' => 'Stock Market',
-
             'main_page_name8' => 'Light / Dark',
             'main_page_name9' => 'Increase Text',
             'main_page_name10' => 'Increase Text',
             'main_page_name12' => 'Open main menu',
-
+            'main_page_name13' => 'Open main menu',
             'main_page_name19' => 'Your Company',
-            'main_page_image82' => 'storage/app/public/logo.svg',//relative path'public/storage',
-            'main_page_image83' => 'storage/app/public/logo.svg',
+            'main_page_image82' => 'images/logo.png',
             'main_page_content'=>'pages'
         ];
 

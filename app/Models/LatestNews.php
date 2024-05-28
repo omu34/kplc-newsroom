@@ -18,7 +18,9 @@ class LatestNews extends Model
         'main_page_name62',
         'main_page_name63',
         'main_page_name64',
-        'main_page_name65'
+        'main_page_name65',
+        'main_page_image91',
+        'main_page_image92'
     ];
 
     public function headerNavigation()

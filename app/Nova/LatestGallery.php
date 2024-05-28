@@ -2,14 +2,15 @@
 
 namespace App\Nova;
 
-use App\Nova\Actions\DeleteLatestGallery;
-use App\Nova\Actions\EditLatestGallery;
+// use App\Nova\Actions\DeleteLatestGallery;
+// use App\Nova\Actions\EditLatestGallery;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsTo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Newsroom\Createbutton\Createbutton;
+// use Newsroom\Createbutton\Createbutton;
 
 class LatestGallery extends Resource
 {
@@ -33,8 +34,17 @@ class LatestGallery extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'main_page_name23', 'main_page_name24', 'main_page_name25', 'main_page_name81', 'main_page_name59', 'main_page_name60'
+        'id', 'main_page_name23', 'main_page_name24', 'main_page_name25', 'main_page_name81',
+         'main_page_name59', 'main_page_name60','main_page_image89', 'main_page_image90'
     ];
+
+
+    public static function search($query)
+    {
+        return static::where('main_page_name23', 'like', "%$query%")
+            ->orWhere('main_page_name24', 'like', "%$query%")
+            ->get();
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -58,6 +68,8 @@ class LatestGallery extends Resource
             Text::make('Gallery Description', 'main_page_name81')->sortable(),
             Text::make('Likes', 'main_page_name59')->sortable(),
             Text::make('Button Text', 'main_page_name60')->sortable(),
+            Image::make('Gallery Background Image', 'main_page_image89')->disk('public')->path('images'),
+            Image::make('Video Image', 'main_page_image90')->disk('public')->path('images'),
 
         ];
     }

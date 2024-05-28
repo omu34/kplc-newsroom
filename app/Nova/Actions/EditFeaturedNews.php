@@ -9,6 +9,7 @@ use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class EditFeaturedNews extends Action
@@ -30,7 +31,9 @@ class EditFeaturedNews extends Action
                 'main_page_name17' => $fields->main_page_name17,
                 'main_page_name18' => $fields->main_page_name18,
                 'main_page_name29' => $fields->main_page_name29,
-                // 'main_page_image84' => $fields->main_page_image84,
+                'main_page_image85' => $fields->main_page_image85,
+                'main_page_image86' => $fields->main_page_image86,
+
             ]);
         }
 
@@ -51,8 +54,8 @@ class EditFeaturedNews extends Action
             Text::make('Number of Views', 'main_page_name17')->sortable(),
             Text::make('Likes', 'main_page_name18')->sortable(),
             Text::make('News Description', 'main_page_name29')->sortable(),
-            // Image::make('Main Page Image 82', 'main_page_image82')->disk('public')->path('images'),
-            // Image::make('Main Page Image 83', 'main_page_image83')->disk('public')->path('images'),
+            Image::make('Background Image', 'main_page_image83')->disk('public'),
+            Image::make('Video Image', 'main_page_image85')->disk('public'),
         ];
     }
 }

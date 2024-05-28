@@ -3,11 +3,13 @@
 
     <nav class="flex lg:hidden mx-auto max-w-7xl px-10 items-center bg-white dark:bg-gray-800 py-2 justify-between " aria-label="Global">
         <div class="flex lg:flex-1">
-            <a href="/" class="-m-1.5 p-1.5">
+            <a href="H" class="-m-1.5 p-1.5">
                 <span class="sr-only">
                     {{ $page->main_page_name19 }}
                 </span>
-                <img class="h-16 w-auto" src="/logo.svg"
+                <img class="h-16 w-auto"
+                src=""
+                {{--  /logo.svg  --}}
                 {{--  src="{{ asset('storage/' . $page->main_page_image82) }}"  --}}
                  alt="">
             </a>
@@ -51,17 +53,33 @@
             <!-- loop category items -->
             <div class="flex gap-x-12 ml-auto">
 
-                <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">
+                {{--  <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">
                     {{ $page->main_page_name5 }}
-                    {{--  Alternative Energy  --}}
+                    Alternative Energy
+                </a>  --}}
+
+                <a href="{{ config('app.newsroom_base_url') }}/products/{{ $page->id }}" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white">
+                    {{ $page->main_page_name5 }}
+
                 </a>
-                <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">
+
+                {{--  <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">
                     {{ $page->main_page_name6 }}
-                    {{--  Public  --}}
+                    Public
+                </a>  --}}
+
+                <a href="{{ config('app.newsroom_base_url') }}/public/{{ $page->id }}" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white">
+                    {{ $page->main_page_name6 }}
+
                 </a>
-                <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">
+                {{--  <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">
                     {{ $page->main_page_name7 }}
-                    {{--  Stock Market  --}}
+                    Stock Market
+                </a>  --}}
+
+                <a href="{{ config('app.newsroom_base_url') }}/stock-market/{{ $page->id }}" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white">
+                    {{ $page->main_page_name7 }}                {{--  Product  --}}
+
                 </a>
 
                 <div class="flex items-center w-6 h-6 rounded-full relative" x-data="{ showAccessibility: false }" x-ref="access"  @mouseenter="showAccessibility = true" @mouseleave="showAccessibility = false" x-init="$watch('showAccessibility', value => { if (value) { $dispatch('close-other-popups', $refs.access) } })">
@@ -94,7 +112,6 @@
                                 <div class="flex 1 dark:text-slate-200">
 
                                     {{ $page->main_page_name9 }}
-                                    {{--  Increase Text  --}}
 
 
                                 </div>
@@ -146,7 +163,8 @@
                     {{--  Your Company  --}}
 
                 </span>
-                <img class="h-16 w-auto" src="/logo.svg" alt="">
+                <img class="h-16 w-auto"  src="{{ asset('storage/' . $page->main_page_image82) }}"   alt="">
+
             </a>
         </div>
         <div class="flex lg:hidden">
@@ -167,27 +185,60 @@
 
 
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
+            <a href="{{ config('app.newsroom_base_url') }}/products/{{ $page->id }}" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
+                {{ $page->main_page_name1 }}                {{--  Product  --}}
+
+            </a>
+
+
+
+            {{--  <a href="{{ config('app.live_website_url') }}/products/{{ $page->id }}" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
                 {{ $page->main_page_name1 }}
-                {{--  Product  --}}
+            </a>  --}}
 
-            </a>
-            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal  text-black">
+
+
+
+            {{--  <a href="/features" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal  text-black">
                {{ $page->main_page_name2 }}
-                {{--  Features  --}}
+                Features
+
+            </a>  --}}
+
+            <a href="{{ config('app.newsroom_base_url') }}/features/{{ $page->id }}" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
+                {{ $page->main_page_name2 }}
 
             </a>
-            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
+
+
+            {{--  <a href="/marketplace" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
                 {{ $page->main_page_name3 }}
-                {{--  Marketplace  --}}
+                Marketplace
+
+            </a>  --}}
+
+
+            <a href="{{ config('app.newsroom_base_url') }}/marketplace/{{ $page->id }}" class="text-base dark:text-black hover:underline hover:underline-offset-4 font-normal text-black">
+                {{ $page->main_page_name3 }}
 
             </a>
-            <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
-               {{ $page->main_page_name14 }}
-                {{--  Company  --}}
 
+
+            {{--  <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
+               {{ $page->main_page_name14 }}
+                Company
+
+            </a>  --}}
+
+            <a href="{{ config('app.newsroom_base_url') }}/company/{{ $page->id }}" class="text-base dark:text-black hover:underline hover:underline-offset-4 font-normal text-black">
+                {{ $page->main_page_name4 }}
             </a>
         </div>
+
+
+
+
+
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <button @click="isSearchOpen = !isSearchOpen"
                 class="flex items-center justify-center w-10 h-10 bg-[#163466] rounded-full hover:bg-gray-900 focus:outline-none focus:ring-6 focus:ring-gray-400">
@@ -197,8 +248,13 @@
                         d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
             </button>
-
         </div>
+
+
+
+
+
+
     </nav>
     </div>
 
@@ -282,7 +338,7 @@
                     Kenya Power PLC
 
                 </span>
-                <img class="h-16 w-auto" src="{{ asset('logo.svg' ) }}" alt="">
+                <img class="h-16 w-auto" src="{{asset('storage/' . $page->main_page_image82) }}" alt="">
             </a>
             <button x-on:click="isOpen = !isOpen" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-300">
                 <span class="sr-only">
@@ -331,13 +387,7 @@
         </div>
     </div>
 </div>
-
-
-
 @endforeach
-
-
-
 </div>
 
 

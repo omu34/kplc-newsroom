@@ -26,12 +26,11 @@
             @for($i = 0; $i < 4; $i++)
 
         <article  class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
-                <img src="/2.jpg"
+                <img src="{{asset('storage/' . $page->main_page_image91) }}"
                     alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
                 <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black  via-gray-900/50"></div>
                 <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
-                <img src="/blog.svg" class="absolute text-yellow top-2/3 mb-8 left-1/2 transform -translate-x-1/2 -translate-y-28 h-12 w-12 fill-white" alt="">
-                            {{--  {{ $page->main_page_name63 }}  --}}
+                <img src="{{asset('storage/' . $page->main_page_image92) }}" class="absolute text-yellow top-2/3 mb-8 left-1/2 transform -translate-x-1/2 -translate-y-28 h-12 w-12 fill-white" alt="">
 
 
                 <!-- Metadata Section -->

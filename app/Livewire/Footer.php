@@ -2,13 +2,18 @@
 
 namespace App\Livewire;
 
+// use App\Models\Currency;
 use App\Models\Footer as ModelsFooter;
+// use App\Models\QuickLinks;
 use Livewire\Component;
+use App\Models\Socials as ModelsSocials;
 
 class Footer extends Component
 {
-
+    public $socials;
+    // public $quicklinks;
     public $mainPages;
+    // public $currencys;
     public $main_page_name = [];
     public $main_page_content,$footer_id;
     public $header_navigation_id;
@@ -17,12 +22,21 @@ class Footer extends Component
     public function mount()
     {
         $this->mainPages = ModelsFooter::all();
+        // $this->quicklinks = QuickLinks::all();
+        $this->socials = ModelsSocials::all();
+        // $this->currencys = Currency::all();
     }
+
+
 
     public function render()
     {
         return view('livewire.footer', [
             'mainPages' => $this->mainPages,
+            // 'navigations' => $this->navigations,
+            'socials' => $this->socials,
+            // 'quicklinks' => $this->quicklinkss,
+
         ]);
     }
 

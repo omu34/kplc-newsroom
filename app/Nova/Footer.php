@@ -67,6 +67,15 @@ class Footer extends Resource
         'main_page_name72'
     ];
 
+    public static function search($query)
+    {
+        return static::where('main_page_name30', 'like', "%$query%")
+            ->orWhere('main_page_name31', 'like', "%$query%")
+            ->get();
+    }
+
+
+
     /**
      * Get the fields displayed by the resource.
      *

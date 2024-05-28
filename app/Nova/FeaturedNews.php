@@ -2,15 +2,16 @@
 
 namespace App\Nova;
 
-use App\Nova\Actions\DeleteFeaturedNews;
-use App\Nova\Actions\EditFeaturedNews;
+// use App\Nova\Actions\DeleteFeaturedNews;
+// use App\Nova\Actions\EditFeaturedNews;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Image;
 use Illuminate\Http\Request;
 // use kplcnewsroom\CreateButton\createbutton;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Newsroom\Createbutton\Createbutton;
+// use Newsroom\Createbutton\Createbutton;
 
 class FeaturedNews extends Resource
 {
@@ -34,8 +35,17 @@ class FeaturedNews extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'main_page_name16', 'main_page_name17', 'main_page_name18', 'main_page_name29'
+        'id', 'main_page_name16', 'main_page_name17', 'main_page_name18',
+        'main_page_name29','main_page_name83', 'main_page_name85',
+        'main_page_name86'
     ];
+
+    public static function search($query)
+    {
+        return static::where('main_page_name16', 'like', "%$query%")
+            ->orWhere('main_page_name17', 'like', "%$query%")
+            ->get();
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -57,6 +67,9 @@ class FeaturedNews extends Resource
             Text::make('Number Of Views', 'main_page_name17')->sortable(),
             Text::make('Likes', 'main_page_name18')->sortable(),
             Text::make('News Description', 'main_page_name29')->sortable(),
+            Image::make('Background Image', 'main_page_image83')->disk('public'),
+            Image::make('Video Image', 'main_page_image85')->disk('public'),
+
         ];
     }
 

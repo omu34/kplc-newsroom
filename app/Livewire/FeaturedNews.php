@@ -69,8 +69,14 @@ class FeaturedNews extends Component
             'main_page_names.main_page_name17' => 'required',
             'main_page_names.main_page_name18' => 'required',
             'main_page_names.main_page_name29' => 'required',
+            'main_page_image83' => 'required|image|max:1024',
+            'main_page_image85' => 'required|image|max:1024',
             'main_page_content' => 'required',
         ]);
+
+        $imagePath = $this->main_page_image83->store('public/images');
+        $imagePath = $this->main_page_image85->store('public/images');
+
 
         ModelsFeaturedNews::updateOrCreate(['id' => $this->featured_news_id], [
             'main_page_name12' => $this->main_page_names['main_page_name12'],
@@ -78,6 +84,8 @@ class FeaturedNews extends Component
             'main_page_name17' => $this->main_page_names['main_page_name17'],
             'main_page_name18' => $this->main_page_names['main_page_name18'],
             'main_page_name29' => $this->main_page_names['main_page_name29'],
+            'main_page_image83' => str_replace('public/', '', $imagePath),
+            'main_page_image85' => str_replace('public/', '', $imagePath),
             'main_page_content' => $this->main_page_content,
             'header_navigation_id' => $this->header_navigation_id,
         ]);
@@ -100,6 +108,8 @@ class FeaturedNews extends Component
             'main_page_name17' => $page->main_page_name17,
             'main_page_name18' => $page->main_page_name18,
             'main_page_name29' => $page->main_page_name29,
+            'main_page_name83' => $page->main_page_image83,
+            'main_page_name85' => $page->main_page_image85,
         ];
         $this->main_page_content = $page->main_page_content;
         $this->featured_news_id = $page->id;
@@ -114,4 +124,12 @@ class FeaturedNews extends Component
         session()->flash('message', 'Page Deleted Successfully.');
     }
 }
+
+
+
+
+
+
+
+
 

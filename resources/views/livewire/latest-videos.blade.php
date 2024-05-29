@@ -8,7 +8,7 @@
                 <h2 class="text-3xl font-bold tracking-tight lg:pb-0 pb-5 text-gray-900 dark:text-white sm:text-3xl">
                     {{ $page->main_page_name11 }}
                 </h2>
-                <a href=""
+                <a href="/single-blog"
                     class="text-white bg-[#163466] focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center  me-2 mb-2">
                     {{ $page->main_page_name60 }}
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -22,7 +22,7 @@
                 class="mx-auto  grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-4 lg:mx-0 lg:max-w-none lg:grid-cols-4">
 
                 @php
-                    $videos = App\Models\Blog::orderBy('created_at', 'asc')->take(4)->get();
+                    $videos = App\Models\LVideos::orderBy('created_at', 'asc')->take(4)->get();
                 @endphp
 
                 @foreach ($videos as $index => $video)
@@ -51,7 +51,7 @@
                                 </svg>
                                 <div class="flex text-white">
                                     Views {{ $video->views }}
-                                                                </div>
+                                </div>
                             </div>
                         </div>
 

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('l_news', function (Blueprint $table) {
+        Schema::create('gallaries', function (Blueprint $table) {
             $table->id();
             $table->timestamp('day')->useCurrent();
             $table->string('likes');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('l_news');
+        Schema::dropIfExists('gallaries');
     }
 };

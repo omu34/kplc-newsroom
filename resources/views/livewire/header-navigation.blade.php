@@ -53,8 +53,8 @@
                     <div class="hidden lg:flex lg:gap-x-12">
                         @foreach (App\Models\MainNavbar::limit(4)->orderBy('created_at', 'desc')->get() as $index => $mainnavbars)
                             @if ($mainnavbars->link)
-                                <a href=" {{ config('app.newsroom_base_url') }}{{ $mainnavbars->link }}{{ $page->id }}"
-                                    class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white">
+                                <a href="{{ $mainnavbars->link }}" target='_blank'
+                                    class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white ">
                                     {{ $mainnavbars->name }}
                                 </a>
                             @endif
@@ -65,14 +65,14 @@
                         @if ($topnavbar->link)
                             <a href="{{ $topnavbar->link }}"
                                 class="flex text-base items-center text-gray-800 font-bold hover:text-gray-900 py-2 px-3">  --}}
-                                {{--  @if ($link->image_path)
+                    {{--  @if ($link->image_path)
                                 <img src="{{ asset('storage/' . $link->image_path) }}" class="w-12 h-12 mr-3"
                                     alt="{{ $link->name . ' Image' }}">
                             @else
                                 <img src="{{ asset('placeholder-image.png') }}" class="w-12 h-12 mr-3"
                                     alt="Placeholder Image">
                             @endif  --}}
-                                {{--  {{ $topnavbar->name }}
+                    {{--  {{ $topnavbar->name }}
                                 @if ($topnavbar->description)
                                     <span class="text-sm text-gray-600 ml-2">{{ $topnavbars->description }}</span>
                                 @endif
@@ -90,34 +90,49 @@
                     Alternative Energy
                 </a>  --}}
 
-                    <a href="{{ config('app.newsroom_base_url') }}/products/{{ $page->id }}"
+                    {{--  <a href="{{ config('app.newsroom_base_url') }}/products/{{ $page->id }}"
                         class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white">
-                        {{--  {{ $page->main_page_name5 }}  --}}
+                        {{ $page->main_page_name5 }}
 
-                    </a>
+                    </a>  --}}
+
+
+
+                    {{--  <a href="{{ $page->link ?? $page->id }}"
+                        class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
+                        {{ $page->title ?? 'Link Title' }}
+                     </a>  --}}
+
+
+
+
 
                     {{--  <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">
                     {{ $page->main_page_name6 }}
                     Public
                 </a>  --}}
 
-                    <a href="{{ config('app.newsroom_base_url') }}/public/{{ $page->id }}"
+                    {{--  <a href="{{ config('app.newsroom_base_url') }}/public/{{ $page->id }}"
                         class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
-                        {{--  {{ $page->main_page_name6 }}  --}}
+                    </a>  --}}
 
 
-                    </a>
+
+                    {{--  <a href="{{ $page->link ?? $page->id }}"
+                        class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
+                        {{ $page->title ?? 'Link Title' }}
+                     </a>  --}}
                     {{--  <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">
                     {{ $page->main_page_name7 }}
                     Stock Market
                 </a>  --}}
 
-                    <a href="{{ config('app.newsroom_base_url') }}/stock-market/{{ $page->id }}"
-                        class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white">
-                        {{--  {{ $page->main_page_name7 }}   --}}
-                        {{--  Product  --}}
+                    {{--  <a href="{{ config('app.newsroom_base_url') }}/stock-market/{{ $page->id }}"
+                        class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white">  --}}
+                    {{--  {{ $page->main_page_name7 }}   --}}
+                    {{--  Product  --}}
 
-                    </a>
+                    {{--  </a>  --}}
 
                     <div class="flex items-center w-6 h-6 rounded-full relative" x-data="{ showAccessibility: false }" x-ref="access"
                         @mouseenter="showAccessibility = true" @mouseleave="showAccessibility = false"
@@ -219,14 +234,7 @@
             <nav :class="isSticky ? 'mt-0 px-0 shadow' : 'mt-6 px-0'"
                 class="lg:flex hidden mx-auto  max-w-7xl items-center bg-white dark:bg-black  py-2 rounded-md justify-between px-6"
                 aria-label="Global">
-
-
-
-
                 <div class="flex lg:flex-4">
-
-
-
                     {{--  <a href="/" class="-m-1.5 p-1.5">
                         <span class="sr-only">{{ $page->main_page_name19 }}</span>
                         <img class="h-16 w-auto" src="{{ asset('storage/' . $page->main_page_image82) }}" alt="">
@@ -234,15 +242,8 @@
                 </div>
 
 
-
-
-
-
-
-
-
                 <div class="flex lg:flex-1">
-                    @foreach (App\Models\QuickLinks::limit(3)->orderBy('created_at', 'asc')->get() as $index => $currencys)
+                    {{--  @foreach (App\Models\QuickLinks::limit(3)->orderBy('created_at', 'asc')->get() as $index => $currencys)
                         @if ($currencys->code)
                             <a href="{{ $currencys->code }}"
                                 class="flex text-base items-center text-gray-800 font-bold hover:text-gray-900 py-2 px-3">
@@ -256,7 +257,7 @@
                                 {{ $currencys->name }}
                             </a>
                         @endif
-                    @endforeach
+                    @endforeach  --}}
 
                     <a href="/" class="-m-1.5 p-1.5">
                         <span class="sr-only">
@@ -293,84 +294,16 @@
 
 
                 <div class="hidden lg:flex lg:gap-x-12">
-                    {{--  @foreach (App\Models\TopNavbar::limit(4)->orderBy('created_at', 'asc')->get() as $index => $topnavbars)
-                        @if ($topnavbars->link)
-                            <a href="{{ $topnavbars->link }}"
-                                class="flex text-base items-center text-gray-800 font-bold hover:text-gray-900 py-2 px-3">
-                                {{--  @if ($link->image_path)
-                                <img src="{{ asset('storage/' . $link->image_path) }}" class="w-12 h-12 mr-3" alt="{{ $link->name . ' Image' }}">
-                            @else
-                                <img src="{{ asset('placeholder-image.png') }}" class="w-12 h-12 mr-3" alt="Placeholder Image">
-                            @endif  --}}
-
-
-                            {{--  </a>
-                        @endif  --}}
-
-                        <a href="{{ config('app.newsroom_base_url') }}/products/{{ $page->id }}"
-                            class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
-                            {{--  {{ $page->main_page_name1 }}  --}}
-
-                            {{--  {{ $topnavbars->name }}  --}}
-                            {{--  Product  --}}
-
-                            <div class="hidden lg:flex lg:gap-x-12">
-                                @foreach (App\Models\TopNavbar::limit(4)->orderBy('created_at', 'desc')->get() as $index => $topnavbar)
-                                  @if ($topnavbar->link)
-                                    <a href=" {{ config('app.newsroom_base_url') }}{{ $topnavbar->link }}{{ $page->id }}" class="flex text-base items-center text-gray-800 font-bold hover:text-gray-900 py-2 px-3">
-                                      {{ $topnavbar->name }}
-                                    </a>
-                                  @endif
-                                @endforeach
-                              </div>
-
-
-                        </a>
-
-
-                        {{--  <a href="/features" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal  text-black">
-               {{ $page->main_page_name2 }}
-                Features
-
-            </a>  --}}
-
-
-
-
-                        <a href="{{ config('app.newsroom_base_url') }}/features/{{ $page->id }}"
-                            class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
-                            {{--  {{ $page->main_page_name2 }}  --}}
-                            {{--  {{ $topnavbars->name }}  --}}
-                        </a>
-
-
-                        {{--  <a href="/marketplace" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
-                {{ $page->main_page_name3 }}
-                Marketplace
-
-            </a>  --}}
-
-
-                        <a href="{{ config('app.newsroom_base_url') }}/marketplace/{{ $page->id }}"
-                            class="text-base dark:text-black hover:underline hover:underline-offset-4 font-normal text-black">
-                            {{--  {{ $page->main_page_name3 }}  --}}
-                            {{--  {{ $topnavbars->name }}  --}}
-                        </a>
-
-
-                        {{--  <a href="#" class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
-               {{ $page->main_page_name14 }}
-                Company
-
-            </a>  --}}
-
-                        <a href="{{ config('app.newsroom_base_url') }}/company/{{ $page->id }}"
-                            class="text-base dark:text-black hover:underline hover:underline-offset-4 font-normal text-black">
-                            {{--  {{ $page->main_page_name4 }}  --}}
-
-                            {{--  {{ $topnavbars->name }}  --}}
-                        </a>
-                    {{--  @endforeach  --}}
+                    <div class="hidden lg:flex lg:gap-x-12">
+                        @foreach (App\Models\TopNavbar::limit(4)->orderBy('created_at', 'desc')->get() as $index => $topnavbar)
+                            @if ($topnavbar->link)
+                                <a href="{{ $topnavbar->link }}" target='_blank'
+                                    class="flex text-base items-center text-gray-800 font-bold hover:text-gray-900 py-2 px-3">
+                                    {{ $topnavbar->name }}
+                                </a>
+                            @endif
+                        @endforeach
+                    </div>
                 </div>
 
 
@@ -397,7 +330,6 @@
                         <ul class="mt-4">
                             @foreach ($mainPages as $page)
                                 <li class="mb-2">
-
                                     @foreach ($mainPages as $page)
                                         @if ($page instanceof \App\Models\Socials)
                                             <strong>Social:</strong>

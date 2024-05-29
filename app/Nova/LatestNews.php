@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsTo;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Http\Requests\NovaRequest;
 // use Newsroom\Createbutton\Createbutton;
 
@@ -65,6 +66,8 @@ class LatestNews extends Resource
                 ->hideWhenUpdating(),
             Text::make('Latest News Title', 'main_page_name61')->sortable(),
             Text::make('Button Text ', 'main_page_name60')->sortable(),
+            Date::make(__('Day'), 'day')->nullable(),
+
             // Text::make('Date Updated', 'main_page_name62')->sortable(),
             // Text::make('Number of Views', 'main_page_name63')->sortable(),
             // Text::make('News Description', 'main_page_name64')->sortable(),

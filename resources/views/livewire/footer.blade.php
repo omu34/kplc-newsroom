@@ -37,7 +37,7 @@
 
                         @foreach (App\Models\QuickLinks::limit(8)->orderBy('created_at', 'asc')->get() as $index => $link)
                             @if ($link->url)
-                                <a href="{{ $link->url }}"
+                                <a href="{{ $link->url }}"  target="_blank"
                                     class="flex text-base items-center text-gray-800 font-bold hover:text-gray-900 py-2 px-3">
                                     @if ($link->image_path)
                                         <img src="{{ asset('storage/' . $link->image_path) }}" class="w-12 h-12 mr-3"
@@ -73,7 +73,9 @@
                                     <img src="{{ asset('placeholder-image.png') }}" class="w-12 h-12 mr-3"
                                         alt="Placeholder Image">
                                 @endif
-                                {{ $social->name }}
+                                <h3 class="text-base dark:text-white text-white  font-semibold mb-1">
+                                    {{ $social->name }}
+                                </h3>
                                 @if ($social->description)
                                     <span class="text-sm text-gray-600 ml-2">{{ $social->description }}</span>
                                 @endif
@@ -108,7 +110,7 @@
                             @endphp
 
                             @foreach ($navs as $index => $nav)
-                                <a href="{{ config('app.newsroom_base_url') }}{{ $nav->link }}{{ $page->id }}"
+                                <a href="{{ $nav->link }}" target="_blank"
                                     class="text-gray-800 dark:text-white hover:underline hover:underline-offset-4 px-2 py-1">
                                     {{ $nav->name }}
                                 </a>
@@ -129,7 +131,7 @@
                         @endphp
 
                         @foreach ($navs as $index => $nav)
-                            <a href="{{ config('app.newsroom_base_url') }}{{ $nav->link2 }}{{ $page->id }}"
+                            <a href="{{ $nav->link }}" target="_blank"
                                 class="text-gray-800 dark:text-white hover:underline hover:underline-offset-4 px-2 py-1">
                                 {{ $nav->name2 }}
                             </a>

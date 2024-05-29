@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('l_videos', function (Blueprint $table) {
             $table->id();
-            // $table->text('title');
-            $table->date('date_updated')->nullable();
+            $table->timestamp('day')->useCurrent();
             $table->string('likes');
             $table->string('views');
             $table->text('description');

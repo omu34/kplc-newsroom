@@ -15,7 +15,7 @@ class LatestGallerySeeder extends Seeder
     {
         $mainPageNames = [
             'main_page_name23' => 'Latest Gallery',
-            'main_page_name24' => 'Mar 16, 2020',
+            'day' => 'Mar 16, 2020',
             'main_page_name25' => '345 Views',
             'main_page_name81' => 'The  Summit on Clean Cooking in Africa 2024 (Paris, France)',
             'main_page_name59' => 'Test',

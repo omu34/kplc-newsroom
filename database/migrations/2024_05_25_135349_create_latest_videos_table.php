@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('header_navigation_id')->nullable()->constrained('header_navigations')->onDelete('cascade');
             $table->string('main_page_name11');
             $table->string('main_page_name60');
-            $table->string('main_page_name67');
+            $table->timestamp('day')->useCurrent();
             $table->string('main_page_name68');
             $table->string('main_page_name69');
             $table->string('main_page_name70');

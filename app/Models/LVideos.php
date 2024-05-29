@@ -10,12 +10,17 @@ class LVideos extends Model
     use HasFactory;
 
     protected $fillable=[
-        'date_updated',
+        'day',
        'views',
         'description',
         'likes',
         'image_path',
         'video_path'
 
+    ];
+
+
+    protected $casts = [
+        'day' => 'date',
     ];
 }

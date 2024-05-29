@@ -16,7 +16,7 @@ class LatestVideosSeeder extends Seeder
         $mainPageNames = [
             'main_page_name11' => 'Latest Videos',
             'main_page_name60' => 'Show Me More',
-            'main_page_name67' => 'Mar 16, 2020',
+            'day' => 'Mar 16, 2020',
             'main_page_name68' => '345 Views',
             'main_page_name69' => 'The  Summit on Clean Cooking in Africa 2024 (Paris, France)',
             'main_page_name70' => 'Test',

@@ -61,7 +61,7 @@ class LatestGalleryContent extends Resource
             Text::make('Likes', 'likes')->sortable(),
             Text::make('Views', 'views')->sortable(),
             TextArea::make('Description', 'description')->sortable(),
-            Date::make('Date updated', 'date_updated')->nullable(),
+            Date::make(__('Day'), 'day')->nullable(),
             Image::make('Image', 'image_path')->disk('public')->path('images')->sortable(),
             File::make('Video','video_path')->disk('public')->path('images')->sortable()->nullable(),
         ];

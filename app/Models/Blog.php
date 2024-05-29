@@ -11,7 +11,7 @@ class Blog extends Model
 
 
     protected $fillable=[
-        'date_updated',
+        'day',
        'views',
         'description',
         'likes',
@@ -19,4 +19,20 @@ class Blog extends Model
         'video_path'
 
     ];
+
+
+    protected $casts = [
+        'day' => 'date',
+    ];
+
+
+    public function featuredNews()
+    {
+        return $this->belongsTo(FeaturedNews::class);
+    }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', true);
+    }
 }

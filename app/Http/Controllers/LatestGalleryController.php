@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class LatestGalleryController extends Controller
 {
-    public function showVideos()
+    public function showGallaries()
     {
-        $galleries = LGallery::all();
-
-        return view('livewire.latest-gallery', compact('galleries'  ));
+        // $galleries = LGallery::all();
+        $gallaries = LGallery::orderBy('created_at', 'asc')->paginate(4);
+        return view('livewire.latest-gallery', compact('gallaries'  ));
     }
 }

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('currencies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('url');
-            $table->string('image')->nullable();
+            $table->string('code');
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }

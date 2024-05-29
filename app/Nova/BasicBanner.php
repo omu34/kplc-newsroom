@@ -59,8 +59,8 @@ class BasicBanner extends Resource
                 ->hideFromIndex()
                 ->hideWhenCreating()
                 ->hideWhenUpdating(),
-            Text::make('Basic Banner Title', 'main_page_name13')->sortable(),
-            Image::make('Basic Banner Image', 'main_page_image84')->disk('public')->path('images')->sortable(),
+            Text::make('Banner Title', 'main_page_name13')->sortable(),
+            Image::make('Banner Image', 'main_page_image84')->disk('public')->path('images')->sortable(),
         ];
     }
 

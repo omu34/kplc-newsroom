@@ -4,6 +4,9 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Text;
+
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Currency extends Resource
@@ -34,7 +37,7 @@ class Currency extends Resource
     public static function search($query)
     {
         return static::where('name', 'like', "%$query%")
-            ->orWhere('url', 'like', "%$query%")
+            ->orWhere('code', 'like', "%$query%")
             ->get();
     }
 
@@ -48,6 +51,10 @@ class Currency extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Currency name', 'name')->sortable(),
+            Text::make('Currency code', 'code')->sortable(),
+            Image::make('Currency Label', 'image_path')->disk('public')->path('images')->sortable(),
+
         ];
     }
 

@@ -34,8 +34,10 @@ class LatestNews extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'main_page_name60', 'main_page_name61', 'main_page_name62', 'main_page_name63',
-         'main_page_name64', 'main_page_name65','main_page_name91', 'main_page_name92'
+        'id', 'main_page_name60',
+         'main_page_name61',
+        // 'main_page_name62', 'main_page_name63',
+        //  'main_page_name64', 'main_page_name65','main_page_name91', 'main_page_name92'
     ];
 
     public static function search($query)
@@ -63,12 +65,12 @@ class LatestNews extends Resource
                 ->hideWhenUpdating(),
             Text::make('Latest News Title', 'main_page_name61')->sortable(),
             Text::make('Button Text ', 'main_page_name60')->sortable(),
-            Text::make('Date Updated', 'main_page_name62')->sortable(),
-            Text::make('Number of Views', 'main_page_name63')->sortable(),
-            Text::make('News Description', 'main_page_name64')->sortable(),
-            Text::make('Likes', 'main_page_name65')->sortable(),
-            Image::make('Main Page Image 91', 'main_page_image91')->disk('public')->path('images'),
-            Image::make('Main Page Image 92', 'main_page_image92')->disk('public')->path('images'),
+            // Text::make('Date Updated', 'main_page_name62')->sortable(),
+            // Text::make('Number of Views', 'main_page_name63')->sortable(),
+            // Text::make('News Description', 'main_page_name64')->sortable(),
+            // Text::make('Likes', 'main_page_name65')->sortable(),
+            // Image::make('Main Page Image 91', 'main_page_image91')->disk('public')->path('images'),
+            // Image::make('Main Page Image 92', 'main_page_image92')->disk('public')->path('images'),
         ];
     }
 

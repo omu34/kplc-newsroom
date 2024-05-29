@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Socials;
-use App\Http\Requests\StoreSocialsRequest;
-use App\Http\Requests\UpdateSocialsRequest;
+use App\Models\NavItem;
+use App\Http\Requests\StoreNavItemRequest;
+use App\Http\Requests\UpdateNavItemRequest;
 
-class SocialsController extends Controller
+class NavItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class SocialsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSocialsRequest $request)
+    public function store(StoreNavItemRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class SocialsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Socials $socials)
+    public function show(NavItem $navItem)
     {
         //
     }
@@ -43,7 +43,7 @@ class SocialsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Socials $socials)
+    public function edit(NavItem $navItem)
     {
         //
     }
@@ -51,7 +51,7 @@ class SocialsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSocialsRequest $request, Socials $socials)
+    public function update(UpdateNavItemRequest $request, NavItem $navItem)
     {
         //
     }
@@ -59,7 +59,7 @@ class SocialsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Socials $socials)
+    public function destroy(NavItem $navItem)
     {
         //
     }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Socials extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'name', 'url', 'image',
+    protected $fillable=[
+        'name','url','image_path'
     ];
 }

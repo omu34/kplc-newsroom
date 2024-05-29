@@ -34,8 +34,9 @@ class LatestGallery extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'main_page_name23', 'main_page_name24', 'main_page_name25', 'main_page_name81',
-         'main_page_name59', 'main_page_name60','main_page_image89', 'main_page_image90'
+        'id', 'main_page_name23',
+        //  'main_page_name24', 'main_page_name25', 'main_page_name81',
+        //  'main_page_name59', 'main_page_name60','main_page_image89', 'main_page_image90'
     ];
 
 
@@ -63,13 +64,13 @@ class LatestGallery extends Resource
                 ->hideWhenCreating()
                 ->hideWhenUpdating(),
             Text::make('Gallery Title', 'main_page_name23')->sortable(),
-            Text::make('Date Updated', 'main_page_name24')->sortable(),
-            Text::make('Views', 'main_page_name25')->sortable(),
-            Text::make('Gallery Description', 'main_page_name81')->sortable(),
-            Text::make('Likes', 'main_page_name59')->sortable(),
-            Text::make('Button Text', 'main_page_name60')->sortable(),
-            Image::make('Gallery Background Image', 'main_page_image89')->disk('public')->path('images'),
-            Image::make('Video Image', 'main_page_image90')->disk('public')->path('images'),
+            // Text::make('Date Updated', 'main_page_name24')->sortable(),
+            // Text::make('Views', 'main_page_name25')->sortable(),
+            // Text::make('Gallery Description', 'main_page_name81')->sortable(),
+            // Text::make('Likes', 'main_page_name59')->sortable(),
+            // Text::make('Button Text', 'main_page_name60')->sortable(),
+            // Image::make('Gallery Background Image', 'main_page_image89')->disk('public')->path('images'),
+            // Image::make('Video Image', 'main_page_image90')->disk('public')->path('images'),
 
         ];
     }

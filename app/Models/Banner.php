@@ -11,7 +11,7 @@ class Banner extends Model
     use HasFactory,HasApiTokens;
 
     protected $fillable = [
-        'main_page_names13',
+        // 'main_page_names13',
         'main_page_image84'
     ];
 

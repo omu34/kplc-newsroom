@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('media', function (Blueprint $table) {
+        Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->string('file_path');
-            $table->string('location');
+            $table->date('date_updated')->nullable();
+            $table->string('likes');
+            $table->string('views');
+            $table->text('description');
+            $table->string('image_path');
+            $table->string('video_path');
             $table->timestamps();
         });
     }
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('media');
+        Schema::dropIfExists('blogs');
     }
 };

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('top_navbars', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('url');
+            $table->string('link');
             $table->timestamps();
         });
     }

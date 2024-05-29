@@ -51,17 +51,14 @@ class Socials extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Name')->rules('required', 'max:255'),
+            Text::make('URL')->rules('required', 'url', 'max:255'),
+            Image::make('image', 'image_path')->disk('public')->path('images')->sortable(),
 
-            Text::make('Name')
-                ->rules('required', 'max:255'),
-
-            Text::make('URL')
-                ->rules('required', 'url', 'max:255'),
-
-            Image::make('Image')
-                ->disk('public')
-                ->path('social-images')
-                ->rules('nullable', 'image', 'max:1024'),
+            // Image::make('Image')
+            //     ->disk('public')
+            //     ->path('social-images')
+            //     ->rules('nullable', 'image_path', 'max:1024'),
         ];
     }
 

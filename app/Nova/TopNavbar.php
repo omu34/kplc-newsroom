@@ -5,6 +5,8 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Text;
 
 class TopNavbar extends Resource
 {
@@ -35,7 +37,7 @@ class TopNavbar extends Resource
     public static function search($query)
     {
         return static::where('name', 'like', "%$query%")
-            ->orWhere('url', 'like', "%$query%")
+            ->orWhere('link', 'like', "%$query%")
             ->get();
     }
 
@@ -49,6 +51,8 @@ class TopNavbar extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Nav name', 'name')->sortable(),
+            Text::make('link', 'link')->sortable(),
         ];
     }
 

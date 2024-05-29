@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TopNavbar;
-use App\Http\Requests\StoreTopNavbarRequest;
-use App\Http\Requests\UpdateTopNavbarRequest;
+use App\Models\Column;
+use App\Http\Requests\StoreColumnRequest;
+use App\Http\Requests\UpdateColumnRequest;
 
-class TopNavbarController extends Controller
+class ColumnController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class TopNavbarController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTopNavbarRequest $request)
+    public function store(StoreColumnRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class TopNavbarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TopNavbar $topNavbar)
+    public function show(Column $column)
     {
         //
     }
@@ -43,7 +43,7 @@ class TopNavbarController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TopNavbar $topNavbar)
+    public function edit(Column $column)
     {
         //
     }
@@ -51,7 +51,7 @@ class TopNavbarController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTopNavbarRequest $request, TopNavbar $topNavbar)
+    public function update(UpdateColumnRequest $request, Column $column)
     {
         //
     }
@@ -59,7 +59,7 @@ class TopNavbarController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TopNavbar $topNavbar)
+    public function destroy(Column $column)
     {
         //
     }

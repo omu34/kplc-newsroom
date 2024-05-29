@@ -11,6 +11,6 @@ class QuickLinks extends Model
     use HasFactory,HasApiTokens;
 
     protected $fillable=[
-
+        'name','url','image_path'
     ];
 }

@@ -35,9 +35,10 @@ class LatestVideos extends Resource
      * @var array
      */
     public static $search = [
-        'id','main_page_name11', 'main_page_name60', 'main_page_name67',
-        'main_page_name68', 'main_page_name69', 'main_page_name70',
-        'main_page_name88', 'main_page_name87'
+        'id','main_page_name11', 'main_page_name60',
+        // 'main_page_name67',
+        // 'main_page_name68', 'main_page_name69', 'main_page_name70',
+        // 'main_page_name88', 'main_page_name87'
     ];
 
     public static function search($query)
@@ -65,12 +66,12 @@ class LatestVideos extends Resource
                 ->hideWhenUpdating(),
             Text::make('Latest Videos Title', 'main_page_name11')->sortable(),
             Text::make('Button Text', 'main_page_name60')->sortable(),
-            Text::make('Date Updated', 'main_page_name67')->sortable(),
-            Text::make('Number of Views', 'main_page_name68')->sortable(),
-            Text::make('Video Description', 'main_page_name69')->sortable(),
-            Text::make('Likes', 'main_page_name70')->sortable(),
-            Image::make('Background Image', 'main_page_image88')->disk('public'),
-            Image::make('Video Image', 'main_page_image87')->disk('public'),
+            // Text::make('Date Updated', 'main_page_name67')->sortable(),
+            // Text::make('Number of Views', 'main_page_name68')->sortable(),
+            // Text::make('Video Description', 'main_page_name69')->sortable(),
+            // Text::make('Likes', 'main_page_name70')->sortable(),
+            // Image::make('Background Image', 'main_page_image88')->disk('public'),
+            // Image::make('Video Image', 'main_page_image87')->disk('public'),
         ];
     }
 

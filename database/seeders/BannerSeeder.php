@@ -15,7 +15,7 @@ class BannerSeeder extends Seeder
     {
 
        $mainPageNames = [
-            'main_page_name13' => 'KPLC Newsroom',
+            // 'main_page_name13' => 'KPLC Newsroom',
             'main_page_image84' => 'images/test-1.jpg',
         ];
 

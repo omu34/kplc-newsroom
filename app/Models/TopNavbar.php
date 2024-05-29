@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class TopNavbar extends Model
 {
     use HasFactory;
+
+    protected $fillable=[
+        'name','link'
+    ];
 }

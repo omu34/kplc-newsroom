@@ -58,6 +58,7 @@ class LatestNews extends Component
             'main_page_name60' => '',
             'main_page_name61' => '',
             'main_page_name62' => '',
+
             'main_page_name63' => '',
             'main_page_name64' => '',
             'main_page_name65' => '',

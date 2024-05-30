@@ -7,9 +7,12 @@ use App\Models\FeaturedNews;
 use App\Models\MainPage;
 use Illuminate\Http\Request;
 use Carbon\CarbonTimeZone;
+use Livewire\WithPagination;
 
 class FeaturedNewsController extends Controller
 {
+
+    use WithPagination;
     // public function showFeature()
     // {
     //     // $blogs = Blog::orderBy('created_at', 'asc')->select('id')->paginate(4);

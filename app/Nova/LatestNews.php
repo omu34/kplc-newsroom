@@ -66,9 +66,9 @@ class LatestNews extends Resource
                 ->hideWhenUpdating(),
             Text::make('Latest News Title', 'main_page_name61')->sortable(),
             Text::make('Button Text ', 'main_page_name60')->sortable(),
-            Date::make(__('Day'), 'day')->nullable(),
+            // Date::make(__('Day'), 'day')->nullable(),
 
-            // Text::make('Date Updated', 'main_page_name62')->sortable(),
+            Text::make('Date Updated', 'main_page_name62')->sortable(),
             // Text::make('Number of Views', 'main_page_name63')->sortable(),
             // Text::make('News Description', 'main_page_name64')->sortable(),
             // Text::make('Likes', 'main_page_name65')->sortable(),

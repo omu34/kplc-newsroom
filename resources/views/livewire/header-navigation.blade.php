@@ -53,7 +53,7 @@
                     <div class="hidden lg:flex lg:gap-x-12">
                         @foreach (App\Models\MainNavbar::limit(4)->orderBy('created_at', 'desc')->get() as $index => $mainnavbars)
                             @if ($mainnavbars->link)
-                                <a href="{{ $mainnavbars->link }}" target='_blank'
+                                <a href="https://www.{{ $mainnavbars->link }}" target='_blank'
                                     class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white ">
                                     {{ $mainnavbars->name }}
                                 </a>
@@ -128,11 +128,11 @@
                 </a>  --}}
 
                     {{--  <a href="{{ config('app.newsroom_base_url') }}/stock-market/{{ $page->id }}"
-                        class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white">  --}}
-                    {{--  {{ $page->main_page_name7 }}   --}}
+                        class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white">
+                    {{ $page->main_page_name7 }}--}}
                     {{--  Product  --}}
 
-                    {{--  </a>  --}}
+                {{--  </a>  --}}
 
                     <div class="flex items-center w-6 h-6 rounded-full relative" x-data="{ showAccessibility: false }" x-ref="access"
                         @mouseenter="showAccessibility = true" @mouseleave="showAccessibility = false"

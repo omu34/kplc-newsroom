@@ -64,7 +64,7 @@
                 <div class="grid grid-cols-2 mx-auto text-center sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-5">
                     @foreach (App\Models\Socials::limit(8)->orderBy('created_at', 'asc')->get() as $index => $social)
                         @if ($social->url)
-                            <a href="{{ $social->url }}"
+                            <a href="https://www.{{ $social->url }}"
                                 class="flex text-base items-center text-gray-800 font-bold hover:text-gray-900 py-2 px-3">
                                 @if ($social->image_path)
                                     <img src="{{ asset('storage/' . $social->image_path) }}" class="w-12 h-12 mr-3"

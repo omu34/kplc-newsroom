@@ -64,7 +64,7 @@ class LatestGallery extends Resource
                 ->hideWhenCreating()
                 ->hideWhenUpdating(),
             Text::make('Gallery Title', 'main_page_name23')->sortable(),
-            // Text::make('Date Updated', 'main_page_name24')->sortable(),
+            Text::make('Date Updated', 'main_page_name24')->sortable(),
             // Text::make('Views', 'main_page_name25')->sortable(),
             // Text::make('Gallery Description', 'main_page_name81')->sortable(),
             // Text::make('Likes', 'main_page_name59')->sortable(),

@@ -66,7 +66,7 @@ class LatestVideos extends Resource
                 ->hideWhenUpdating(),
             Text::make('Latest Videos Title', 'main_page_name11')->sortable(),
             Text::make('Button Text', 'main_page_name60')->sortable(),
-            // Text::make('Date Updated', 'main_page_name67')->sortable(),
+            Text::make('Date Updated', 'main_page_name67')->sortable(),
             // Text::make('Number of Views', 'main_page_name68')->sortable(),
             // Text::make('Video Description', 'main_page_name69')->sortable(),
             // Text::make('Likes', 'main_page_name70')->sortable(),

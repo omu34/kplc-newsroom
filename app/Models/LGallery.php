@@ -12,6 +12,7 @@ class LGallery extends Model
     protected $fillable=[
         'day',
        'views',
+       'link',
         'description',
         'likes',
         'image_path',

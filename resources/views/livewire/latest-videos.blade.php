@@ -26,8 +26,11 @@
                 @endphp
 
                 @foreach ($videos as $index => $video)
+                @if ($video->link)
                     <article
                         class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
+                        <a href="{{ url('/single-blog', ) }}" class="absolute inset-0 z-10"></a>
+
                         <img src="{{ asset('storage/' . $video->image_path) }}" alt=""
                             class="absolute inset-0 -z-10 h-full w-full object-cover">
                         <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black  via-gray-900/50"></div>
@@ -38,8 +41,8 @@
                         <!-- Metadata Section -->
                         <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-base leading-6 text-white">
                             <time datetime="2020-03-16" class="text-white mr-6">
-                                @if ($video->date_updated)
-                                    {{ \Carbon\Carbon::parse($video->date_updated)->format('M d, Y') }}
+                                @if ($video->day)
+                                    {{ \Carbon\Carbon::parse($video->day)->format('M d, Y') }}
                                 @else
                                     N/A
                                 @endif
@@ -80,6 +83,7 @@
                             </div>
                         </div>
                     </article>
+                    @endif
                 @endforeach
                 <!-- More posts... -->
             </div>

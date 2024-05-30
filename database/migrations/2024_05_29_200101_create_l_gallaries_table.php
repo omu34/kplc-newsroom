@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamp('day')->useCurrent();
             $table->string('likes');
+            $table->string('link');
+
             $table->string('views');
             $table->text('description');
             $table->string('image_path');

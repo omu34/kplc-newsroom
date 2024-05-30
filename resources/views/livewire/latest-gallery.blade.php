@@ -8,7 +8,7 @@
                 <h2 class="text-3xl font-bold tracking-tight lg:pb-0 pb-5 text-gray-900 dark:text-white sm:text-3xl">
                     {{ $page->main_page_name23 }}
                 </h2>
-                <a href=""
+                <a href="/gallery"
                     class="text-white bg-[#163466] focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center  me-2 mb-2">
                     {{ $page->main_page_name60 }}
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -28,6 +28,9 @@
 
                     <article
                         class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
+                        <a href="{{ url('/single-blog', ) }}" class="absolute inset-0 z-10"></a>
+
+
                         <img src="{{ asset('storage/' . $gallery->image_path) }}" alt=""
                             class="absolute inset-0 -z-10 h-full w-full object-cover">
                         <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black  via-gray-900/50"></div>
@@ -35,13 +38,11 @@
                         <img src="{{ asset('storage/' . $gallery->video_path) }}"
                             class="absolute text-yellow top-2/3 mb-8 left-1/2 transform -translate-x-1/2 -translate-y-28 h-12 w-12 fill-white"
                             alt="">
-
-
                         <!-- Metadata Section -->
                         <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-base leading-6 text-white">
                             <time datetime="2020-03-16" class="text-white mr-6">
-                                @if ($gallery->date_updated)
-                                    {{ \Carbon\Carbon::parse($gallery->date_updated)->format('M d, Y') }}
+                                @if ($gallery->day)
+                                    {{ \Carbon\Carbon::parse($gallery->day)->format('M d, Y') }}
                                 @else
                                     N/A
                                 @endif
@@ -82,6 +83,7 @@
                             </div>
                         </div>
                     </article>
+                    {{--  @endif  --}}
                 @endforeach
                 <!-- More posts... -->
             </div>

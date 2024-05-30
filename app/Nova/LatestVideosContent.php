@@ -34,8 +34,9 @@ class LatestVideosContent extends Resource
      */
     public static $search = [
         'id',
-        'date_updated',
+        'day',
        'likes',
+       'day','link',
         'views',
         'description',
         'image_path',
@@ -45,7 +46,7 @@ class LatestVideosContent extends Resource
 
     public static function search($query)
     {
-        return static::where('date_updated', 'like', "%$query%")
+        return static::where('day', 'like', "%$query%")
             ->orWhere('description', 'like', "%$query%")
             ->get();
     }
@@ -62,8 +63,9 @@ class LatestVideosContent extends Resource
             ID::make()->sortable(),
             Text::make('Likes', 'likes')->sortable(),
             Text::make('Views', 'views')->sortable(),
+            Text::make('Link', 'link')->sortable(),
             TextArea::make('Description', 'description')->sortable(),
-            Date::make(__('Day'), 'day')->nullable(),
+            Date::make(__('Date'), 'day')->nullable(),
             Image::make('Image', 'image_path')->disk('public')->path('images')->sortable(),
             File::make('Video','video_path')->disk('public')->path('images')->sortable()->nullable(),
 

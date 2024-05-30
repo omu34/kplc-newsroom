@@ -1,4 +1,4 @@
-{{--  @php
+@php
     use Carbon\Carbon;
 @endphp
 <div class="bg-white dark:bg-gray-950 py-12 sm:py-16">
@@ -10,15 +10,9 @@
                     <h2 class="text-3xl font-bold tracking-tight lg:pb-0 pb-5 text-gray-900 dark:text-white sm:text-3xl">
                         {{ $page->main_page_name12 }}
                     </h2>
-                    <a href="/single-blog"
-                        class="text-white bg-[#163466] focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center  me-2 mb-2">
-                        {{ $page->main_page_name60 }}
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                        </svg>
-                    </a>
                 </div>
+
+
                 <div
                     class="mx-auto grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-4 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                     @php
@@ -28,6 +22,8 @@
                     @foreach ($blogs->take(4) as $blog)
                         <article
                             class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
+                            <a href="{{ url('/single-blog', ) }}" class="absolute inset-0 z-10"></a>
+                            {{--  $blog->id  --}}
                             <img src="{{ asset('storage/' . $blog->image_path) }}" alt=""
                                 class="absolute inset-0 -z-10 h-full w-full object-cover">
                             <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black via-gray-900/50"></div>
@@ -42,8 +38,8 @@
                                 class="flex flex-wrap items-center gap-y-1 overflow-hidden text-base leading-6 text-white">
 
                                 <time datetime=" " class="text-white mr-6">
-                                    @if ($blog->date_updated)
-                                        {{ \Carbon\Carbon::parse($blog->date_updated)->format('M d, Y') }}
+                                    @if ($blog->day)
+                                        {{ \Carbon\Carbon::parse($blog->day)->format('M d, Y') }}
                                     @else
                                         N/A
                                     @endif
@@ -87,19 +83,33 @@
                 </div>
             </div>
         </div>
-        <div class="mt-4">
-            @foreach ($blogs as $blog)
-                <a href="/single-blog">Read More</a>
-            @endforeach
-        </div>
+        @endforeach
 </div>
-@endforeach
-
-</div>  --}}
 
 
 
-<div class="bg-white dark:bg-gray-950 py-12 sm:py-16">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{--  <div class="bg-white dark:bg-gray-950 py-12 sm:py-16">
 
     @forelse ($mainPages->take(4) as $page)
         <div class="mx-auto lg:px-0 px-4 max-w-7xl">
@@ -108,14 +118,14 @@
                     <h2 class="text-3xl font-bold tracking-tight lg:pb-0 pb-5 text-gray-900 dark:text-white sm:text-3xl">
                         {{ $page->main_page_name12 }}
                     </h2>
-                    {{--  <a href="/single-blog"
+                    <a href="/single-blog"
                         class="text-white bg-[#163466] focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center  me-2 mb-2">
                         {{ $page->main_page_name60 }}
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                         </svg>
-                    </a>  --}}
+                    </a>
                 </div>
 
                 <div
@@ -127,7 +137,6 @@
 
 
                     @foreach ($blogs->take(4) as $blog)
-                        {{--  <a href="/" target='_blank'>  --}}
                         <article
                             class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
                             <img src="{{ asset('storage/' . $blog->image_path) }}" alt=""
@@ -178,7 +187,6 @@
                                 </div>
                             </div>
                         </article>
-                        {{--  </a>  --}}
                     @endforeach
                 </div>
                 </a>
@@ -196,10 +204,10 @@
             <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">More Pages</h2>
             @foreach ($extraPages as $page)
                 <a href="/single-blog" class="block mt-2 text-lg text-blue-600 dark:text-blue-400">
-                    {{--  {{ $page->main_page_name12 }}  --}} single
+                    {{ $page->main_page_name12 }}
                 </a>
             @endforeach
         @endif
     </div>
 
-</div>
+</div>  --}}

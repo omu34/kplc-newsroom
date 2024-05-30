@@ -14,7 +14,7 @@ class FeaturedNewsSeeder extends Seeder
     public function run(): void
     {
         $mainPageNames = [
-            'main_page_name12' => 'Featured News',
+            'main_page_name12' => 'Featured',
             'day' => 'Mar 16, 2020',
             'main_page_name17' => '345 Views',
             'main_page_name18' => 'test',

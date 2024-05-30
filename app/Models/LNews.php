@@ -10,8 +10,10 @@ class LNews extends Model
     use HasFactory;
 
     protected $fillable=[
+        'link',
         'day',
        'views',
+       'link',
         'description',
         'likes',
         'image_path',

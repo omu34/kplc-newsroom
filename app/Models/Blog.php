@@ -11,10 +11,11 @@ class Blog extends Model
 
 
     protected $fillable=[
-        'day',
+        'date',
        'views',
         'description',
         'likes',
+        'link',
         'image_path',
         'video_path'
 

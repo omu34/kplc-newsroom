@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('l_news', function (Blueprint $table) {
             $table->id();
+            $table->string('link');
             $table->timestamp('day')->useCurrent();
             $table->string('likes');
             $table->string('views');

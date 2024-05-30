@@ -10,7 +10,7 @@
                     {{ $page->main_page_name61 }}
                     {{--  Latest News  --}}
                 </h2>
-                <a href=""
+                <a href="/news"
                     class="text-white bg-[#163466] focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center  me-2 mb-2">
                     {{ $page->main_page_name60 }}
                     {{--  Show Me More  --}}
@@ -28,8 +28,12 @@
                 @endphp
 
                 @foreach ($news as $index => $new)
+                {{--  @if ($new->link)  --}}
                     <article
                         class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
+
+                        <a href="{{ url('/single-blog', ) }}" class="absolute inset-0 z-10"></a>
+
                         <img src="{{ asset('storage/' . $new->image_path) }}" alt=""
                             class="absolute inset-0 -z-10 h-full w-full object-cover">
                         <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black  via-gray-900/50"></div>
@@ -40,8 +44,8 @@
                         <!-- Metadata Section -->
                         <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-base leading-6 text-white">
                             <time datetime="2020-03-16" class="text-white mr-6">
-                                @if ($new->date_updated)
-                                    {{ \Carbon\Carbon::parse($new->date_updated)->format('M d, Y') }}
+                                @if ($new->day)
+                                    {{ \Carbon\Carbon::parse($new->day)->format('M d, Y') }}
                                 @else
                                     N/A
                                 @endif
@@ -81,6 +85,7 @@
                             </div>
                         </div>
                     </article>
+                    {{--  @endif  --}}
                 @endforeach
                 <!-- More posts... -->
             </div>

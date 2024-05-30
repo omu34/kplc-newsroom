@@ -33,8 +33,10 @@ class LatestNewsContent extends Resource
      * @var array
      */
     public static $search = [
-        'id','date_updated',
+        'id',
+        'date',
         'likes',
+        'link',
          'views',
          'description',
          'image_path',
@@ -42,7 +44,7 @@ class LatestNewsContent extends Resource
     ];
     public static function search($query)
     {
-        return static::where('date_updated', 'like', "%$query%")
+        return static::where('link', 'like', "%$query%")
             ->orWhere('description', 'like', "%$query%")
             ->get();
     }
@@ -59,9 +61,11 @@ class LatestNewsContent extends Resource
             ID::make()->sortable(),
             Text::make('Likes', 'likes')->sortable(),
             Text::make('Views', 'views')->sortable(),
+            Text::make('Link', 'link')->sortable(),
+
             TextArea::make('Description', 'description')->sortable(),
             Date::make(__('Day'), 'day')->nullable(),
-                        Image::make('Image', 'image_path')->disk('public')->path('images')->sortable(),
+            Image::make('Image', 'image_path')->disk('public')->path('images')->sortable(),
             File::make('Video','video_path')->disk('public')->path('images')->sortable()->nullable(),
         ];
     }

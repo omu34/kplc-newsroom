@@ -53,12 +53,16 @@
                     <div class="hidden lg:flex lg:gap-x-12">
                         @foreach (App\Models\MainNavbar::limit(4)->orderBy('created_at', 'desc')->get() as $index => $mainnavbars)
                             @if ($mainnavbars->link)
-                                <a href="https://www.{{ $mainnavbars->link }}" target='_blank'
+                            {{--  https://www.  --}}
+                                <a href="{{ $mainnavbars->link }}" target='_blank'
                                     class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white ">
                                     {{ $mainnavbars->name }}
                                 </a>
                             @endif
                         @endforeach
+
+
+
                     </div>
 
                     {{--  @foreach (App\Models\TopNavbar::limit(3)->orderBy('created_at', 'asc')->get() as $index => $topnavbar)

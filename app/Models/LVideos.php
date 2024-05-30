@@ -14,6 +14,7 @@ class LVideos extends Model
        'views',
         'description',
         'likes',
+        'link',
         'image_path',
         'video_path'
 

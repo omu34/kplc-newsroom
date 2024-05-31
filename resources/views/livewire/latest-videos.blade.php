@@ -35,9 +35,14 @@
                             class="absolute inset-0 -z-10 h-full w-full object-cover">
                         <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black  via-gray-900/50"></div>
                         <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
-                        <img src="{{ asset('storage/' . $video->video_path) }}"
+                        {{--  <img src="{{ asset('storage/' . $video->video_path) }}"
                             class="absolute text-yellow top-2/3 mb-8 left-1/2 transform -translate-x-1/2 -translate-y-28 h-12 w-12 fill-white"
-                            alt="">
+                            alt="">  --}}
+                            <a href="{{ $video->link }}">  
+                                <video width="320" height="240" autoplay muted>  <source src="{{ asset('storage/' . $video->video_path) }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                              </video>
+                            </a>
                         <!-- Metadata Section -->
                         <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-base leading-6 text-white">
                             <time datetime="2020-03-16" class="text-white mr-6">

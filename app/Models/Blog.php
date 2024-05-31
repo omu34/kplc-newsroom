@@ -11,7 +11,7 @@ class Blog extends Model
 
 
     protected $fillable=[
-        'date',
+        'day',
        'views',
         'description',
         'likes',

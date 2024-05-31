@@ -36,7 +36,7 @@ class LatestGalleryContent extends Resource
         'id','day',
         'likes',
          'views',
-'link',
+            'link',
          'description',
          'image_path',
          'video_path'

@@ -22,7 +22,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
     protected function resources()
     {
-        Nova::resources([
+        $resources = [
             \App\Nova\HeaderNavigation::class,
             \App\Nova\BasicBanner::class,
             \App\Nova\FeaturedNews::class,
@@ -35,19 +35,22 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             \App\Nova\Footer::class,
             \App\Nova\Socials::class,
             \App\Nova\Currency::class,
-            \App\Nova\FeaturedNews::class,
-            \App\Nova\FeaturedNewsContent::class,
             \App\Nova\FooterColumn::class,
             \App\Nova\FooterNavItem::class,
-            \App\Nova\LatestVideosContent::class,
-            \App\Nova\LatestNewsContent::class,
-            \App\Nova\LatestGalleryContent::class,
+            // \App\Nova\LatestVideosContent::class,
+            // \App\Nova\LatestNewsContent::class,
+            // \App\Nova\LatestGalleryContent::class,
             \App\Nova\QuickLinks::class,
             \App\Nova\TopNavbar::class,
             \App\Nova\MainTopNavbar::class,
             \App\Nova\GlobalSearch::class,
+        ];
 
-        ]);
+        foreach ($resources as $resource) {
+            if (class_exists($resource)) {
+                Nova::resources([$resource]);
+            }
+        }
     }
 
     /**

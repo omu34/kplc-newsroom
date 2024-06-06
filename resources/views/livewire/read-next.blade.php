@@ -1,5 +1,5 @@
 <div class="bg-white dark:bg-gray-950 bg-center pb-12 py-8 sm:pb-6">
-    @foreach ($mainPages as $page)
+    @foreach ($news as $new)
 
     <div class="mx-auto lg:px-0 px-10 max-w-7xl">
 
@@ -16,9 +16,13 @@
                     <!-- Metadata Section -->
                     <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-base leading-6 text-white">
                         <time datetime="2020-03-16" class="text-white mr-6">
-                            {{--  {{ $page->main_page_name70 }}  --}}
+                            @if ($new->day)
+                            {{ \Carbon\Carbon::parse($new->day)->format('M d, Y') }}
+                        @else
+                            N/A
+                        @endif
 
-                            Mar 16, 2020
+                            {{--  Mar 16, 2020  --}}
 
                         </time>
                         <div class="-ml-4 flex items-center gap-x-2">
@@ -27,8 +31,9 @@
                             </svg>
                             <div class="flex text-white">
 
- {{--  {{ $page->main_page_name70 }}  --}}
-                                345 Views
+                              {{$new->views}}
+
+                                {{--  345 Views  --}}
 
 
                             </div>
@@ -40,8 +45,8 @@
                         <a href="/single-blog">
                             <span class="absolute inset-0"></span>
 
- {{--  {{ $page->main_page_name70 }}  --}}
-                            The Summit on Clean Cooking in Africa 2024 (Paris, France)
+                           {{$new->description}}
+                                                      {{--  The Summit on Clean Cooking in Africa 2024 (Paris, France)  --}}
 
 
                         </a>
@@ -59,7 +64,7 @@
                         <div class="-ml-4 flex items-center gap-x-2">
 
                             <div class="flex text-white gap-x-2">
-                                
+
                                  {{--  {{ $page->main_page_name70 }}  --}}
                                 Test
 

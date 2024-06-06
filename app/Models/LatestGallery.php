@@ -8,23 +8,29 @@ use Laravel\Sanctum\HasApiTokens;
 
 class LatestGallery extends Model
 {
-    use HasFactory,HasApiTokens;
+    use HasFactory, HasApiTokens;
 
     protected $fillable = [
-        'main_page_id',
-        'main_page_name23',
-        'main_page_name24',
-        'main_page_name25',
-        'main_page_name81',
-        'main_page_name59',
-        'main_page_name60',
-        'main_page_image89',
-        'main_page_image90',
+
+        'day',
+        'views',
+        'description',
+        'likes',
+        'link',
+        'file',
+
     ];
 
-    // Define the relationship with HeaderNavigation
-    public function headerNavigation()
+    protected $casts = [
+        'day' => 'date',
+    ];
+
+    public function files()
     {
-        return $this->belongsTo(HeaderNavigation::class, 'main_page_id');
+        if (!$this->exists) {
+            return collect();
+        }
+
+        return $this->morphMany(File::class, 'fileable');
     }
 }

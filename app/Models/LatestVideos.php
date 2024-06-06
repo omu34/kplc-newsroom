@@ -10,18 +10,23 @@ class LatestVideos extends Model
     use HasFactory;
 
     protected $fillable = [
-        'main_page_id',
-        'main_page_name11',
-        'main_page_name60',
-        'main_page_name67',
-        'main_page_name68',
-        'main_page_name69',
-        'main_page_name70',
-        'main_page_image88',
-        'main_page_image87',
+        'day',
+        'views',
+        'description',
+        'likes',
+        'link',
+        'file',
     ];
-    public function headerNavigation()
+    protected $casts = [
+        'day' => 'date',
+    ];
+
+    public function files()
     {
-        return $this->belongsTo(HeaderNavigation::class);
+        if (!$this->exists) {
+            return collect();
+        }
+
+        return $this->morphMany(File::class, 'fileable');
     }
 }

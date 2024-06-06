@@ -6,7 +6,9 @@ namespace App\Nova;
 // use App\Nova\Actions\EditLatestGallery;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\BelongsTo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -34,16 +36,22 @@ class LatestGallery extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'main_page_name23',
-        //  'main_page_name24', 'main_page_name25', 'main_page_name81',
-        //  'main_page_name59', 'main_page_name60','main_page_image89', 'main_page_image90'
+        'id',
+        'main_page_name23',
+        'button_text',
+        'date',
+        'likes',
+        'link',
+        'views',
+        'description',
+        'file'
     ];
 
 
     public static function search($query)
     {
         return static::where('main_page_name23', 'like', "%$query%")
-            ->orWhere('main_page_name24', 'like', "%$query%")
+            ->orWhere('description', 'like', "%$query%")
             ->get();
     }
 
@@ -57,20 +65,13 @@ class LatestGallery extends Resource
     {
         return [
             ID::make()->sortable(),
-            // BelongsTo::make('Header Navigation', 'headerNavigation', \App\Nova\HeaderNavigation::class)->sortable(),
-            BelongsTo::make('Header Navigation', 'headerNavigation', \App\Nova\HeaderNavigation::class)
-                ->sortable()
-                ->hideFromIndex()
-                ->hideWhenCreating()
-                ->hideWhenUpdating(),
-            Text::make('Gallery Title', 'main_page_name23')->sortable(),
-            Text::make('Date Updated', 'main_page_name24')->sortable(),
-            // Text::make('Views', 'main_page_name25')->sortable(),
-            // Text::make('Gallery Description', 'main_page_name81')->sortable(),
-            // Text::make('Likes', 'main_page_name59')->sortable(),
-            // Text::make('Button Text', 'main_page_name60')->sortable(),
-            // Image::make('Gallery Background Image', 'main_page_image89')->disk('public')->path('images'),
-            // Image::make('Video Image', 'main_page_image90')->disk('public')->path('images'),
+            Date::make(__('Date'), 'day')->nullable(),
+            Text::make('Link', 'link')->sortable(),
+            Text::make('Button Text', 'button_text')->sortable(),
+            Text::make('Likes', 'likes')->sortable(),
+            Text::make('Views', 'views')->sortable(),
+            TextArea::make('Description', 'description')->sortable(),
+            File::make('File', 'file')->disk('public')->path('images')->sortable()->nullable(),
 
         ];
     }

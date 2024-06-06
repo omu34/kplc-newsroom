@@ -12,6 +12,11 @@ class MainNavbarSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+      $mainNavs=[
+        'name' =>'name',
+        'link'=>'link'
+      ];
+      $mainNavData =  $mainNavs;
+      \App\Models\MainNavbar::insert($mainNavData);
     }
 }

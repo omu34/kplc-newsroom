@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('breadcrumbs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('header_navigation_id')->nullable()->constrained('header_navigations')->onDelete('cascade');
-            $table->string('main_page_name26');
-            $table->string('main_page_name27');
-            $table->string('main_page_name28');
-            $table->text('main_page_content')->nullable();
+            $table->string('breadcrumb1');
+            $table->string('breadcrumb2');
+            $table->text('breadcrumb_content')->nullable();
 
             $table->timestamps();
         });

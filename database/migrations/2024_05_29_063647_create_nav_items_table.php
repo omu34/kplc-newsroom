@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('nav_items', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('footer_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('name2');
             $table->string('link');

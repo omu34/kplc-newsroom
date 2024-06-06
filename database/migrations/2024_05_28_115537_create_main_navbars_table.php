@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('main_navbars', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('day')->useCurrent();
-            $table->string('likes');
+            $table->foreignId('header_navigation_id')->nullable()->constrained()->onDelete('cascade');
+
+            $table->string('name');
             $table->string('link');
-            $table->string('views');
-            $table->text('description');
-            $table->string('image_path');
-            $table->string('video_path');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('main_navbars');
     }
 };

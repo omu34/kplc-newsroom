@@ -10,6 +10,7 @@ class Column extends Model
 {
     use HasFactory, HasApiTokens;
     protected $fillable=[
-        'name','name2'
+        'name',
+        'name2'
     ];
 }

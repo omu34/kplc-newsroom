@@ -1,5 +1,6 @@
 <x-app-layout>
     <div>
+
         <livewire:basic-banner/>
         <livewire:featured-news/>
         <livewire:latest-videos/>

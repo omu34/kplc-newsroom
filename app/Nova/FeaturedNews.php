@@ -2,16 +2,14 @@
 
 namespace App\Nova;
 
-// use App\Nova\Actions\DeleteFeaturedNews;
-// use App\Nova\Actions\EditFeaturedNews;
-use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Image;
 use Illuminate\Http\Request;
-// use kplcnewsroom\CreateButton\createbutton;
+use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\File;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
-// use Newsroom\Createbutton\Createbutton;
 
 class FeaturedNews extends Resource
 {
@@ -27,7 +25,7 @@ class FeaturedNews extends Resource
      *
      * @var string
      */
-    public static $title = 'main_page_name16';
+    public static $title = 'Featured News';
 
     /**
      * The columns that should be searched.
@@ -35,16 +33,20 @@ class FeaturedNews extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'main_page_name16',
-        //  'main_page_name17', 'main_page_name18',
-        // 'main_page_name29','main_page_name83', 'main_page_name85',
-        // 'main_page_name86'
+        'id',
+        'date',
+        'likes',
+        'link',
+        'views',
+        'description',
+        'file'
     ];
+
 
     public static function search($query)
     {
-        return static::where('main_page_name16', 'like', "%$query%")
-            ->orWhere('main_page_name16', 'like', "%$query%")
+        return static::where('date', 'like', "%$query%")
+            ->orWhere('description', 'like', "%$query%")
             ->get();
     }
 
@@ -58,18 +60,12 @@ class FeaturedNews extends Resource
     {
         return [
             ID::make()->sortable(),
-            BelongsTo::make('Header Navigation', 'headerNavigation', \App\Nova\HeaderNavigation::class)
-                ->sortable()
-                ->hideFromIndex()
-                ->hideWhenCreating()
-                ->hideWhenUpdating(),
-            Text::make('Featured News Title', 'main_page_name12')->sortable(),
-            // Text::make('Date Updated', 'main_page_name16')->sortable(),
-            // Text::make('Number Of Views', 'main_page_name17')->sortable(),
-            // Text::make('Likes', 'main_page_name18')->sortable(),
-            // Text::make('News Description', 'main_page_name29')->sortable(),
-            // Image::make('Background Image', 'main_page_image83')->disk('public'),
-            // Image::make('Video Image', 'main_page_image85')->disk('public'),
+            Date::make(__('Date'), 'day')->nullable(),
+            Text::make('Link', 'link')->sortable(),
+            Text::make('Likes', 'likes')->sortable(),
+            Text::make('Views', 'views')->sortable(),
+            TextArea::make('Description', 'description')->sortable(),
+            File::make('File', 'file')->disk('public')->path('images')->sortable()->nullable(),
 
         ];
     }
@@ -82,9 +78,7 @@ class FeaturedNews extends Resource
      */
     public function cards(NovaRequest $request)
     {
-        return [
-            // new Createbutton()
-        ];
+        return [];
     }
 
     /**
@@ -117,9 +111,6 @@ class FeaturedNews extends Resource
      */
     public function actions(NovaRequest $request)
     {
-        return [
-            // new EditFeaturedNews,
-            // new DeleteFeaturedNews
-        ];
+        return [];
     }
 }

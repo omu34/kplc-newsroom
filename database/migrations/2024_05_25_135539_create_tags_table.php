@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
             $table->foreignId('header_navigation_id')->nullable()->constrained('header_navigations')->onDelete('cascade');
-            $table->string('main_page_name71');
-            $table->string('main_page_name72');
-            $table->text('main_page_content')->nullable();
+            $table->string('tag1');
+            $table->string('tag2');
+            $table->text('tag_content')->nullable();
 
             $table->timestamps();
         });

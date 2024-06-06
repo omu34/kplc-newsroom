@@ -8,18 +8,27 @@ use Laravel\Sanctum\HasApiTokens;
 
 class FeaturedNews extends Model
 {
-    use HasFactory,HasApiTokens;
+    use HasFactory, HasApiTokens;
     protected $fillable = [
-        'main_page_name16',
-        'main_page_name17',
-        'main_page_name18',
-        'main_page_name29',
-        'main_page_image83',
-        'main_page_image85',
+        'day',
+        'views',
+        'description',
+        'likes',
+        'link',
+        'file',
+
     ];
 
-    public function headerNavigation()
+    protected $casts = [
+        'day' => 'date',
+    ];
+
+    public function files()
     {
-        return $this->belongsTo(HeaderNavigation::class, 'main_page_id');
+        if (!$this->exists) {
+            return collect();
+        }
+
+        return $this->morphMany(File::class, 'fileable');
     }
 }

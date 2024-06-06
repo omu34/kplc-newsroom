@@ -4,21 +4,16 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\File;
-use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class LatestNewsContent extends Resource
+class SingleGallery extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\LNews>
+     * @var class-string<\App\Models\SingleGallery>
      */
-    public static $model = \App\Models\LNews::class;
+    public static $model = \App\Models\SingleGallery::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -34,20 +29,7 @@ class LatestNewsContent extends Resource
      */
     public static $search = [
         'id',
-        'date',
-        'likes',
-        'link',
-         'views',
-         'description',
-         'image_path',
-         'video_path'
     ];
-    public static function search($query)
-    {
-        return static::where('link', 'like', "%$query%")
-            ->orWhere('description', 'like', "%$query%")
-            ->get();
-    }
 
     /**
      * Get the fields displayed by the resource.
@@ -59,14 +41,6 @@ class LatestNewsContent extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Likes', 'likes')->sortable(),
-            Text::make('Views', 'views')->sortable(),
-            Text::make('Link', 'link')->sortable(),
-
-            TextArea::make('Description', 'description')->sortable(),
-            Date::make(__('Day'), 'day')->nullable(),
-            Image::make('Image', 'image_path')->disk('public')->path('images')->sortable(),
-            File::make('Video','video_path')->disk('public')->path('images')->sortable()->nullable(),
         ];
     }
 

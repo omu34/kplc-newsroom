@@ -11,8 +11,14 @@ class MainNavbar extends Model
 
 
     protected $fillable=[
-        'name','link'
+        'name',
+        'link'
     ];
+
+    public function headerNavigations()
+    {
+        return $this->belongsTo(HeaderNavigation::class);
+    }
 }
 
 

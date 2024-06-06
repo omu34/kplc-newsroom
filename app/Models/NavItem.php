@@ -8,8 +8,11 @@ use Laravel\Sanctum\HasApiTokens;
 
 class NavItem extends Model
 {
-    use HasFactory,HasApiTokens;
-    protected $fillable=[
-        'name','link','name2','link2'
+    use HasFactory, HasApiTokens;
+    protected $fillable = [
+        'name',
+        'link',
+        'name2',
+        'link2'
     ];
 }

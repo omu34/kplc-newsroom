@@ -13,23 +13,20 @@ class LatestNewsSeeder extends Seeder
      */
     public function run(): void
     {
-        $mainPageNames = [
-            'main_page_name60' => 'Show Me More',
-            'main_page_name61' => 'Latest News',
+        $latestNews = [
+            // 'button_text' => 'Show Me More',
             'day' => 'Mar 16, 2020',
-            'main_page_name63' => '345 Views',
-            'main_page_name64' => 'The  Summit on Clean Cooking in Africa 2024 (Paris, France)',
-            'main_page_name65' => 'Test',
-            'main_page_image91'=>'images/1.jpg',
-            'main_page_image92'=>'images/blog.svg',
+            'views' => '345 ',
+            'description' => 'The  Summit on Clean Cooking in Africa 2024 (Paris, France)',
+            'file'=>'images/1.jpg',
             'main_page_content'=>'latest News page '
-            
+
         ];
 
-        $mainPageData = $mainPageNames;
+        $latestNewsData= $latestNews;
 
-        $mainPageData['main_page_content'] = "Sample content for the main page";
+        $latestNewsData['main_page_content'] = "Sample content for the main page";
 
-        LatestNews::create($mainPageData);
+        LatestNews::create($latestNewsData);
     }
 }

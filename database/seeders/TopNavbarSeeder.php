@@ -12,6 +12,11 @@ class TopNavbarSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $topNavs=[
+            'name' =>'name',
+            'link'=>'link'
+          ];
+          $topNavData =  $topNavs;
+          \App\Models\TopNavbar::insert($topNavData);
     }
 }

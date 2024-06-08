@@ -14,6 +14,7 @@
         @vite('resources/css/app.css')
         @vite('resources/css/custom.css')
         @livewireStyles
+        {{--  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.0/dist/cdn.min.js"></script>  --}}
     </head>
     <body class="font-sans antialiased" x-cloak x-data="{darkMode: $persist(false), zoomLevel: $persist(100), siteGrayscale: $persist(false)}" :class="{'dark': darkMode === true }" :style="'zoom: ' + zoomLevel + '%'">
 
@@ -26,7 +27,7 @@
                     }
                 </style>
             </template>
-            
+
             {{-- <x-top-navigation/> --}}
 
 

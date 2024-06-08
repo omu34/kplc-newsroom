@@ -13,28 +13,28 @@ class HeaderNavigationSeeder extends Seeder
      */
     public function run(): void
     {
-        $mainPageNames = [
-            'main_page_name1' => 'Product',
-            'main_page_name2' => 'Features',
-            'main_page_name3' => 'Marketplace',
-            'main_page_name4' => 'Company',
-            'main_page_name5' => 'Alternative Energy',
-            'main_page_name6' => 'Public',
-            'main_page_name7' => 'Stock Market',
-            'main_page_name8' => 'Light / Dark',
-            'main_page_name9' => 'Increase Text',
-            'main_page_name10' => 'Increase Text',
-            'main_page_name12' => 'Open main menu',
-            'main_page_name13' => 'Open main menu',
-            'main_page_name19' => 'Your Company',
-            'main_page_image82' => 'images/logo.png',
-            'main_page_content'=>'pages'
+        $headerNavigations = [
+            'header1' => 'Product',
+            'header2' => 'Features',
+            'header3' => 'Marketplace',
+            'header4' => 'Company',
+            'header5' => 'Alternative Energy',
+            'header6' => 'Public',
+            'header7' => 'Stock Market',
+            'header8' => 'Light / Dark',
+            'header9' => 'Increase Text',
+            'header10' => 'Increase Text',
+            'header12' => 'Open main menu',
+            'header13' => 'Open main menu',
+            'header19' => 'Your Company',
+            'image' => 'images/logo.png',
+            'header_navigation_content'=>'pages'
         ];
 
-        $mainPageData = $mainPageNames;
+        $headerData = $headerNavigations;
 
-        $mainPageData['main_page_content'] = "Sample content for the main page";
+        $headerData['header_navigation_content'] = "Sample content for the main page";
 
-        HeaderNavigation::create($mainPageData);
+        HeaderNavigation::create($headerData);
     }
 }

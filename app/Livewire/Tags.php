@@ -8,22 +8,22 @@ use App\Models\Tags as ModelsTags;
 class Tags extends Component
 {
 
-    public $mainPages;
-    public $main_page_names = [];
-    public $main_page_content, $tags_id;
+    public $tags;
+    public $tag_names = [];
+    public $tag_content, $tags_id;
     public $header_navigation_id;
     public $isOpen = 0;
 
     public function mount()
     {
-        $this->mainPages = ModelsTags::all();
+        $this->tags = ModelsTags::all();
     }
 
     public function render()
     {
         return view(
             'livewire.tags',
-            ['mainPages' => $this->mainPages,]
+            ['tags' => $this->tags,]
         );
     }
 
@@ -45,8 +45,9 @@ class Tags extends Component
 
     private function resetInputFields()
     {
-        $this->main_page_names = array_fill(0, 20, ''); // Assuming we need 4 names
-        $this->main_page_content = '';
+        $this->tag_names = array_fill(0, 20, ''); // Assuming we need 4 names
+        $this->tag_content = '';
+
         $this->tags_id = '';
     }
 
@@ -54,20 +55,20 @@ class Tags extends Component
     {
         $this->validate([
             'header_navigation_id' => 'required',
-            'main_page_name71' => 'required',
-            'main_page_name72' => 'required',
-            'main_page_content' => 'required',
+            'tag1' => 'required',
+            'tag2' => 'required',
+            'tag_content' => 'required',
         ]);
 
         ModelsTags::updateOrCreate(['id' => $this->tags_id], [
-            'main_page_name71' => $this->main_page_name[71],
-            'main_page_name72' => $this->main_page_name[72],
-            'main_page_content' => $this->main_page_content
+            'tag1' => $this->tag1,
+            'tag2' => $this->tag2,
+            'tag_content' => $this->tag_content
         ]);
 
         session()->flash(
             'message',
-            $this->tags_id ? 'Page Updated Successfully.' : 'Page Created Successfully.'
+            $this->tags_id ? 'tag Updated Successfully.' : 'tag Created Successfully.'
         );
 
         $this->closeModal();
@@ -76,14 +77,14 @@ class Tags extends Component
 
     public function edit($id)
     {
-        $page = ModelsTags::findOrFail($id);
-        $this->main_page_names = [
-            $page->main_page_name71,
-            $page->main_page_name72,
+        $tag = ModelsTags::findOrFail($id);
+        $this->tag_names = [
+            $tag->tag1,
+            $tag->tag2,
         ];
-        $this->main_page_content = $page->main_page_content;
-        $this->tags_id = $page->id;
-        $this->header_navigation_id = $page->id;
+        $this->tag_content = $tag->tag_content;
+        $this->tags_id = $tag->id;
+        $this->header_navigation_id = $tag->id;
 
         $this->openModal();
     }
@@ -91,6 +92,6 @@ class Tags extends Component
     public function delete($id)
     {
         ModelsTags::find($id)->delete();
-        session()->flash('message', 'Page Deleted Successfully.');
+        session()->flash('message', 'tag Deleted Successfully.');
     }
 }

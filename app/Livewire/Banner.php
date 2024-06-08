@@ -7,22 +7,22 @@ use Livewire\Component;
 
 class Banner extends Component
 {
-    public $mainPages;
-    public $main_page_names = [];
-    public $main_page_content, $banner_id;
-    public $main_page_image84;
+    public $banners;
+    public $banner_names = [];
+    public $banner_content, $banner_id;
+    public $image;
     public $header_navigation_id;
     public $isOpen = 0;
 
     public function mount()
     {
-        $this->mainPages = ModelsBanner::all();
+        $this->banners = ModelsBanner::all();
     }
 
     public function render()
     {
         return view('livewire.banner', [
-            'mainPages' => $this->mainPages,
+            'banners' => $this->banners,
         ]);
     }
 
@@ -44,9 +44,9 @@ class Banner extends Component
 
     private function resetInputFields()
     {
-        $this->main_page_names = array_fill(0, 1, ''); // Assuming we need 4 names
-        $this->main_page_content = '';
-        $this->main_page_image84 = null;
+        $this->banner_names = array_fill(0, 1, ''); // Assuming we need 4 names
+        $this->banner_content = '';
+        $this->image = null;
         $this->banner_id = '';
     }
 
@@ -55,22 +55,19 @@ class Banner extends Component
     public function store()
     {
         $this->validate([
-            '$header_navigation_id' => 'required',
-            'main_page_name13' => 'required',
-            'main_page_image84' => 'required|image|max:1024',
-            'main_page_content' => 'required',
+            'image' => 'required|image|max:1024',
+            'banner_content' => 'required',
         ]);
-        $imagePath = $this->main_page_image84->store('public/images');
+        $imagePath = $this->image->store('public/images');
 
 
         ModelsBanner::updateOrCreate(['id' => $this->banner_id], [
-            'main_page_name13' => $this->main_page_name13,
-            'main_page_image84' => str_replace('public/', '', $imagePath),
-            'main_page_content' => $this->main_page_content
+            'image' => str_replace('public/', '', $imagePath),
+            'banner_content' => $this->banner_content
         ]);
 
         session()->flash('message',
-            $this->banner_id ? 'Page Updated Successfully.' : 'Page Created Successfully.');
+            $this->banner_id ? 'banner Updated Successfully.' : 'banner Created Successfully.');
 
         $this->closeModal();
         $this->resetInputFields();
@@ -78,14 +75,12 @@ class Banner extends Component
 
     public function edit($id)
     {
-        $page = ModelsBanner::findOrFail($id);
-        $this->main_page_names = [
-            $page->main_page_name13,
-            $page->main_page_image84,
-        ];
-        $this->main_page_content = $page->main_page_content;
-        $this->banner_id = $page->id;
-        $this->header_navigation_id = $page->id;
+        $banner = ModelsBanner::findOrFail($id);
+        $this->banner_names = [
+
+         ];
+        $this->banner_content = $banner->banner_content;
+        $this->banner_id = $banner->id;
 
         $this->openModal();
     }
@@ -93,7 +88,7 @@ class Banner extends Component
     public function delete($id)
     {
         ModelsBanner::find($id)->delete();
-        session()->flash('message', 'Page Deleted Successfully.');
+        session()->flash('message', 'banner Deleted Successfully.');
     }
 }
 

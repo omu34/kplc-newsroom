@@ -13,16 +13,15 @@ return new class extends Migration
     {
         Schema::create('latest_galleries', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('header_navigation_id')->nullable()->constrained('header_navigations')->onDelete('cascade');
-            $table->string('main_page_name23');
             $table->timestamp('day')->useCurrent();
-            $table->string('main_page_name25');
-            $table->string('main_page_name81');
-            $table->string('main_page_name59');
-            $table->string('main_page_name60');
-            $table->string('main_page_image89');
-            $table->string('main_page_image90');
-            $table->text('main_page_content')->nullable();
+            $table->string('main_page_name23')->nullable();
+            $table->string('button_text')->nullable();
+            $table->string('main_page_content')->nullable();
+            $table->unsignedInteger('views')->default(0);
+            $table->text('description');
+            $table->unsignedInteger('likes')->default(0);
+            $table->string('link')->nullable();
+            $table->string('file')->nullable();
 
             $table->timestamps();
         });

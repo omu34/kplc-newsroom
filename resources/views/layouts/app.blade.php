@@ -15,6 +15,7 @@
 
     @vite('resources/css/app.css')
     @vite('resources/css/custom.css')
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.0/dist/cdn.min.js"></script>
 </head>
 
 

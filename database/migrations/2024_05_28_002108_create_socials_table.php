@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('socials', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('footer_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('url');
-            $table->string('image_path')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

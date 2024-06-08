@@ -9,12 +9,11 @@ use Laravel\Sanctum\HasApiTokens;
 class Breadcrumb extends Model
 {
     use HasFactory,HasApiTokens;
-    
+
     protected $fillable = [
-        'main_page_id',
-        'main_page_names26',
-        'main_page_names27',
-        'main_page_names28'
+        'breadcrumb1',
+        'breadcrumb2',
+        'breadcrumb_content'
     ];
 
     // Define the relationship with HeaderNavigation

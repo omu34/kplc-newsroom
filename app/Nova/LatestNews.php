@@ -6,8 +6,8 @@ namespace App\Nova;
 // use App\Nova\Actions\EditLatestNews;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\File;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -27,7 +27,7 @@ class LatestNews extends Resource
      *
      * @var string
      */
-    public static $title = 'main_page_name60';
+    public static $title = 'main_page_name61';
 
     /**
      * The columns that should be searched.
@@ -35,16 +35,21 @@ class LatestNews extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'main_page_name60',
-         'main_page_name61',
-        // 'main_page_name62', 'main_page_name63',
-        //  'main_page_name64', 'main_page_name65','main_page_name91', 'main_page_name92'
+        'id',
+        'main_page_name61',
+        'button_text',
+        'date',
+        'likes',
+        'link',
+        'views',
+        'description',
+        'file'
     ];
 
     public static function search($query)
     {
         return static::where('main_page_name60', 'like', "%$query%")
-            ->orWhere('main_page_name61', 'like', "%$query%")
+            ->orWhere('description', 'like', "%$query%")
             ->get();
     }
 
@@ -58,23 +63,15 @@ class LatestNews extends Resource
     {
         return [
             ID::make()->sortable(),
-            // BelongsTo::make('Header Navigation', 'headerNavigation', \App\Nova\HeaderNavigation::class)->sortable(),
-            BelongsTo::make('Header Navigation', 'headerNavigation', \App\Nova\HeaderNavigation::class)
-                ->sortable()
-                ->hideFromIndex()
-                ->hideWhenCreating()
-                ->hideWhenUpdating(),
-            Text::make('Latest News Title', 'main_page_name61')->sortable(),
-            Text::make('Button Text ', 'main_page_name60')->sortable(),
-            // Date::make(__('Day'), 'day')->nullable(),
+            Date::make(__('Date'), 'day')->nullable(),
+            Text::make('Link', 'link')->sortable(),
+            Text::make('Likes', 'likes')->sortable(),
+            Text::make('Button Text', 'button_text')->sortable(),
 
-            Text::make('Date Updated', 'main_page_name62')->sortable(),
-            // Text::make('Number of Views', 'main_page_name63')->sortable(),
-            // Text::make('News Description', 'main_page_name64')->sortable(),
-            // Text::make('Likes', 'main_page_name65')->sortable(),
-            // Image::make('Main Page Image 91', 'main_page_image91')->disk('public')->path('images'),
-            // Image::make('Main Page Image 92', 'main_page_image92')->disk('public')->path('images'),
-        ];
+            Text::make('Views', 'views')->sortable(),
+            Textarea::make('Description', 'description')->sortable(),
+            File::make('File', 'file')->disk('public')->path('images')->sortable()->nullable(),
+ ];
     }
 
     /**

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('currencies', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('footer_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('code');
             $table->string('image_path')->nullable();

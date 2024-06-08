@@ -4,135 +4,174 @@ namespace App\Livewire;
 
 use App\Models\LatestNews as ModelsLatestNews;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
+use App\Models\File;
 
 class LatestNews extends Component
 {
+    use WithFileUploads;
 
+    public $news;
+    public $selectedLatestNewsId;
+    public $selectedNewsIndex = 0;
+    public $showModal = false;
+    public $showNews = false;
+    public $newNews = [
 
-    public $mainPages;
-    public $main_page_names = [
-        'main_page_name60' => '',
-        'main_page_name61' => '',
-        'main_page_name62' => '',
-        'main_page_name63' => '',
-        'main_page_name64' => '',
-        'main_page_name65' => '',
-
+        'day' => '',
+        'views' => '',
+        'description' => '',
+        'likes' => '',
+        'link' => '',
+        'file' => '',
     ];
-    public $main_page_content, $latest_news_id;
-    public $header_navigation_id;
-    public $isOpen = false;
 
 
     public function mount()
     {
-        $this->mainPages = ModelsLatestNews::all();
-    }
-
-    public function render()
-    {
-        return view('livewire.latest-news', [
-            'mainPages' => $this->mainPages,
-        ]);
-    }
-
-    public function create()
-    {
-        $this->resetInputFields();
-        $this->openModal();
-    }
-
-    public function openModal()
-    {
-        $this->isOpen = true;
-    }
-
-    public function closeModal()
-    {
-        $this->isOpen = false;
-    }
-
-    private function resetInputFields()
-    {
-        $this->main_page_names = [
-            'main_page_name60' => '',
-            'main_page_name61' => '',
-            'main_page_name62' => '',
-
-            'main_page_name63' => '',
-            'main_page_name64' => '',
-            'main_page_name65' => '',
-        ];
-        $this->main_page_content = '';
-        $this->latest_news_id = '';
-        $this->header_navigation_id = '';
+        $this->news = ModelsLatestNews::orderBy('created_at', 'desc')->get();
     }
 
     public function store()
     {
-        $this->validate([
-            'header_navigation_id' => 'required',
-            'main_page_names.main_page_name60' => 'required',
-            'main_page_names.main_page_name61' => 'required',
-            'main_page_names.main_page_name62' => 'required',
-            'main_page_names.main_page_name63' => 'required',
-            'main_page_names.main_page_name64' => 'required',
-            'main_page_names.main_page_name65' => 'required',
-            'main_page_image91' => 'required|image|max:1024',
-            'main_page_image92' => 'required|image|max:1024',
-            'main_page_content' => 'required',
+        $validatedData = $this->validate([
+
+            'newNews.day' => 'required',
+            'newNews.views' => 'required',
+            'newNews.description' => 'required|min:10',
+            'newNews.likes' => 'required',
+            'newNews.link' => 'required',
+            'newNews.file' => 'required|file|mimes:jpeg,png,jpg,mp4,mov,wav,mp3,pdf,csv,xls,xlsx,zip|max:1048576',
+
         ]);
 
-        $imagePath = $this->main_page_image91->store('public/images');
-        $imagePath = $this->main_page_image92->store('public/images');
+        ModelsLatestNews::create($validatedData['newNews']);
 
+        $this->reset('newNews');
+        $this->mount();
 
-        ModelsLatestNews::updateOrCreate(['id' => $this->latest_news_id], [
-            'main_page_name60' => $this->main_page_names['main_page_name60'],
-            'main_page_name61' => $this->main_page_names['main_page_name61'],
-            'main_page_name62' => $this->main_page_names['main_page_name62'],
-            'main_page_name63' => $this->main_page_names['main_page_name63'],
-            'main_page_name64' => $this->main_page_names['main_page_name64'],
-            'main_page_name65' => $this->main_page_names['main_page_name65'],
-            'main_page_image91' => str_replace('public/', '', $imagePath),
-            'main_page_image92' => str_replace('public/', '', $imagePath),
-            'main_page_content' => $this->main_page_content,
-            'header_navigation_id' => $this->header_navigation_id,
+        $this->dispatchEventBrowser('postStored');
+    }
+
+    public function upload()
+    {
+        try {
+            $validatedData = $this->validate([
+                'file' => 'required|file|mimes:jpeg,png,jpg,mp4,mov,wav,mp3,pdf,csv,xls,xlsx,zip|max:1048576',
+
+                'newNews.day' => 'required',
+                'newNews.views' => 'required',
+                'newNews.description' => 'required|min:10',
+                'newNews.likes' => 'required',
+                'newNews.link' => 'required',
+            ]);
+
+            $file = $this->file;
+            $fileLink = $file->store('post-files', 'public');
+
+            $validatedData['newNews']['file'] = $fileLink;
+
+            $this->createPostAndFile($validatedData);
+
+            $this->reset('newNews', 'photo');
+            $this->mount();
+
+            $this->dispatchEventBrowser('postStored');
+        } catch (\Exception $e) {
+            $this->dispatchBrowserEvent('alert', [
+                'type' => 'error',
+                'message' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    private function createPostAndFile($validatedData)
+    {
+        ModelsLatestNews::create($validatedData['newNews']);
+
+        $file = $this->photo;
+        $fileTime = $file->getMTime();
+        $fileName = $file->getFilename();
+        $fileSize = $file->getSize();
+        $fileMimeType = $file->getMimeType();
+        $fileTime = date('Y-m-d H:i:s', $fileTime);
+        $fileId = Str::uuid()->toString();
+
+        $fileName = Str::slug($fileName);
+
+        File::create([
+            'content' => Str::limit($file->getContent(), 1000, '...'),
+            'time' => $fileTime,
+            'name' => $fileName,
+            'mime_type' => $fileMimeType,
+            'size' => $fileSize,
+            'file_id' => $fileId,
+            'file_time' => $fileTime,
+            'likes' => 0,
+            'views' => 0,
+        ]);
+    }
+
+    public function edit(int $id)
+    {
+        $this->selectedLatestNewsId = $id;
+        $this->newNews = ModelsLatestNews::find($id)->toArray();
+    }
+
+    public function update()
+    {
+        $validatedData = $this->validate([
+
+            'newNews.day' => 'required',
+            'newNews.views' => 'required',
+            'newNews.description' => 'required|min:10',
+            'newNews.likes' => 'required',
+            'newNews.link' => 'required',
+            'newNews.file' => 'required|file|mimes:jpeg,png,jpg,mp4,mov,wav,mp3,pdf,csv,xls,xlsx,zip|max:1048576',
         ]);
 
-        session()->flash(
-            'message',
-            $this->latest_news_id ? 'Page Updated Successfully.' : 'Page Created Successfully.'
-        );
+        ModelsLatestNews::where('id', $this->selectedLatestNewsId)->update($validatedData['newNews']);
 
-        $this->closeModal();
-        $this->resetInputFields();
+        $this->selectedLatestNewsId = null;
+        $this->mount();
+
+        $this->dispatchEventBrowser('postUpdated');
     }
 
-    public function edit($id)
+    public function cancel()
     {
-        $page = ModelsLatestNews::findOrFail($id);
-        $this->main_page_names = [
-            'main_page_name60' => $page->main_page_name60,
-            'main_page_name61' => $page->main_page_name61,
-            'main_page_name62' => $page->main_page_name62,
-            'main_page_name63' => $page->main_page_name63,
-            'main_page_name64' => $page->main_page_name64,
-            'main_page_name65' => $page->main_page_name65,
-
-            'main_page_image91' => $page->main_page_image91,
-            'main_page_image92' => $page->main_page_image92,
-        ];
-        $this->main_page_content = $page->main_page_content;
-        $this->latest_news_id = $page->id;
-        $this->header_navigation_id = $page->header_navigation_id;
-
-        $this->openModal();
+        $this->selectedLatestNewsId = null;
+        $this->reset('newNews');
     }
 
-    public function delete($id)
+    public function toggleActive(int $id)
     {
-        ModelsLatestNews::find($id)->delete();
-        session()->flash('message', 'Page Deleted Successfully.');
+        $new = ModelsLatestNews::find($id);
+        $new->update(['is_active' => !$new->is_active]);
+
+        $this->mount();
+
+        $this->dispatchEventBrowser('postToggled');
+    }
+
+    public function toggleshowNews()
+    {
+
+        $this->showNews = !$this->showNews;
+
+        if ($this->showNews) {
+            $this->news = ModelsLatestNews::orderBy('created_at', 'desc')->take(4)->get();
+        } else {
+            $this->news = ModelsLatestNews::orderBy('created_at', 'desc')->get();
+        }
+
+    }
+
+
+    public function render()
+    {
+        return view('livewire.latest-news');
     }
 }

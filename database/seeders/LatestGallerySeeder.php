@@ -13,22 +13,20 @@ class LatestGallerySeeder extends Seeder
      */
     public function run(): void
     {
-        $mainPageNames = [
-            'main_page_name23' => 'Latest Gallery',
+        $galleries = [
+            // 'gallery_name' => 'Latest Gallery',
+            // 'button_text' => 'Show Me More',
             'day' => 'Mar 16, 2020',
-            'main_page_name25' => '345 Views',
-            'main_page_name81' => 'The  Summit on Clean Cooking in Africa 2024 (Paris, France)',
-            'main_page_name59' => 'Test',
-            'main_page_name60' => 'Show Me More',
-            'main_page_image89'=>'images/1.jpg',
-            'main_page_image90'=>'images/blog.svg',
-            'main_page_content'=>'latest gallery pages'
+            'views' => '345',
+            'description' => 'The  Summit on Clean Cooking in Africa 2024 (Paris, France)',
+            'file' => 'images/1.jpg',
+            'main_page_content' => 'latest gallery pages'
         ];
 
-        $mainPageData = $mainPageNames;
+        $latestGalleryData = $galleries;
 
-        $mainPageData['main_page_content'] = "Sample content for the main page";
+        $latestGalleryData['main_page_content'] = "Sample content for the main page";
 
-        LatestGallery::create($mainPageData);
+        LatestGallery::create($latestGalleryData);
     }
 }

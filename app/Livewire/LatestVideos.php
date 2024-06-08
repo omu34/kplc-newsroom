@@ -6,134 +6,174 @@ namespace App\Livewire;
 
 use App\Models\LatestVideos as ModelsLatestVideos;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
+use App\Models\File;
 class LatestVideos extends Component
 {
-    public $mainPages;
-    public $main_page_names = [
-        'main_page_name11' => '',
-        'main_page_name60' => '',
-        'main_page_name66' => '',
-        'main_page_name67' => '',
-        'main_page_name68' => '',
-        'main_page_name69' => '',
-        'main_page_name70' => '',
+    use WithFileUploads;
+
+    public $videos;
+    public $selectedLatestVideosId;
+    public $selectedVideoIndex = 0;
+    public $showModal = false;
+    public $showVideos = false;
+    public $newVideo = [
+
+        'day' => '',
+        'views' => '',
+        'description' => '',
+        'likes' => '',
+        'link' => '',
+        'file' => '',
     ];
-    public $main_page_content, $latest_videos_id;
-    public $header_navigation_id;
-    public $isOpen = false;
+
 
     public function mount()
     {
-        $this->mainPages = ModelsLatestVideos::all();
-    }
-
-    public function render()
-    {
-        return view('livewire.latest-videos', [
-            'mainPages' => $this->mainPages,
-        ]);
-    }
-
-    public function create()
-    {
-        $this->resetInputFields();
-        $this->openModal();
-    }
-
-    public function openModal()
-    {
-        $this->isOpen = true;
-    }
-
-    public function closeModal()
-    {
-        $this->isOpen = false;
-    }
-
-    private function resetInputFields()
-    {
-        $this->main_page_names = [
-        'main_page_name11' => '',
-        'main_page_name60' => '',
-        'main_page_name66' => '',
-        'main_page_name67' => '',
-        'main_page_name68' => '',
-        'main_page_name69' => '',
-        'main_page_name70' => '',
-        ];
-        $this->main_page_content = '';
-        $this->latest_videos_id = '';
-        $this->header_navigation_id = '';
+        $this->videos = ModelsLatestVideos::orderBy('created_at', 'desc')->get();
     }
 
     public function store()
     {
-        $this->validate([
-            'header_navigation_id' => 'required',
-            'main_page_names.main_page_name11' => 'required',
-            'main_page_names.main_page_name60' => 'required',
-            'main_page_names.main_page_name66' => 'required',
-            'main_page_names.main_page_name67' => 'required',
-            'main_page_names.main_page_name68' => 'required',
-            'main_page_names.main_page_name69' => 'required',
-            'main_page_names.main_page_name70' => 'required',
-            'main_page_image88' => 'required|image|max:1024',
-            'main_page_image87' => 'required|image|max:1024',
-            'main_page_content' => 'required',
+        $validatedData = $this->validate([
+
+            'newVideo.day' => 'required',
+            'newVideo.views' => 'required',
+            'newVideo.description' => 'required|min:10',
+            'newVideo.likes' => 'required',
+            'newVideo.link' => 'required',
+            'newVideo.file' => 'required|file|mimes:jpeg,png,jpg,mp4,mov,wav,mp3,pdf,csv,xls,xlsx,zip|max:1048576',
+
         ]);
 
-        $imagePath = $this->main_page_image88->store('public/images');
-        $imagePath = $this->main_page_image87->store('public/images');
+        ModelsLatestVideos::create($validatedData['newVideo']);
 
+        $this->reset('newVideo');
+        $this->mount();
 
-        ModelsLatestVideos::updateOrCreate(['id' => $this->latest_videos_id], [
-            'main_page_name11' => $this->main_page_names['main_page_name11'],
-            'main_page_name60' => $this->main_page_names['main_page_name60'],
-            'main_page_name66' => $this->main_page_names['main_page_name66'],
-            'main_page_name67' => $this->main_page_names['main_page_name67'],
-            'main_page_name68' => $this->main_page_names['main_page_name68'],
-            'main_page_name69' => $this->main_page_names['main_page_name69'],
-            'main_page_name70' => $this->main_page_names['main_page_name70'],
-            'main_page_image88' => str_replace('public/', '', $imagePath),
-            'main_page_image87' => str_replace('public/', '', $imagePath),
-            'main_page_content' => $this->main_page_content,
-            'header_navigation_id' => $this->header_navigation_id,
+        $this->dispatchEventBrowser('postStored');
+    }
+
+    public function upload()
+    {
+        try {
+            $validatedData = $this->validate([
+                'file' => 'required|file|mimes:jpeg,png,jpg,mp4,mov,wav,mp3,pdf,csv,xls,xlsx,zip|max:1048576',
+
+                'newVideo.day' => 'required',
+                'newVideo.views' => 'required',
+                'newVideo.description' => 'required|min:10',
+                'newVideo.likes' => 'required',
+                'newVideo.link' => 'required',
+            ]);
+
+            $file = $this->file;
+            $fileLink = $file->store('post-files', 'public');
+
+            $validatedData['newVideo']['file'] = $fileLink;
+
+            $this->createPostAndFile($validatedData);
+
+            $this->reset('newVideo', 'photo');
+            $this->mount();
+
+            $this->dispatchEventBrowser('postStored');
+        } catch (\Exception $e) {
+            $this->dispatchBrowserEvent('alert', [
+                'type' => 'error',
+                'message' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    private function createPostAndFile($validatedData)
+    {
+        ModelsLatestVideos::create($validatedData['newVideo']);
+
+        $file = $this->photo;
+        $fileTime = $file->getMTime();
+        $fileName = $file->getFilename();
+        $fileSize = $file->getSize();
+        $fileMimeType = $file->getMimeType();
+        $fileTime = date('Y-m-d H:i:s', $fileTime);
+        $fileId = Str::uuid()->toString();
+
+        $fileName = Str::slug($fileName);
+
+        File::create([
+            'content' => Str::limit($file->getContent(), 1000, '...'),
+            'time' => $fileTime,
+            'name' => $fileName,
+            'mime_type' => $fileMimeType,
+            'size' => $fileSize,
+            'file_id' => $fileId,
+            'file_time' => $fileTime,
+            'likes' => 0,
+            'views' => 0,
+        ]);
+    }
+
+    public function edit(int $id)
+    {
+        $this->selectedLatestVideosId = $id;
+        $this->newVideo = ModelsLatestVideos::find($id)->toArray();
+    }
+
+    public function update()
+    {
+        $validatedData = $this->validate([
+
+            'newVideo.day' => 'required',
+            'newVideo.views' => 'required',
+            'newVideo.description' => 'required|min:10',
+            'newVideo.likes' => 'required',
+            'newVideo.link' => 'required',
+            'newVideo.file' => 'required|file|mimes:jpeg,png,jpg,mp4,mov,wav,mp3,pdf,csv,xls,xlsx,zip|max:1048576',
         ]);
 
-        session()->flash(
-            'message',
-            $this->latest_videos_id ? 'Page Updated Successfully.' : 'Page Created Successfully.'
-        );
+        ModelsLatestVideos::where('id', $this->selectedLatestVideosId)->update($validatedData['newVideo']);
 
-        $this->closeModal();
-        $this->resetInputFields();
+        $this->selectedLatestVideosId = null;
+        $this->mount();
+
+        $this->dispatchEventBrowser('postUpdated');
     }
 
-    public function edit($id)
+    public function cancel()
     {
-        $page = ModelsLatestVideos::findOrFail($id);
-        $this->main_page_names = [
-            'main_page_name11' => $page->main_page_name11,
-            'main_page_name60' => $page->main_page_name60,
-            'main_page_name66' => $page->main_page_name66,
-            'main_page_name67' => $page->main_page_name67,
-            'main_page_name68' => $page->main_page_name68,
-            'main_page_name69' => $page->main_page_name69,
-            'main_page_name70' => $page->main_page_name70,
-            'main_page_name88' => $page->main_page_image88,
-            'main_page_name87' => $page->main_page_image87,
-        ];
-        $this->main_page_content = $page->main_page_content;
-        $this->latest_videos_id = $page->id;
-        $this->header_navigation_id = $page->header_navigation_id;
-
-        $this->openModal();
+        $this->selectedLatestVideosId = null;
+        $this->reset('newVideo');
     }
 
-    public function delete($id)
+    public function toggleActive(int $id)
     {
-        ModelsLatestVideos::find($id)->delete();
-        session()->flash('message', 'Page Deleted Successfully.');
+        $video = ModelsLatestVideos::find($id);
+        $video->update(['is_active' => !$video->is_active]);
+
+        $this->mount();
+
+        $this->dispatchEventBrowser('postToggled');
+    }
+
+    public function toggleshowVideos()
+    {
+
+        $this->showVideos = !$this->showVideos;
+
+        if ($this->showVideos) {
+            $this->videos = ModelsLatestVideos::orderBy('created_at', 'desc')->take(4)->get();
+        } else {
+            $this->videos = ModelsLatestVideos::orderBy('created_at', 'desc')->get();
+        }
+
+    }
+
+
+    public function render()
+    {
+        return view('livewire.latest-videos');
     }
 }
 

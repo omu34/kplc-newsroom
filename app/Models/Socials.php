@@ -9,6 +9,8 @@ class Socials extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'name','url','image_path'
+        'name',
+        'url',
+        'image_path'
     ];
 }

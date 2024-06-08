@@ -1,12 +1,16 @@
 {{--  <div class="bg-white dark:bg-gray-950">
+<<<<<<< HEAD
     @foreach ($mainPages as $page)
+=======
+    @foreach ($mainPages as $footer)
+>>>>>>> 1a9496aa8071221ef8a43250643bafac8ae6e19d
         <div class="bg-[#FACA21] py-5">
             <div class="lg:px-0 px-10 mx-auto max-w-7xl">
                 <div class="py-2 px-6 sm:flex sm:justify-between items-center">
                     <!-- 1/3 Section (Quick Links) -->
                     <div class="sm:w-1/4">
                         <h2 class="text-3xl font-bold tracking-tight lg:pb-0 pb-5 text-[#163466] sm:text-4xl">
-                            {{ $page->main_page_name30 }}
+                            {{ $footer->main_page_name30 }}
                         </h2>
                     </div>
 
@@ -145,7 +149,7 @@
             </div>
         </div>
         <div class="text-center py-4 dark:text-white text-gray-600">
-            <p>&copy; {{ \Carbon\Carbon::now()->format('Y') }} - {{ $page->main_page_name58 }}</p>
+            <p>&copy; {{ \Carbon\Carbon::now()->format('Y') }} - {{ $footer->main_page_name58 }}</p>
         </div>
     @endforeach
 </div>
@@ -160,14 +164,22 @@
 
 
 <div class="bg-white dark:bg-gray-950">
+<<<<<<< HEAD
     @foreach ($mainPages as $page)
+=======
+    @foreach ($footers as $footer)
+>>>>>>> 1a9496aa8071221ef8a43250643bafac8ae6e19d
         <div class="bg-[#FACA21] py-5">
             <div class="lg:px-0 px-10 mx-auto max-w-7xl">
                 <div class="py-2 px-6 sm:flex sm:justify-between items-center">
                     <!-- 1/3 Section (Quick Links) -->
                     <div class="sm:w-1/4">
                         <h2 class="text-3xl font-bold tracking-tight lg:pb-0 pb-5 text-[#163466] sm:text-4xl">
+<<<<<<< HEAD
                             {{ $page->main_page_name30 }}
+=======
+                            {{ $footer->footer1 }}
+>>>>>>> 1a9496aa8071221ef8a43250643bafac8ae6e19d
                         </h2>
                     </div>
 
@@ -291,7 +303,11 @@
         </div>
 
         <div class="text-center py-4 dark:text-white text-gray-600">
+<<<<<<< HEAD
             <p>&copy; {{ \Carbon\Carbon::now()->format('Y') }} - {{ $page->main_page_name58 }}</p>
+=======
+            <p>&copy; {{ \Carbon\Carbon::now()->format('Y') }} - {{ $footer->footer2 }}</p>
+>>>>>>> 1a9496aa8071221ef8a43250643bafac8ae6e19d
         </div>
     @endforeach
 </div>

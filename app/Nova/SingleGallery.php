@@ -3,22 +3,25 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Image;
+<<<<<<< HEAD:app/Nova/LatestNewsContent.php
+use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Textarea;
+=======
+>>>>>>> 1a9496aa8071221ef8a43250643bafac8ae6e19d:app/Nova/SingleGallery.php
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class LatestGalleryContent extends Resource
+class SingleGallery extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\LGallery>
+     * @var class-string<\App\Models\SingleGallery>
      */
-    public static $model = \App\Models\LGallery::class;
+    public static $model = \App\Models\SingleGallery::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -33,21 +36,18 @@ class LatestGalleryContent extends Resource
      * @var array
      */
     public static $search = [
-        'id','day',
+        'id',
+<<<<<<< HEAD:app/Nova/LatestNewsContent.php
+        'date',
         'likes',
-         'views',
-            'link',
-         'description',
-         'image_path',
-         'video_path'
+        'link',
+        'views',
+        'description',
+        // 'image_path',
+        'video_path'
+=======
+>>>>>>> 1a9496aa8071221ef8a43250643bafac8ae6e19d:app/Nova/SingleGallery.php
     ];
-
-    public static function search($query)
-    {
-        return static::where('day', 'like', "%$query%")
-            ->orWhere('description', 'like', "%$query%")
-            ->get();
-    }
 
     /**
      * Get the fields displayed by the resource.
@@ -59,14 +59,18 @@ class LatestGalleryContent extends Resource
     {
         return [
             ID::make()->sortable(),
+<<<<<<< HEAD:app/Nova/LatestNewsContent.php
             Text::make('Likes', 'likes')->sortable(),
             Text::make('Views', 'views')->sortable(),
             Text::make('Link', 'link')->sortable(),
+            Boolean::make('Active')->sortable()->default(false),
 
             TextArea::make('Description', 'description')->sortable(),
-            Date::make(__('Date'), 'day')->nullable(),
-            Image::make('Image', 'image_path')->disk('public')->path('images')->sortable(),
-            File::make('Video','video_path')->disk('public')->path('images')->sortable()->nullable(),
+            Date::make(__('Day'), 'day')->nullable(),
+            // Image::make('Image', 'image_path')->disk('public')->path('images')->sortable(),
+            File::make('Video', 'video_path')->disk('public')->path('images')->sortable()->nullable(),
+=======
+>>>>>>> 1a9496aa8071221ef8a43250643bafac8ae6e19d:app/Nova/SingleGallery.php
         ];
     }
 

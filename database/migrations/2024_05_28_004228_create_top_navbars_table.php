@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('top_navbars', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('header_navigation_id')->nullable()->constrained()->onDelete('cascade');
+
             $table->string('name');
             $table->string('link');
             $table->timestamps();

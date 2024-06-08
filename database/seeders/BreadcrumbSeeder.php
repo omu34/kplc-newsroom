@@ -13,17 +13,17 @@ class BreadcrumbSeeder extends Seeder
      */
     public function run(): void
     {
-        $mainPageNames = [
-            'main_page_name26' => 'Home',
-            'main_page_name27' => 'Main Page',
-            'main_page_name28' => 'Single Page',
-            'main_page_content'=>' breadcrumb pages'
+        $breadcrumbs = [
+            'breadcrumb1' => 'Home',
+            // 'main_page_name27' => 'Main Page',
+            'breadcrumb2' => 'Single Page',
+            'breadcrumb_content'=>' breadcrumb pages'
         ];
 
-        $mainPageData = $mainPageNames;
+        $breadcrumbData = $breadcrumbs;
 
-        $mainPageData['main_page_content'] = "Sample content for the main page";
+        $breadcrumbData['breadcrumb_content'] = "Sample content for the main page";
 
-        Breadcrumb::create($mainPageData);
+        Breadcrumb::create($breadcrumbData);
     }
 }

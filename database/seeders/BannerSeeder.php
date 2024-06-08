@@ -14,15 +14,15 @@ class BannerSeeder extends Seeder
     public function run(): void
     {
 
-       $mainPageNames = [
-            // 'main_page_name13' => 'KPLC Newsroom',
-            'main_page_image84' => 'images/test-1.jpg',
+       $banners = [
+            'banner_content' => 'KPLC Newsroom',
+            // ' image' => 'images/test-1.jpg',
         ];
 
-        $mainPageData = $mainPageNames;
+        $bannerData = $banners;
 
-        $mainPageData['main_page_content'] = "Sample content for the main page";
+        $bannerData['banner_content'] = "Sample content for the main page";
 
-        Banner::create($mainPageData);
+        Banner::create($bannerData);
     }
 }

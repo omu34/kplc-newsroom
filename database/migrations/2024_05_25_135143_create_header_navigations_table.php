@@ -13,21 +13,21 @@ return new class extends Migration
     {
         Schema::create('header_navigations', function (Blueprint $table) {
             $table->id();
-            $table->string('main_page_name1');
-            $table->string('main_page_name2');
-            $table->string('main_page_name3');
-            $table->string('main_page_name4');
-            $table->string('main_page_name5');
-            $table->string('main_page_name6');
-            $table->string('main_page_name7');
-            $table->string('main_page_name8');
-            $table->string('main_page_name9');
-            $table->string('main_page_name10');
-            $table->string('main_page_name12');
-            $table->string('main_page_name13')->nullable();
-            $table->string('main_page_name19');
-            $table->string('main_page_image82');
-            $table->text('main_page_content')->nullable();
+            $table->string('header1');
+            $table->string('header2');
+            $table->string('header3');
+            $table->string('header4');
+            $table->string('header5');
+            $table->string('header6');
+            $table->string('header7');
+            $table->string('header8');
+            $table->string('header9');
+            $table->string('header10');
+            $table->string('header12');
+            $table->string('header13')->nullable();
+            $table->string('header19');
+            $table->string('image');
+            $table->text('header_navigation_content')->nullable();
             $table->timestamps();
         });
     }

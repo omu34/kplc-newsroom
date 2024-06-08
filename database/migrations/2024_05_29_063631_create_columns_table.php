@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('columns', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('name2');
+            $table->foreignId('footer_id')->nullable()->constrained()->onDelete('cascade');
+            $table->string('column1');
+            $table->string('column2');
             $table->timestamps();
         });
     }

@@ -11,9 +11,9 @@ class Tags extends Model
     use HasFactory,HasApiTokens;
 
     protected $fillable = [
-        'main_page_id',
-        'main_page_name71',
-        'main_page_name72'
+
+        'tag1',
+        'tag2'
     ];
 
     // Define the relationship with HeaderNavigation

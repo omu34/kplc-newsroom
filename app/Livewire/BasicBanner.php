@@ -7,22 +7,22 @@ use Livewire\Component;
 
 class BasicBanner extends Component
 {
-    public $mainPages;
-    public $main_page_names = [];
-    public $main_page_content, $banner_id;
-    public $main_page_image84;
+    public $basic_banners;
+    public $basic_banner_names = [];
+    public $basic_banner_content, $basic_banner_id;
+    public $image;
     public $header_navigation_id;
     public $isOpen = 0;
 
     public function mount()
     {
-        $this->mainPages = ModelsBasicBanner::all();
+        $this->basic_banners = ModelsBasicBanner::all();
     }
 
     public function render()
     {
         return view('livewire.banner', [
-            'mainPages' => $this->mainPages,
+            'basic_banners' => $this->basic_banners,
         ]);
     }
 
@@ -44,30 +44,30 @@ class BasicBanner extends Component
 
     private function resetInputFields()
     {
-        $this->main_page_names = array_fill(0, 1, '');
-        $this->main_page_content = '';
-        $this->main_page_image84 = null;
-        $this->banner_id = '';
+        $this->basic_banner_names = array_fill(0, 1, '');
+        $this->basic_banner_content = '';
+        $this->image = null;
+        $this->basic_banner_id = '';
     }
 
     public function store()
     {
         $this->validate([
-            'header_navigation_id' => 'required',
-            'main_page_name13' => 'required',
-            'main_page_image84' => 'required|image|max:1024',
-            'main_page_content' => 'required',
+            // 'header_navigation_id' => 'required',
+            'title' => 'required',
+            'image' => 'required|image|max:1024',
+            'basic_banner_content' => 'required',
         ]);
 
-        $imagePath = $this->main_page_image84->store('public/images');
+        $imagePath = $this->image->store('public/images');
 
-        ModelsBasicBanner::updateOrCreate(['id' => $this->banner_id], [
-            'main_page_name13' => $this->main_page_name13,
-            'main_page_image84' => str_replace('public/', '', $imagePath),
-            'main_page_content' => $this->main_page_content
+        ModelsBasicBanner::updateOrCreate(['id' => $this->basic_banner_id], [
+            'title' => $this->title,
+            'image' => str_replace('public/', '', $imagePath),
+            'basic_banner_content' => $this->basic_banner_content
         ]);
 
-        session()->flash('message', $this->banner_id ? 'Page Updated Successfully.' : 'Page Created Successfully.');
+        session()->flash('message', $this->basic_banner_id ? 'basic_banner Updated Successfully.' : 'basic_banner Created Successfully.');
 
         $this->closeModal();
         $this->resetInputFields();
@@ -75,14 +75,14 @@ class BasicBanner extends Component
 
     public function edit($id)
     {
-        $page = ModelsBasicBanner::findOrFail($id);
-        $this->main_page_names = [
-            $page->main_page_name13,
-            $page->main_page_image84,
+        $basic_banner = ModelsBasicBanner::findOrFail($id);
+        $this->basic_banner_names = [
+            $basic_banner->title,
+            $basic_banner->image,
         ];
-        $this->main_page_content = $page->main_page_content;
-        $this->banner_id = $page->id;
-        $this->header_navigation_id = $page->id;
+        $this->basic_banner_content = $basic_banner->basic_banner_content;
+        $this->basic_banner_id = $basic_banner->id;
+        // $this->header_navigation_id = $basic_banner->id;
 
         $this->openModal();
     }
@@ -90,7 +90,7 @@ class BasicBanner extends Component
     public function delete($id)
     {
         ModelsBasicBanner::find($id)->delete();
-        session()->flash('message', 'Page Deleted Successfully.');
+        session()->flash('message', 'basic_banner Deleted Successfully.');
     }
 }
 

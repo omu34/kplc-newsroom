@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
             $table->foreignId('header_navigation_id')->nullable()->constrained('header_navigations')->onDelete('cascade');
-            // $table->string('main_page_name13');
-            $table->string('main_page_image84');
-            $table->text('main_page_content')->nullable();
+            // $table->string('image');
+            $table->text('banner_content')->nullable();
             $table->timestamps();
         });
     }

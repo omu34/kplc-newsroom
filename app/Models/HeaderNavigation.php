@@ -11,42 +11,33 @@ class HeaderNavigation extends Model
     use HasFactory, HasApiTokens;
 
     protected $fillable = [
-        'main_page_name1', 'main_page_name2', 'main_page_name3', 'main_page_name4',
-        'main_page_name5', 'main_page_name6', 'main_page_name7', 'main_page_name8',
-        'main_page_name9', 'main_page_name10',  'main_page_name12','main_page_name19',
-        'main_page_image82', 'main_page_image83'
+        'header1', 'header2', 'header3', 'header4',
+        'header5', 'header6', 'header7', 'header8',
+        'header9', 'header10',  'header12','header19',
+        'image', 'header_navigation_content',
+
+        // 'name',
+        // 'link'
     ];
 
-    public function latestVideos()
-    {
-        return $this->hasMany(LatestVideos::class);
-    }
-
-    public function latestNews()
-    {
-        return $this->hasMany(LatestNews::class, 'main_page_id');
-    }
-
-    public function latestGalleries()
-    {
-        return $this->hasMany(LatestGallery::class, 'main_page_id');
-    }
 
     public function banners()
     {
-        return $this->hasMany(Banner::class, 'main_page_id');
+        return $this->hasMany(Banner::class, 'header_navigation_id');
     }
 
-    public function breadcrumbs()
+    public function mainNavbar()
     {
-        return $this->hasMany(Breadcrumb::class, 'main_page_id');
+        return $this->hasMany(MainNavbar::class, 'header_navigation_id');
     }
-    public function tags()
+    public function topNavbar()
     {
-        return $this->hasMany(Tags::class, 'main_page_id');
+        return $this->hasMany(TopNavbar::class, 'header_navigation_id');
     }
-    public function footers()
+
+    public function basicBanner()
     {
-        return $this->hasMany(Footer::class, 'main_page_id');
+        return $this->hasMany(BasicBanner::class, 'header_navigation_id');
     }
+
 }

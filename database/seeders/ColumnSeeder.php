@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Column;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,14 @@ class ColumnSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $columns = [
+            'column1' => 'Column 1',
+            'column2' => 'Column 2',
+        ];
+        $columnData =  $columns;
+
+        $columnData['main_page_content'] = "Sample content for the main page";
+
+        Column::create($columnData);
     }
 }

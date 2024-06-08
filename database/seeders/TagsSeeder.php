@@ -13,16 +13,16 @@ class TagsSeeder extends Seeder
      */
     public function run(): void
     {
-        $mainPageNames = [
-            'main_page_name71' => 'Column 1',
-            'main_page_name72' => 'Column 2',
-            'main_page_content'=>'tag pages'
+        $tags = [
+            'tag1' => 'Column 1',
+            'tag2' => 'Column 2',
+            'tag_content'=>'tag pages'
         ];
 
-        $mainPageData = $mainPageNames;
+        $tagData = $tags;
 
-        $mainPageData['main_page_content'] = "Sample content for the main page";
+        $tagData['tag_content'] = "Sample content for the main page";
 
-        Tags::create($mainPageData);
+        Tags::create($tagData);
     }
 }

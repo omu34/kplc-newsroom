@@ -1,14 +1,15 @@
 <div :class="{ 'sticky shadow-2': isSticky }" x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 0 })" x-data="{ isOpen: false, isSticky: false, isSearchOpen: false }">
-    @foreach ($mainPages as $page)
+    @foreach ($headerNavigations as $header)
 
         <nav class="flex lg:hidden mx-auto max-w-7xl px-10 items-center bg-white dark:bg-gray-800 py-2 justify-between "
             aria-label="Global">
             <div class="flex lg:flex-1">
                 <a href="H" class="-m-1.5 p-1.5">
                     <span class="sr-only">
-                        {{ $page->main_page_name19 }}
+                        {{ $header->title19 }}
                     </span>
-                    <img class="h-16 w-auto" src="" {{--  /logo.svg  --}} {{--  src="{{ asset('storage/' . $page->main_page_image82) }}"  --}} alt="">
+                    <img class="h-16 w-auto" {{--  src="/logo.svg "   --}} src="{{ asset('storage/' . $header->image) }}"
+                        alt="">
                 </a>
             </div>
             <div class="flex lg:hidden gap-x-4">
@@ -49,20 +50,20 @@
             <nav class="lg:flex hidden mx-auto max-w-7xl items-center rounded-md justify-between " aria-label="Global">
                 <!-- loop category items -->
                 <div class="flex gap-x-12 ml-auto">
+                    @php
+                        $mainnavbars = App\Models\MainNavbar::orderBy('created_at', 'asc')->get();
+                    @endphp
 
                     <div class="hidden lg:flex lg:gap-x-12">
-                        @foreach (App\Models\MainNavbar::limit(4)->orderBy('created_at', 'desc')->get() as $index => $mainnavbars)
-                            @if ($mainnavbars->link)
-                            {{--  https://www.  --}}
-                                <a href="{{ $mainnavbars->link }}" target='_blank'
+                        {{--  @foreach (MainNavbar::limit(4)->orderBy('created_at', 'desc')->get() as $index => $mainnavbar)  --}}
+                       @foreach($mainnavbars as $nav)
+                        @if ($mainnavbars->link)
+                                <a href="{{ $nav->link }}" target='_blank'
                                     class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white ">
-                                    {{ $mainnavbars->name }}
+                                    {{ $nav->name }}
                                 </a>
                             @endif
                         @endforeach
-
-
-
                     </div>
 
                     {{--  @foreach (App\Models\TopNavbar::limit(3)->orderBy('created_at', 'asc')->get() as $index => $topnavbar)
@@ -90,21 +91,21 @@
 
 
                     {{--  <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">
-                    {{ $page->main_page_name5 }}
+                    {{ $header->title5 }}
                     Alternative Energy
                 </a>  --}}
 
-                    {{--  <a href="{{ config('app.newsroom_base_url') }}/products/{{ $page->id }}"
+                    {{--  <a href="{{ config('app.newsroom_base_url') }}/products/{{ $header->id }}"
                         class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white">
-                        {{ $page->main_page_name5 }}
+                        {{ $header->title5 }}
 
                     </a>  --}}
 
 
 
-                    {{--  <a href="{{ $page->link ?? $page->id }}"
+                    {{--  <a href="{{ $header->link ?? $header->id }}"
                         class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
-                        {{ $page->title ?? 'Link Title' }}
+                        {{ $header->title ?? 'Link Title' }}
                      </a>  --}}
 
 
@@ -112,31 +113,31 @@
 
 
                     {{--  <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">
-                    {{ $page->main_page_name6 }}
+                    {{ $header->title6 }}
                     Public
                 </a>  --}}
 
-                    {{--  <a href="{{ config('app.newsroom_base_url') }}/public/{{ $page->id }}"
+                    {{--  <a href="{{ config('app.newsroom_base_url') }}/public/{{ $header->id }}"
                         class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
                     </a>  --}}
 
 
 
-                    {{--  <a href="{{ $page->link ?? $page->id }}"
+                    {{--  <a href="{{ $header->link ?? $header->id }}"
                         class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-black">
-                        {{ $page->title ?? 'Link Title' }}
+                        {{ $header->title ?? 'Link Title' }}
                      </a>  --}}
                     {{--  <a href="#" data-aos="fade-left" data-aos-duration="1000" class="text-base hover:underline hover:underline-offset-4 font-normal leading-6 text-white">
-                    {{ $page->main_page_name7 }}
+                    {{ $header->title7 }}
                     Stock Market
                 </a>  --}}
 
-                    {{--  <a href="{{ config('app.newsroom_base_url') }}/stock-market/{{ $page->id }}"
+                    {{--  <a href="{{ config('app.newsroom_base_url') }}/stock-market/{{ $header->id }}"
                         class="text-base dark:text-white hover:underline hover:underline-offset-4 font-normal text-white">
-                    {{ $page->main_page_name7 }}--}}
+                    {{ $header->title7 }} --}}
                     {{--  Product  --}}
 
-                {{--  </a>  --}}
+                    {{--  </a>  --}}
 
                     <div class="flex items-center w-6 h-6 rounded-full relative" x-data="{ showAccessibility: false }" x-ref="access"
                         @mouseenter="showAccessibility = true" @mouseleave="showAccessibility = false"
@@ -167,7 +168,7 @@
                                 <div class="flex justify-between items-center">
                                     <div class="flex 1 dark:text-slate-200">
 
-                                        {{ $page->main_page_name8 }}
+                                        {{ $header->title8 }}
                                         {{--  Light / Dark  --}}
 
                                     </div>
@@ -179,7 +180,7 @@
                                 <div class="flex justify-between items-center cursor-pointer" @click="zoomLevel += 10">
                                     <div class="flex 1 dark:text-slate-200">
 
-                                        {{ $page->main_page_name9 }}
+                                        {{ $header->title9 }}
 
 
                                     </div>
@@ -198,7 +199,7 @@
                                     @click="zoomLevel -= 10">
                                     <div class="flex 1 dark:text-slate-200">
 
-                                        {{ $page->main_page_name10 }}
+                                        {{ $header->title10 }}
                                         {{--  Decrease Text  --}}
 
 
@@ -240,8 +241,8 @@
                 aria-label="Global">
                 <div class="flex lg:flex-4">
                     {{--  <a href="/" class="-m-1.5 p-1.5">
-                        <span class="sr-only">{{ $page->main_page_name19 }}</span>
-                        <img class="h-16 w-auto" src="{{ asset('storage/' . $page->main_page_image82) }}" alt="">
+                        <span class="sr-only">{{ $header->title19 }}</span>
+                        <img class="h-16 w-auto" src="{{ asset('storage/' . $header->main_page_image82) }}" alt="">
                     </a>  --}}
                 </div>
 
@@ -265,13 +266,12 @@
 
                     <a href="/" class="-m-1.5 p-1.5">
                         <span class="sr-only">
-                            {{ $page->main_page_name19 }}
+                            {{ $header->title19 }}
 
                             {{--  Your Company  --}}
 
                         </span>
-                        <img class="h-16 w-auto" src="{{ asset('storage/' . $page->main_page_image82) }}"
-                            alt="">
+                        <img class="h-16 w-auto" src="{{ asset('storage/' . $header->image) }}" alt="">
 
                     </a>
                 </div>
@@ -284,7 +284,7 @@
                     <button @click="isOpen = !isOpen" type="button"
                         class="-m-6.5 inline-flex items-center justify-center rounded-md p-6.5 text-gray-400">
                         <span class="sr-only">
-                            {{ $page->main_page_name12 }}
+                            {{ $header->title12 }}
                             {{--  Open main menu  --}}
 
                         </span>
@@ -296,10 +296,13 @@
                     </button>
                 </div>
 
-
+                @php
+                $topnavbars = App\Models\TopNavbar::orderBy('created_at', 'asc')->get();
+            @endphp
                 <div class="hidden lg:flex lg:gap-x-12">
                     <div class="hidden lg:flex lg:gap-x-12">
-                        @foreach (App\Models\TopNavbar::limit(4)->orderBy('created_at', 'desc')->get() as $index => $topnavbar)
+
+                        @foreach ($topnavbars as $topnavbar)
                             @if ($topnavbar->link)
                                 <a href="{{ $topnavbar->link }}" target='_blank'
                                     class="flex text-base items-center text-gray-800 font-bold hover:text-gray-900 py-2 px-3">
@@ -330,50 +333,50 @@
                     <input type="text" wire:model="query" placeholder="Search..."
                         class="w-full p-2 border rounded" />
 
-                    @if ($mainPages->isNotEmpty())
+                    {{--  @if ($mainPages->isNotEmpty())
                         <ul class="mt-4">
-                            @foreach ($mainPages as $page)
+                            @foreach ($mainPages as $header)
                                 <li class="mb-2">
-                                    @foreach ($mainPages as $page)
-                                        @if ($page instanceof \App\Models\Socials)
+                                    @foreach ($mainPages as $header)
+                                        @if ($header instanceof \App\Models\Socials)
                                             <strong>Social:</strong>
-                                            {{ $page->name }} ({{ $page->url }})
-                                        @elseif ($page instanceof \App\Models\QuickLinks)
+                                            {{ $header->name }} ({{ $header->url }})
+                                        @elseif ($header instanceof \App\Models\QuickLinks)
                                             <strong>QuickLink:</strong>
-                                            {{ $page->name }} ({{ $page->link }})
-                                        @elseif ($page instanceof \App\Models\Footer)
+                                            {{ $header->name }} ({{ $header->link }})
+                                        @elseif ($header instanceof \App\Models\Footer)
                                             <strong>Footer:</strong>
-                                            {{ $page->main_page_name30 }} - {{ $page->main_page_name31 }}
-                                        @elseif ($page instanceof \App\Models\Currency)
+                                            {{ $header->title30 }} - {{ $header->title31 }}
+                                        @elseif ($header instanceof \App\Models\Currency)
                                             <strong>Currency:</strong>
-                                            {{ $page->name }} ({{ $page->code }})
-                                        @elseif ($page instanceof \App\Models\HeaderNavigation)
+                                            {{ $header->name }} ({{ $header->code }})
+                                        @elseif ($header instanceof \App\Models\HeaderNavigation)
                                             <strong>Navigation:</strong>
-                                            {{ $page->main_page_name1 }} - {{ $page->main_page_name2 }}
-                                        @elseif ($page instanceof \App\Models\LatestNews)
+                                            {{ $header->title1 }} - {{ $header->title2 }}
+                                        @elseif ($header instanceof \App\Models\LatestNews)
                                             <strong>LatestNews:</strong>
-                                            {{ $page->main_page_name60 }} ({{ $page->main_page_name61 }})
-                                        @elseif ($page instanceof \App\Models\FeaturedNews)
+                                            {{ $header->title60 }} ({{ $header->title61 }})
+                                        @elseif ($header instanceof \App\Models\FeaturedNews)
                                             <strong>FeaturedNews:</strong>
-                                            {{ $page->main_page_name60 }} - {{ $page->main_page_name60 }}
-                                        @elseif ($page instanceof \App\Models\LatestGallery)
+                                            {{ $header->title60 }} - {{ $header->title60 }}
+                                        @elseif ($header instanceof \App\Models\LatestGallery)
                                             <strong>LatestGallery:</strong>
-                                            {{ $page->main_page_name23 }} ({{ $page->main_page_name24 }})
-                                        @elseif ($page instanceof \App\Models\LatestVideos)
+                                            {{ $header->title23 }} ({{ $header->title24 }})
+                                        @elseif ($header instanceof \App\Models\LatestVideos)
                                             <strong>LatestVideos:</strong>
-                                            {{ $page->main_page_name11 }} - {{ $page->main_page_name60 }}
-                                        @elseif ($page instanceof \App\Models\Banner)
+                                            {{ $header->title11 }} - {{ $header->title60 }}
+                                        @elseif ($header instanceof \App\Models\Banner)
                                             <strong>Banner:</strong>
-                                            {{ $page->main_page_name13 }} ({{ $page->main_page_name13 }})
-                                        @elseif ($page instanceof \App\Models\BasicBanner)
+                                            {{ $header->title13 }} ({{ $header->title13 }})
+                                        @elseif ($header instanceof \App\Models\BasicBanner)
                                             <strong>BasicBannner:</strong>
-                                            {{ $page->main_page_name13 }} - {{ $page->main_page_name13 }}
-                                        @elseif ($page instanceof \App\Models\Breadcrumb)
+                                            {{ $header->title13 }} - {{ $header->title13 }}
+                                        @elseif ($header instanceof \App\Models\Breadcrumb)
                                             <strong>Breadcrumb:</strong>
-                                            {{ $page->main_page_name26 }} ({{ $page->main_page_name27 }})
-                                        @elseif ($page instanceof \App\Models\Tags)
+                                            {{ $header->title26 }} ({{ $header->title27 }})
+                                        @elseif ($header instanceof \App\Models\Tags)
                                             <strong>Tags:</strong>
-                                            {{ $page->main_page_name71 }} - {{ $page->main_page_name72 }}
+                                            {{ $header->title71 }} - {{ $header->title72 }}
                                         @endif
                                     @endforeach
                                 </li>
@@ -381,7 +384,7 @@
                         </ul>
                     @else
                         <p class="mt-4 text-gray-600">No results found.</p>
-                    @endif
+                    @endif  --}}
                 </div>
 
 
@@ -406,7 +409,7 @@
                     class="flex items-center justify-between border-b border-slate-300 bg-slate-100/60 p-4 dark:border-slate-700 dark:bg-slate-900/20">
                     <h3 id="defaultModalTitle"
                         class="font-semibold tracking-wide text-black dark:text-white font-sans">
-                        {{ $page->main_page_names3 }}
+                        {{ $header->titles3 }}
                         {{--  Search  --}}
 
                     </h3>
@@ -447,7 +450,7 @@
 
 
                     <p class="p-4 text-sm text-gray-500 font-sans text-center capitalize">
-                        {{ $page->main_page_names4 }}
+                        {{ $header->titles4 }}
                         {{--  No results yet  --}}
                     </p>
 
@@ -478,18 +481,18 @@
                     <a href="#" class="-m-1.5 p-1.5">
                         <span class="sr-only">
 
-                            {{--  {{ $page->main_page_name19 }}  --}}
-                            Kenya Power PLC
+                            {{ $header->title19 }}
+                            {{--  Kenya Power PLC  --}}
 
                         </span>
-                        <img class="h-16 w-auto" src="{{ asset('storage/' . $page->main_page_image82) }}"
+                        <img class="h-16 w-auto" src="{{ asset('storage/' . $header->main_page_image82) }}"
                             alt="">
                     </a>
                     <button x-on:click="isOpen = !isOpen" type="button"
                         class="-m-2.5 rounded-md p-2.5 text-gray-300">
                         <span class="sr-only">
 
-                            {{ $page->main_page_names5 }}
+                            {{ $header->titles5 }}
                             {{--  Close menu  --}}
 
                         </span>
@@ -510,7 +513,7 @@
                                         class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-medium leading-7 text-gray-900 dark:text-slate-50 hover:bg-secondary hover:text-primary"
                                         aria-controls="disclosure-{{ $i }}" aria-expanded="false">
 
-                                        {{ $page->main_page_names7 }}
+                                        {{ $header->titles7 }}
 
                                         {{--  Test  --}}
 
@@ -531,7 +534,7 @@
                                         @for ($j = 1; $j <= 2; $j++)
                                             <a href="#"
                                                 class="block rounded-lg py-2 pl-6 pr-3 text-sm font-normal leading-7 text-gray-700 dark:text-slate-100 hover:bg-secondary hover:text-primary">
-                                                {{ $page->main_page_names6 }}
+                                                {{ $header->titles6 }}
                                                 {{--  Sub-item  --}}
 
                                                 {{ $j }}

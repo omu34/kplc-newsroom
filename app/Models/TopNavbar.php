@@ -10,6 +10,12 @@ class TopNavbar extends Model
     use HasFactory;
 
     protected $fillable=[
-        'name','link'
+        'name',
+        'link'
     ];
+
+    public function headerNavigation()
+    {
+        return $this->belongsTo(HeaderNavigation::class);
+    }
 }

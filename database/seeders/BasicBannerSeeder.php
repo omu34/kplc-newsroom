@@ -13,18 +13,17 @@ class BasicBannerSeeder extends Seeder
      */
     public function run(): void
     {
-        $mainPageNames = [
-            'header_navigation_id' => 1,
-            'main_page_name13' => 'KPLC Newsroom',
-            'main_page_image84' => 'images/test-1.jpg',
-            'main_page_content' => 'This is a sample content for the banner.',
+        $basicBanners= [
+            'title' => 'KPLC Newsroom',
+            'image' => 'images/test-1.jpg',
+            'basic_banner_content' => 'This is a sample content for the banner.',
     ];
 
-    $mainPageData = $mainPageNames;
+    $basicBannerData = $basicBanners;
 
-    $mainPageData['main_page_content'] = "Sample content for the main page";
+    $basicBannerData['basic_banner_content'] = "Sample content for the main page";
 
-    BasicBanner::create($mainPageData);
+    BasicBanner::create($basicBannerData);
 
 
     }

@@ -5,7 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Textarea;
@@ -37,10 +37,10 @@ class LatestNewsContent extends Resource
         'date',
         'likes',
         'link',
-         'views',
-         'description',
-         'image_path',
-         'video_path'
+        'views',
+        'description',
+        // 'image_path',
+        'video_path'
     ];
     public static function search($query)
     {
@@ -62,11 +62,12 @@ class LatestNewsContent extends Resource
             Text::make('Likes', 'likes')->sortable(),
             Text::make('Views', 'views')->sortable(),
             Text::make('Link', 'link')->sortable(),
+            Boolean::make('Active')->sortable()->default(false),
 
             TextArea::make('Description', 'description')->sortable(),
             Date::make(__('Day'), 'day')->nullable(),
-            Image::make('Image', 'image_path')->disk('public')->path('images')->sortable(),
-            File::make('Video','video_path')->disk('public')->path('images')->sortable()->nullable(),
+            // Image::make('Image', 'image_path')->disk('public')->path('images')->sortable(),
+            File::make('Video', 'video_path')->disk('public')->path('images')->sortable()->nullable(),
         ];
     }
 

@@ -9,18 +9,16 @@ class LNews extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'link',
         'day',
-       'views',
-       'link',
+        'views',
+        'link',
         'description',
         'likes',
-        'image_path',
-        'video_path'
-
+        'video_path',
+        'status',
     ];
-
 
     protected $casts = [
         'day' => 'date',

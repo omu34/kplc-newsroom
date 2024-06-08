@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('likes');
             $table->string('views');
             $table->text('description');
-            $table->string('image_path');
+            $table->boolean('is_active')->default(false);
             $table->string('video_path');
             $table->timestamps();
         });

@@ -196,3 +196,14 @@ class Footer extends Component
         session()->flash('message', 'Page Deleted Successfully.');
     }
 }
+
+
+
+
+
+
+
+
+
+
+

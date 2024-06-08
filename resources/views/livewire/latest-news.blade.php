@@ -28,14 +28,18 @@
                 @endphp
 
                 @foreach ($news as $index => $new)
-                {{--  @if ($new->link)  --}}
+                    {{--  <span>Active: {{ $new->is_active ? 'Yes' : 'No' }}</span>  --}}
+                    {{--  @endforeach
+
+                @foreach ($news as $index => $new)  --}}
+                    {{--  @if ($new->link)  --}}
                     <article
                         class="relative isolate flex flex-col transition-transform transform hover:scale-105 justify-end overflow-hidden rounded-2xl bg-gray-900 px-4 pb-8 pt-44 sm:pt-60 lg:pt-48">
 
-                        <a href="{{ url('/single-blog', ) }}" class="absolute inset-0 z-10"></a>
+                        <a href="{{ url('/single-blog') }}" class="absolute inset-0 z-10"></a>
 
-                        <img src="{{ asset('storage/' . $new->image_path) }}" alt=""
-                            class="absolute inset-0 -z-10 h-full w-full object-cover">
+                        {{--  <img src="{{ asset('storage/' . $new->image_path) }}" alt=""
+                            class="absolute inset-0 -z-10 h-full w-full object-cover">  --}}
                         <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black  via-gray-900/50"></div>
                         <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
                         <img src="{{ asset('storage/' . $new->video_path) }}"

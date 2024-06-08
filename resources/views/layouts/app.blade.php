@@ -34,6 +34,23 @@
             </header>
         @endif
 
+        document.addEventListener('search', function() {
+  this.isLoading = true;
+  this.error = null;
+  fetch('/search?q=' + encodeURIComponent(this.search))
+    .then(response => response.json())
+    .then(data => {
+      this.results = data;
+    })
+    .catch(error => {
+      this.error = 'An error occurred during search.';
+    })
+    .finally(() => {
+      this.isLoading = false;
+    });
+});
+
+
         <!-- Page Content -->
         <main>
             <div class="lg:ml-0 lg:mr-0 md:ml-4 ml-4 md:mr-4 mr-4 sm:ml-4 sm:mr-4">
@@ -50,6 +67,25 @@
     @stack('modals')
 
     @livewireScripts
+
+    <script>
+        document.addEventListener('search', function() {
+            this.isLoading = true;
+            this.error = null;
+            fetch('/search?q=' + encodeURIComponent(this.search))
+              .then(response => response.json())
+              .then(data => {
+                this.results = data;
+              })
+              .catch(error => {
+                this.error = 'An error occurred during search.';
+              })
+              .finally(() => {
+                this.isLoading = false;
+              });
+          });
+
+    </script>
 
     <template x-if="siteGrayscale">
         <style>

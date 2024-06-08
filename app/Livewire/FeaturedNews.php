@@ -133,3 +133,127 @@ class FeaturedNews extends Component
 
 
 
+
+
+
+
+// namespace App\Livewire;
+
+// use Livewire\Component;
+// use App\Models\LNews as ModelsLNews;
+
+// class LatestNews extends Component
+// {
+//     public $news;
+//     public $newLnews = [
+//                 'link'=>'',
+//         'day'=>'',
+//        'views'=>'',
+//        'link'=>'',
+//         'description'=>'',
+//         'likes'=>'',
+//         'video_path'  => '',
+//     ];
+//     public $selectedLnewsId = null;
+//     public $showLnews = false;
+
+//     public function mount()
+//     {
+//         $this->news =LNews::all();
+//     }
+
+
+//     public function store()
+//     {
+//         $validatedData = $this->validate([
+//                         'newLNews.link'=>'required',
+//             'newLNews.day'=>'required',
+//            'newLNews.views'=>'required',
+//            'newLNews.link'=>'required',
+//             'newLNews.description'=>'required',
+//             'newLNews.likes'=>'required',
+//             'newLNews.video_path'  => 'required',
+//         ]);
+
+//        LNews::create($validatedData['newLNews']);
+
+//         $this->newLNews['link'] = '';
+//         $this->newLNews['day'] = '';
+//         $this->newLNews['views'] = '';
+//         $this->newLNews['description'] = '';
+//         $this->newLNews['likes'] = '';
+//         $this->newLNews['video_path'] = '';
+//         $this->news =LNews::all();
+
+//         $this->emit('LatestNewstored');
+//     }
+
+//     public function edit(int $id)
+//     {
+//         $this->selectedLnewsId = $id;
+//         $this->newLNews =LNews::find($id)->toArray();
+//     }
+
+//     public function update()
+//     {
+//         $validatedData = $this->validate([
+
+//             'newLNews.link'=>'required',
+//             'newLNews.day'=>'required',
+//            'newLNews.views'=>'required',
+//            'newLNews.link'=>'required',
+//             'newLNews.description'=>'required',
+//             'newLNews.likes'=>'required',
+//             'newLNews.video_path'  => 'required',
+//         ]);
+
+//        LNews::where('id', $this->selectedLnewsId)->update($validatedData['newLNews']);
+
+//         $this->selectedLnewsId = null;
+//         $this->newLNews = [
+//             'title' => '',
+//             'content' => '',
+//         ];
+//         $this->news =LNews::all();
+
+//         $this->dispatchEvent('postUpdated');
+//     }
+
+//     public function cancel()
+//     {
+//         $this->selectedLnewsId = null;
+//         $this->newLNews = [
+//             'title' => '',
+//             'content' => '',
+//         ];
+//     }
+
+//     public function toggleActive(int $id)
+//     {
+//         $post =LNews::find($id);
+//         $post->update(['is_active' => !$post->is_active]);
+
+//         $this->news =LNews::all();
+
+//         $this->dispatchEvent('postToggled');
+//     }
+
+//     public function toggleShowLnews()
+//     {
+//         $this->showLnews = !$this->showLnews;
+//     }
+
+//     public function render()
+//     {
+//         return view('livewire.post-crud');
+//     }
+// }
+
+
+
+
+
+
+
+
+

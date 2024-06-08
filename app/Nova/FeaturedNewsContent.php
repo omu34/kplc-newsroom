@@ -5,7 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Textarea;
@@ -40,7 +40,7 @@ class FeaturedNewsContent extends Resource
        'link',
         'views',
         'description',
-        'image_path',
+        // 'image_path',
         'video_path'
     ];
 
@@ -62,13 +62,14 @@ class FeaturedNewsContent extends Resource
     {
         return [
             ID::make()->sortable(),
-
             Text::make('Likes', 'likes')->sortable(),
             Text::make('Views', 'views')->sortable(),
             TextArea::make('Description', 'description')->sortable(),
             Text::make('Link', 'link')->sortable(),
+            Boolean::make('Active')->sortable()->default(false),
+
             Date::make(__('Date'), 'day')->nullable(),
-            Image::make('Image', 'image_path')->disk('public')->path('images')->sortable(),
+            // Image::make('Image', 'image_path')->disk('public')->path('images')->sortable(),
             File::make('Video','video_path')->disk('public')->path('images')->sortable()->nullable(),
 
 

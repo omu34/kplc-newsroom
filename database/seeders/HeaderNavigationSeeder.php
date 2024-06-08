@@ -25,7 +25,6 @@ class HeaderNavigationSeeder extends Seeder
             'header9' => 'Increase Text',
             'header10' => 'Increase Text',
             'header12' => 'Open main menu',
-            'header13' => 'Open main menu',
             'header19' => 'Your Company',
             'image' => 'images/logo.png',
             'header_navigation_content'=>'pages'

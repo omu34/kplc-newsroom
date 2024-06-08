@@ -2,14 +2,13 @@
 
 namespace App\Livewire;
 
-
-
 use App\Models\LatestVideos as ModelsLatestVideos;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Models\File;
+
 class LatestVideos extends Component
 {
     use WithFileUploads;
@@ -20,7 +19,8 @@ class LatestVideos extends Component
     public $showModal = false;
     public $showVideos = false;
     public $newVideo = [
-
+        'latest_videos' => '',
+        'button_text' => '',
         'day' => '',
         'views' => '',
         'description' => '',
@@ -28,7 +28,7 @@ class LatestVideos extends Component
         'link' => '',
         'file' => '',
     ];
-
+    public $file;
 
     public function mount()
     {
@@ -38,22 +38,26 @@ class LatestVideos extends Component
     public function store()
     {
         $validatedData = $this->validate([
-
-            'newVideo.day' => 'required',
-            'newVideo.views' => 'required',
+            'newVideo.latest_videos' => 'required',
+            'newVideo.button_text' => 'required',
+            'newVideo.day' => 'required|date',
+            'newVideo.views' => 'required|integer',
             'newVideo.description' => 'required|min:10',
-            'newVideo.likes' => 'required',
-            'newVideo.link' => 'required',
-            'newVideo.file' => 'required|file|mimes:jpeg,png,jpg,mp4,mov,wav,mp3,pdf,csv,xls,xlsx,zip|max:1048576',
-
+            'newVideo.likes' => 'required|integer',
+            'newVideo.link' => 'required|url',
+            'file' => 'required|file|mimes:jpeg,png,jpg,mp4,mov,wav,mp3,pdf,csv,xls,xlsx,zip|max:1048576',
         ]);
+
+        // Store the file
+        $filePath = $this->file->store('post-files', 'public');
+        $validatedData['newVideo']['file'] = $filePath;
 
         ModelsLatestVideos::create($validatedData['newVideo']);
 
-        $this->reset('newVideo');
+        $this->reset('newVideo', 'file');
         $this->mount();
 
-        $this->dispatchEventBrowser('postStored');
+        $this->dispatchBrowserEvent('postStored');
     }
 
     public function upload()
@@ -61,25 +65,25 @@ class LatestVideos extends Component
         try {
             $validatedData = $this->validate([
                 'file' => 'required|file|mimes:jpeg,png,jpg,mp4,mov,wav,mp3,pdf,csv,xls,xlsx,zip|max:1048576',
-
-                'newVideo.day' => 'required',
-                'newVideo.views' => 'required',
+                'newVideo.day' => 'required|date',
+                'newVideo.views' => 'required|integer',
                 'newVideo.description' => 'required|min:10',
-                'newVideo.likes' => 'required',
-                'newVideo.link' => 'required',
+                'newVideo.likes' => 'required|integer',
+                'newVideo.link' => 'required|url',
+                'newVideo.latest_videos' => 'required|text',
+                'newVideo.button_text' => 'required|string',
+
             ]);
 
-            $file = $this->file;
-            $fileLink = $file->store('post-files', 'public');
-
-            $validatedData['newVideo']['file'] = $fileLink;
+            $filePath = $this->file->store('post-files', 'public');
+            $validatedData['newVideo']['file'] = $filePath;
 
             $this->createPostAndFile($validatedData);
 
-            $this->reset('newVideo', 'photo');
+            $this->reset('newVideo', 'file');
             $this->mount();
 
-            $this->dispatchEventBrowser('postStored');
+            $this->dispatchBrowserEvent('postStored');
         } catch (\Exception $e) {
             $this->dispatchBrowserEvent('alert', [
                 'type' => 'error',
@@ -92,18 +96,17 @@ class LatestVideos extends Component
     {
         ModelsLatestVideos::create($validatedData['newVideo']);
 
-        $file = $this->photo;
+        $file = $this->file;
         $fileTime = $file->getMTime();
-        $fileName = $file->getFilename();
+        $fileName = $file->getClientOriginalName();
         $fileSize = $file->getSize();
         $fileMimeType = $file->getMimeType();
         $fileTime = date('Y-m-d H:i:s', $fileTime);
         $fileId = Str::uuid()->toString();
-
         $fileName = Str::slug($fileName);
 
         File::create([
-            'content' => Str::limit($file->getContent(), 1000, '...'),
+            'content' => Str::limit(file_get_contents($file->getRealPath()), 1000, '...'),
             'time' => $fileTime,
             'name' => $fileName,
             'mime_type' => $fileMimeType,
@@ -124,27 +127,31 @@ class LatestVideos extends Component
     public function update()
     {
         $validatedData = $this->validate([
-
-            'newVideo.day' => 'required',
-            'newVideo.views' => 'required',
+            'newVideo.day' => 'required|date',
+            'newVideo.views' => 'required|integer',
             'newVideo.description' => 'required|min:10',
-            'newVideo.likes' => 'required',
-            'newVideo.link' => 'required',
-            'newVideo.file' => 'required|file|mimes:jpeg,png,jpg,mp4,mov,wav,mp3,pdf,csv,xls,xlsx,zip|max:1048576',
+            'newVideo.likes' => 'required|integer',
+            'newVideo.link' => 'required|url',
+            'newVideo.latest_videos' => 'required|text',
+                'newVideo.button_text' => 'required|string',
+            'file' => 'required|file|mimes:jpeg,png,jpg,mp4,mov,wav,mp3,pdf,csv,xls,xlsx,zip|max:1048576',
         ]);
+
+        $filePath = $this->file->store('post-files', 'public');
+        $validatedData['newVideo']['file'] = $filePath;
 
         ModelsLatestVideos::where('id', $this->selectedLatestVideosId)->update($validatedData['newVideo']);
 
         $this->selectedLatestVideosId = null;
         $this->mount();
 
-        $this->dispatchEventBrowser('postUpdated');
+        $this->dispatchBrowserEvent('postUpdated');
     }
 
     public function cancel()
     {
         $this->selectedLatestVideosId = null;
-        $this->reset('newVideo');
+        $this->reset('newVideo', 'file');
     }
 
     public function toggleActive(int $id)
@@ -154,12 +161,11 @@ class LatestVideos extends Component
 
         $this->mount();
 
-        $this->dispatchEventBrowser('postToggled');
+        $this->dispatchBrowserEvent('postToggled');
     }
 
     public function toggleshowVideos()
     {
-
         $this->showVideos = !$this->showVideos;
 
         if ($this->showVideos) {
@@ -167,9 +173,7 @@ class LatestVideos extends Component
         } else {
             $this->videos = ModelsLatestVideos::orderBy('created_at', 'desc')->get();
         }
-
     }
-
 
     public function render()
     {
@@ -183,12 +187,46 @@ class LatestVideos extends Component
 
 
 
+namespace AppLivewire;
 
+use Livewire\Component;
+use Livewire\WithFileUploads;
+use App\Models\LatestVideos as ModelsLatestVideos;
 
+class LatestVideos extends Component
+{
+    use WithFileUploads;
 
+    public $file;
+    public $uploadError;
 
+    public function uploadVideo()
+    {
+        $this->validate([
+            'file' => 'required|mimes:mp4,mov|max:20480', // Adjust validation rules as needed
+        ]);
 
+        $filename = time() . '.' . $this->file->getClientOriginalExtension();
+        $this->file->storeAs('videos', $filename); // Store in 'videos' directory
 
+        // Save video data to database, including filename
+        ModelsLatestVideos::create([
+            'file' => $filename,
+            'title' => 'Sample Title',
+            'description' => 'Sample Description',
+            'created_at' => now(),
+        ]);
 
+        $this->file = null;
+        $this->emit('newsUploaded'); // Emit event for FeaturedNews component
 
+        // Display success message or redirect as needed
+        session()->flash('message', 'Video Uploaded Successfully.');
+    }
+
+    public function render()
+    {
+        return view('livewire.latest-videos');
+    }
+}
 

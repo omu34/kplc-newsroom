@@ -25,7 +25,7 @@ class Tags extends Resource
      *
      * @var string
      */
-    public static $title = 'main_page_name71';
+    public static $title = 'tag1';
 
     /**
      * The columns that should be searched.
@@ -33,13 +33,13 @@ class Tags extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'main_page_name71', 'main_page_name72'
+        'id', 'tag1', 'tag2'
     ];
 
     public static function search($query)
     {
-        return static::where('main_page_name71', 'like', "%$query%")
-            ->orWhere('main_page_name72', 'like', "%$query%")
+        return static::where('tag1', 'like', "%$query%")
+            ->orWhere('tag2', 'like', "%$query%")
             ->get();
     }
 
@@ -59,8 +59,8 @@ class Tags extends Resource
                 ->hideFromIndex()
                 ->hideWhenCreating()
                 ->hideWhenUpdating(),
-            Text::make('Column 1 Name', 'main_page_name71')->sortable(),
-            Text::make('Column 2 Name', 'main_page_name72')->sortable(),
+            Text::make('Column 1 Name', 'tag1')->sortable(),
+            Text::make('Column 2 Name', 'tag2')->sortable(),
         ];
     }
 

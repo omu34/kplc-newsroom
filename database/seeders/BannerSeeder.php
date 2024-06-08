@@ -16,13 +16,13 @@ class BannerSeeder extends Seeder
 
        $banners = [
             'banner_content' => 'KPLC Newsroom',
-            // ' image' => 'images/test-1.jpg',
+            // ' image_path' => 'images/test-1.jpg',
         ];
 
-        $bannerData = $banners;
+        $banner = $banners;
 
-        $bannerData['banner_content'] = "Sample content for the main page";
+        $banner['banner_content'] = "News Room";
 
-        Banner::create($bannerData);
+        Banner::create($banner);
     }
 }

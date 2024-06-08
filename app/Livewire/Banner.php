@@ -10,7 +10,7 @@ class Banner extends Component
     public $banners;
     public $banner_names = [];
     public $banner_content, $banner_id;
-    public $image;
+    public $image_path;
     public $header_navigation_id;
     public $isOpen = 0;
 
@@ -46,7 +46,7 @@ class Banner extends Component
     {
         $this->banner_names = array_fill(0, 1, ''); // Assuming we need 4 names
         $this->banner_content = '';
-        $this->image = null;
+        $this->image_path = null;
         $this->banner_id = '';
     }
 
@@ -55,14 +55,14 @@ class Banner extends Component
     public function store()
     {
         $this->validate([
-            'image' => 'required|image|max:1024',
+            'image_path' => 'required|image|max:1024',
             'banner_content' => 'required',
         ]);
-        $imagePath = $this->image->store('public/images');
+        $imagePath = $this->image_path->store('public/images');
 
 
         ModelsBanner::updateOrCreate(['id' => $this->banner_id], [
-            'image' => str_replace('public/', '', $imagePath),
+            'image_path' => str_replace('public/', '', $imagePath),
             'banner_content' => $this->banner_content
         ]);
 

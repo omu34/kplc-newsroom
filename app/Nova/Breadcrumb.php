@@ -25,7 +25,7 @@ class Breadcrumb extends Resource
      *
      * @var string
      */
-    public static $title = 'main_page_name26';
+    public static $title = 'breadcrumb1';
 
     /**
      * The columns that should be searched.
@@ -33,13 +33,13 @@ class Breadcrumb extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'main_page_name26', 'main_page_name27', 'main_page_name28'
+        'id', 'breadcrumb1', 'breadcrumb2'
     ];
 
     public static function search($query)
     {
-        return static::where('main_page26', 'like', "%$query%")
-            ->orWhere('main_page_image27', 'like', "%$query%")
+        return static::where('breadcrumb1', 'like', "%$query%")
+            ->orWhere('breadcrumb2', 'like', "%$query%")
             ->get();
     }
 
@@ -58,9 +58,8 @@ class Breadcrumb extends Resource
                 ->hideFromIndex()
                 ->hideWhenCreating()
                 ->hideWhenUpdating(),
-            Text::make('Page Location ', 'main_page_name26')->sortable(),
-            Text::make('Main Page Name', 'main_page_name27')->sortable(),
-            Text::make('Single Page Name', 'main_page_name28')->sortable(),
+            Text::make('Home Page Name ', 'breadcrumb1')->sortable(),
+            Text::make('Single Page Name', 'breadcrumb2')->sortable(),
         ];
     }
 

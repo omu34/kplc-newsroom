@@ -23,7 +23,7 @@ class Socials extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -31,7 +31,7 @@ class Socials extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id','name','url'
     ];
 
     public static function search($query)
@@ -53,7 +53,7 @@ class Socials extends Resource
             ID::make()->sortable(),
             Text::make('Name')->rules('required', 'max:255'),
             Text::make('URL')->rules('required', 'url', 'max:255'),
-            Image::make('image', 'image_path')->disk('public')->path('images')->sortable(),
+            Image::make('Image', 'image_path')->disk('public')->path('images')->sortable(),
 
             // Image::make('Image')
             //     ->disk('public')

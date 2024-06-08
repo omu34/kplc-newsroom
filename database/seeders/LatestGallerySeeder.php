@@ -14,8 +14,8 @@ class LatestGallerySeeder extends Seeder
     public function run(): void
     {
         $galleries = [
-            // 'gallery_name' => 'Latest Gallery',
-            // 'button_text' => 'Show Me More',
+            'latest_gallery' => 'Latest Gallery',
+            'button_text' => 'Show Me More',
             'day' => 'Mar 16, 2020',
             'views' => '345',
             'description' => 'The  Summit on Clean Cooking in Africa 2024 (Paris, France)',

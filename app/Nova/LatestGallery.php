@@ -28,7 +28,7 @@ class LatestGallery extends Resource
      *
      * @var string
      */
-    public static $title = 'main_page_name23';
+    public static $title = 'latest_gallery';
 
     /**
      * The columns that should be searched.
@@ -37,7 +37,7 @@ class LatestGallery extends Resource
      */
     public static $search = [
         'id',
-        'main_page_name23',
+        'latest_gallery',
         'button_text',
         'date',
         'likes',
@@ -50,7 +50,7 @@ class LatestGallery extends Resource
 
     public static function search($query)
     {
-        return static::where('main_page_name23', 'like', "%$query%")
+        return static::where('latest_gallery', 'like', "%$query%")
             ->orWhere('description', 'like', "%$query%")
             ->get();
     }
@@ -65,9 +65,10 @@ class LatestGallery extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Title', 'latest_gallery')->sortable(),
+            Text::make('Button Text', 'button_text')->sortable(),
             Date::make(__('Date'), 'day')->nullable(),
             Text::make('Link', 'link')->sortable(),
-            Text::make('Button Text', 'button_text')->sortable(),
             Text::make('Likes', 'likes')->sortable(),
             Text::make('Views', 'views')->sortable(),
             TextArea::make('Description', 'description')->sortable(),

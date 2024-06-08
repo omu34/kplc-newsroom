@@ -13,9 +13,9 @@ use App\Models\LatestGallery;
 use App\Models\LatestNews;
 use App\Models\LatestVideos;
 use App\Models\HeaderNavigation;
-use App\Models\QuickLinks;
-use App\Models\Socials;
-use App\Models\Tags;
+use App\Models\QuickLink;
+use App\Models\Social;
+use App\Models\Tag;
 use App\Models\TopNavbar;
 
 class GlobalSearch extends Component
@@ -39,10 +39,10 @@ class GlobalSearch extends Component
         $this->results = collect();
 
         if (strlen($this->query) > 2) {
-            $socialResults = Socials::where('name', 'like', "%{$this->query}%")
+            $socialResults = Social::where('name', 'like', "%{$this->query}%")
                 ->orWhere('url', 'like', "%{$this->query}%")
                 ->get();
-            $quickLinkResults = QuickLinks::where('name', 'like', "%{$this->query}%")
+            $quickLinkResults = QuickLink::where('name', 'like', "%{$this->query}%")
                 ->orWhere('url', 'like', "%{$this->query}%")
                 ->get();
             $footerResults = Footer::where('name', 'like', "%{$this->query}%")
@@ -78,7 +78,7 @@ class GlobalSearch extends Component
             $latestGalleryResults = LatestGallery::where('main_page_name23', 'like', "%{$this->query}%")
                 ->orWhere('main_page_name24', 'like', "%{$this->query}%")
                 ->get();
-            $tagsResults = Tags::where('main_page_name71', 'like', "%{$this->query}%")
+            $tagsResults = Tag::where('main_page_name71', 'like', "%{$this->query}%")
                 ->orWhere('main_page_name72', 'like', "%{$this->query}%")
                 ->get();
             $topNavbarResults = TopNavbar::where('name', 'like', "%{$this->query}%")

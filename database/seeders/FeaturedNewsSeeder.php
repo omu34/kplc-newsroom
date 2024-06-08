@@ -14,6 +14,8 @@ class FeaturedNewsSeeder extends Seeder
     public function run(): void
     {
         $featuredNews = [
+            'featured' => 'Featured',
+            'button_text' => 'Show Me More',
             'day' => 'Mar 16, 2020',
             'views' => '345 ',
             'description' => 'The  Summit on Clean Cooking in Africa 2024 (Paris, France)',

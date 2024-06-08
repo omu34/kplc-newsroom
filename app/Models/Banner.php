@@ -11,7 +11,7 @@ class Banner extends Model
     use HasFactory,HasApiTokens;
 
     protected $fillable = [
-        'banner_content',
+        'banner_content','image_path',
     ];
 
     public function headerNavigation()

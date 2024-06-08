@@ -25,7 +25,7 @@ class QuickLinks extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -33,7 +33,7 @@ class QuickLinks extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id','name','url'
     ];
 
     public static function search($query)

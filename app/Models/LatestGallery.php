@@ -15,6 +15,8 @@ class LatestGallery extends Model
         'day',
         'views',
         'description',
+        'latest_gallery',
+        'button_text',
         'likes',
         'link',
         'file',

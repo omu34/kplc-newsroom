@@ -21,7 +21,7 @@ class FooterNavItem extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'nav1';
 
     /**
      * The columns that should be searched.
@@ -29,7 +29,7 @@ class FooterNavItem extends Resource
      * @var array
      */
     public static $search = [
-        'id','name','link','name2','link2'
+        'id','nav1','link','nav2','link2'
     ];
 
     /**
@@ -42,9 +42,9 @@ class FooterNavItem extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Nav name', 'name')->sortable(),
-            Text::make('Nav link', 'link')->sortable(),
-            Text::make('Nav name2', 'name2')->sortable(),
+            Text::make('Nav name', 'nav1')->sortable(),
+            Text::make('Nav link', 'link1')->sortable(),
+            Text::make('Nav name2', 'nav2')->sortable(),
             Text::make('Nav link2', 'link2')->sortable(),
         ];
     }

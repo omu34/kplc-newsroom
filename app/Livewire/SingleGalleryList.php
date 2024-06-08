@@ -6,11 +6,11 @@ use Livewire\Component;
 
 class SingleGalleryList extends Component
 {
-    public $selectedGalleryIndex = 0;
+    public $selectedPostIndex = 0;
     public $showModal = false;
 
-    public $galleries = [
-        // Array of Gallery image URLs
+    public $posts = [
+        // Array of post image URLs
         'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2672&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         'https://images.unsplash.com/photo-1617886322168-72b886573c35?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         'https://images.unsplash.com/photo-1608023465482-bcb34e3da93c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -22,20 +22,20 @@ class SingleGalleryList extends Component
         return view('livewire.single-gallery-list');
     }
 
-    public function selectGallery($index)
+    public function selectPost($index)
     {
-        $this->selectedGalleryIndex = $index;
+        $this->selectedPostIndex = $index;
         $this->showModal = true;
     }
 
-    public function nextGallery()
+    public function nextPost()
     {
-        $this->selectedGalleryIndex = ($this->selectedGalleryIndex + 1) % count($this->galleries);
+        $this->selectedPostIndex = ($this->selectedPostIndex + 1) % count($this->posts);
     }
 
-    public function previousGallery()
+    public function previousPost()
     {
-        $this->selectedGalleryIndex = ($this->selectedGalleryIndex - 1 + count($this->galleries)) % count($this->galleries);
+        $this->selectedPostIndex = ($this->selectedPostIndex - 1 + count($this->posts)) % count($this->posts);
     }
 
     public function closePopup()

@@ -21,7 +21,7 @@ class FooterColumn extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'column1';
 
     /**
      * The columns that should be searched.
@@ -29,13 +29,13 @@ class FooterColumn extends Resource
      * @var array
      */
     public static $search = [
-        'id','name','name2'
+        'id','column1','column2','name1','name2'
     ];
 
     public static function search($query)
     {
-        return static::where('name', 'like', "%$query%")
-            ->orWhere('name2', 'like', "%$query%")
+        return static::where('column1', 'like', "%$query%")
+            ->orWhere('column2', 'like', "%$query%")
             ->get();
     }
 
@@ -50,8 +50,9 @@ class FooterColumn extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Column 1 Name', 'name')->sortable(),
-            Text::make('Column 2 Name', 'name2')->sortable(),
+            Text::make('Column 1 Name', 'column1')->sortable(),
+            Text::make('Column 2 Name', 'column2')->sortable(),
+            
 
 
         ];

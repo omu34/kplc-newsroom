@@ -10,7 +10,7 @@ class BasicBanner extends Component
     public $basic_banners;
     public $basic_banner_names = [];
     public $basic_banner_content, $basic_banner_id;
-    public $image;
+    public $image_path;
     public $header_navigation_id;
     public $isOpen = 0;
 
@@ -46,7 +46,7 @@ class BasicBanner extends Component
     {
         $this->basic_banner_names = array_fill(0, 1, '');
         $this->basic_banner_content = '';
-        $this->image = null;
+        $this->image_path = null;
         $this->basic_banner_id = '';
     }
 
@@ -55,15 +55,15 @@ class BasicBanner extends Component
         $this->validate([
             // 'header_navigation_id' => 'required',
             'title' => 'required',
-            'image' => 'required|image|max:1024',
+            'image_path' => 'required|image|max:1024',
             'basic_banner_content' => 'required',
         ]);
 
-        $imagePath = $this->image->store('public/images');
+        $image_Path = $this->image_path->store('public/image_paths');
 
         ModelsBasicBanner::updateOrCreate(['id' => $this->basic_banner_id], [
             'title' => $this->title,
-            'image' => str_replace('public/', '', $imagePath),
+            'image_path' => str_replace('public/', '', $image_Path),
             'basic_banner_content' => $this->basic_banner_content
         ]);
 
@@ -78,7 +78,7 @@ class BasicBanner extends Component
         $basic_banner = ModelsBasicBanner::findOrFail($id);
         $this->basic_banner_names = [
             $basic_banner->title,
-            $basic_banner->image,
+            $basic_banner->image_path,
         ];
         $this->basic_banner_content = $basic_banner->basic_banner_content;
         $this->basic_banner_id = $basic_banner->id;

@@ -1,5 +1,5 @@
-@php
-    use Carbon\Carbon;
+<div>
+    @php
     $banners = App\Models\Banner::orderBy('created_at', 'asc')->get();
 @endphp
 <div class="bg-gray-900">
@@ -10,7 +10,8 @@
     <div class="relative isolate overflow-hidden pt-14 lg:px-0 px-10">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="{{asset('storage/' . $banner->image)  }}" alt="" class="h-full w-full object-cover">
+            <img
+            src="{{asset('storage/' . $banner->image_path)  }}" alt="" class="h-full w-full object-cover">
             <div class="absolute inset-0 bg-black opacity-80"></div>
         </div>
 
@@ -22,4 +23,8 @@
         </div>
     </div>
     @endforeach
+</div>
+
+
+
 </div>

@@ -26,7 +26,7 @@ class Banner extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'banner_id';
 
     /**
      * The columns that should be searched.
@@ -34,13 +34,15 @@ class Banner extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'main_page_image84'
+        'id',
+        // 'image_path',
+        'banner_content'
     ];
 
     public static function search($query)
     {
         return static::where('id', 'like', "%$query%")
-            ->orWhere('main_page_image84', 'like', "%$query%")
+            ->orWhere('image_path', 'like', "%$query%")
             ->get();
     }
 
@@ -59,8 +61,8 @@ class Banner extends Resource
                 ->hideFromIndex()
                 ->hideWhenCreating()
                 ->hideWhenUpdating(),
-            // Text::make('Banner Title', 'main_page_name13')->sortable(),
-            Image::make('Banner Image', 'main_page_image84')->disk('public')->path('images')->sortable(),
+            Text::make('Banner Content', 'banner_content')->sortable(),
+            // Image::make('Banner Image', 'image_path')->disk('public')->path('images')->sortable(),
         ];
     }
 

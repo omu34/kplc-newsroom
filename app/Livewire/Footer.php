@@ -6,7 +6,7 @@ namespace App\Livewire;
 use App\Models\Footer as ModelsFooter;
 // use App\Models\QuickLinks;
 use Livewire\Component;
-use App\Models\Socials as ModelsSocials;
+use App\Models\Social as ModelsSocial;
 
 class Footer extends Component
 {
@@ -22,7 +22,7 @@ class Footer extends Component
     {
         $this->footers = ModelsFooter::all();
         // $this->quicklinks = QuickLinks::all();
-        $this->socials = ModelsSocials::all();
+        $this->socials = ModelsSocial::all();
         // $this->currencys = Currency::all();
     }
 

@@ -15,7 +15,7 @@ class BasicBannerSeeder extends Seeder
     {
         $basicBanners= [
             'title' => 'KPLC Newsroom',
-            'image' => 'images/test-1.jpg',
+            'image_path' => 'images/test-1.jpg',
             'basic_banner_content' => 'This is a sample content for the banner.',
     ];
 

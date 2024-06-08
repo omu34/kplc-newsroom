@@ -12,6 +12,7 @@ class FeaturedNews extends Model
     protected $fillable = [
         'day',
         'views',
+        'featured',
         'description',
         'likes',
         'link',

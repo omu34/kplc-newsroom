@@ -12,7 +12,7 @@ class BasicBanner extends Model
 
     protected $fillable = [
         'title',
-        'image',
+        'image_path',
         'basic_banner_content'
         ];
 

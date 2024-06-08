@@ -35,6 +35,8 @@ class FeaturedNews extends Resource
     public static $search = [
         'id',
         'date',
+        'featured',
+        'button_text',
         'likes',
         'link',
         'views',
@@ -45,7 +47,7 @@ class FeaturedNews extends Resource
 
     public static function search($query)
     {
-        return static::where('date', 'like', "%$query%")
+        return static::where('featured', 'like', "%$query%")
             ->orWhere('description', 'like', "%$query%")
             ->get();
     }
@@ -60,6 +62,8 @@ class FeaturedNews extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Title', 'featured')->sortable(),
+            Text::make('Button Text', 'button_text')->sortable(),
             Date::make(__('Date'), 'day')->nullable(),
             Text::make('Link', 'link')->sortable(),
             Text::make('Likes', 'likes')->sortable(),

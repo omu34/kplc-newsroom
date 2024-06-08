@@ -11,6 +11,8 @@ class LatestVideos extends Model
 
     protected $fillable = [
         'day',
+        'latest_videos',
+        'button_text',
         'views',
         'description',
         'likes',

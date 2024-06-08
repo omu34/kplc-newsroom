@@ -14,6 +14,8 @@ class LatestNews extends Model
     protected $fillable = [
         'day',
         'views',
+        'latest_news',
+        'button_text',
         'description',
         'likes',
         'link',

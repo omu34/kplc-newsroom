@@ -18,12 +18,12 @@ class Footer extends Model
 
     public function quickLinks()
     {
-        return $this->hasMany(\App\Models\QuickLinks::class);
+        return $this->hasMany(QuickLink::class);
     }
 
     public function socials()
     {
-        return $this->hasMany(Socials::class);
+        return $this->hasMany(Social::class);
     }
 
     public function currencies()

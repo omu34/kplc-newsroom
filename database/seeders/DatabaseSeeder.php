@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
             LatestGallerySeeder::class,
             BannerSeeder::class,
             BreadcrumbSeeder::class,
-            TagsSeeder::class,
-            SearchSeeder::class,
+            TagSeeder::class,
+            GlobalSearchSeeder::class,
             FooterSeeder::class,
         ]);
     }

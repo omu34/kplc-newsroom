@@ -22,7 +22,7 @@ class TopNavbar extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -30,7 +30,7 @@ class TopNavbar extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id','name','link'
     ];
 
 
@@ -52,7 +52,7 @@ class TopNavbar extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Nav name', 'name')->sortable(),
-            Text::make('link', 'link')->sortable(),
+            Text::make('Link', 'link')->sortable(),
         ];
     }
 
